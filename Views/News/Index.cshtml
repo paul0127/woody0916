@@ -1,0 +1,11 @@
+﻿@model ECommerceReveal.Models.NewsViewModel
+@{
+    ViewBag.Title = Model.ViewModel.Name;
+    HtmlString Content = new HtmlString(WebUtility.HtmlDecode(Model.ViewModel.Content));
+}
+
+<h2>@Model.ViewModel.Name</h2>
+
+<div>
+   @Content
+</div>

@@ -1,0 +1,255 @@
+﻿@model WoodyIconShopModel.Models.ViewModel.ProductPayViewModel
+@{
+    ViewBag.Title = "確認付款";
+    ViewBag.breadcrumb1 = "購物車";
+}
+
+<style>
+    @@media (max-width: 767px) {
+    /*手機模式下表單群組中的內容增加上下距離*/
+    .form-group a {
+        margin:10px 0;
+    }
+}
+</style>
+
+
+@using (Html.BeginForm("Pay", "Pay", FormMethod.Post, new { id = "form_pay" }))
+{
+    @Html.AntiForgeryToken()
+    <!-- 購物車第二步內容開始 -->
+    <section id="cart_step2">
+        <div class="container">
+            <div class="stepwizard">
+                <div class="stepwizard-row">
+                    <div class="stepwizard-step">
+                        <a class="btn btn-default btn-circle">1</a>
+                        <p>購物清單</p>
+                    </div>
+                    <div class="stepwizard-step active">
+                        <a class="btn btn-default btn-circle">2</a>
+                        <p>配送資訊</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a class="btn btn-default btn-circle">3</a>
+                        <p>付款資訊</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a class="btn btn-default btn-circle">4</a>
+                        <p>完成訂單</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-heading"><span class="page-heading-title">請選擇配送方式</span></div>
+                    <div class="form-box">
+                        <label class="radio-inline"><input type="radio" name="optradio" checked="checked">宅配到府</label>
+                        @*<label class="radio-inline"><input type="radio" name="optradio">超商取貨</label>*@
+                        <hr />
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="recipient-name">收件人姓名</label>
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @type = "text", @class = "form-control", @placeholder = "請輸入姓名" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="recipient-tel">收件人手機號碼</label>
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.cellphone, new { htmlAttributes = new { @type = "text", @class = "form-control", @placeholder = "請輸入手機號碼" } })
+                                    @Html.ValidationMessageFor(model => model.cellphone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="email">電子信箱</label>
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @type = "text", @class = "form-control", @placeholder = "請輸入email" } })
+                                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <!-- 選擇宅配到府才顯示 -->
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="address">收件人地址</label>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            @Html.DropDownListFor(m => m.area, new List<SelectListItem>(), new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.area, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-sm-3">
+                                            @Html.DropDownListFor(m => m.areacode, new List<SelectListItem>(), new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.areacode, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="email">備註</label>
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.O_Note, new { htmlAttributes = new { @type = "text", @class = "form-control", @placeholder = "若有備註請填寫於此" } })
+                                    @Html.ValidationMessageFor(model => model.O_Note, "", new { @class = "text-danger" })
+                                </div>
+                            </div><!-- /選擇宅配到府才顯示 -->
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            @Html.CheckBoxFor(model => model.isNeedUpdateMember)
+                                            同步更新會員資料
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*<!-- 選擇超商取貨到府才顯示 -->
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">配送門市</label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static">
+                                        <!-- 尚未選擇顯示 --><a href="#" target="_blank">請選擇門市</a><!-- /尚未選擇顯示 -->
+                                        <!-- 選擇後顯示 -->全家金林門市<a href="#" target="_blank">重新選擇</a><!-- /選擇後顯示 -->
+                                    </p>
+                                </div>
+                            </div><!-- /選擇超商取貨到府才顯示 -->*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="btn btn-primary back-btn" href="@Url.Action("Cart", "Pay")"><i class="fa fa-angle-double-left" aria-hidden="true"></i> 上一步</a>
+                    <a class="btn btn-primary next-btn pull-right" href="javascript:show_step3()">下一步 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- /購物車第二步內容結束 -->
+
+
+    <!-- 購物車第三步內容開始 -->
+    <section id="cart_step3" style="display:none">
+        <div class="container">
+            <div class="stepwizard">
+                <div class="stepwizard-row">
+                    <div class="stepwizard-step">
+                        <a class="btn btn-default btn-circle">1</a>
+                        <p>購物清單</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a class="btn btn-default btn-circle">2</a>
+                        <p>配送資訊</p>
+                    </div>
+                    <div class="stepwizard-step active">
+                        <a class="btn btn-default btn-circle">3</a>
+                        <p>付款資訊</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a class="btn btn-default btn-circle">4</a>
+                        <p>完成訂單</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-heading"><span class="page-heading-title">請選擇付款方式</span></div>
+                    <div class="form-box">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="payOnDeliver" name="O_Pay" checked="checked" value="@WoodyIconShopModel.Models.PayType.COD">
+                                貨到付款
+                            </label>
+                        </div>
+                        <hr />
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="deliverToHome" name="O_Pay" value="@WoodyIconShopModel.Models.PayType.CreditCard">
+                                信用卡付款&nbsp;&nbsp;<img src="@Url.Content("~/Content/images/paypage_1.png")">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="btn btn-primary back-btn" href="javascript:show_step2()"><i class="fa fa-angle-double-left" aria-hidden="true"></i> 上一步</a>
+                    <button id="buttonid" type="submit" class="btn btn-danger next-btn pull-right" onclick="OrderSubmit(this);" >確認訂購 <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /購物車第三步內容結束 -->
+}
+
+
+@section Scripts{
+
+@Scripts.Render("~/bundles/jqueryval")
+
+@Html.Partial("_TaiwanZipCode")
+    <script type="text/javascript">
+        $(function () {
+            SetCascadeDropDownList();
+            $('#buttonid').prop("disabled", true);
+        });
+
+
+
+        function SetCascadeDropDownList() {
+            TaiwanZipCode.Settings({
+                CityID: '#area',
+                CountyID: '#areacode',
+                SelectedCity: '@Model.area',
+                SelectedCounty: '@Model.areacode'
+            });
+        }
+    </script>
+
+    <script>
+        function show_step2() {
+            var step2 = $('#cart_step2');
+            var step3 = $('#cart_step3');
+            $('#buttonid').prop("disabled", true);
+            step3.hide();
+            step2.show();
+
+        }
+
+        function show_step3() {
+            if ($('#form_pay').valid()) {
+
+                var step2 = $('#cart_step2');
+                var step3 = $('#cart_step3');
+
+                step2.hide();
+                step3.show();
+                $('#buttonid').prop("disabled", false);
+            }
+
+        }
+
+        function OrderSubmit(btn) {
+            fbq('track', 'Purchase');   // 2018/09/01, lozenlin, add
+
+            swal({
+                title: "請稍後",
+                type: "info",
+                text: "正在完成您的訂單",
+                showConfirmButton: false
+            });
+        }
+
+    </script>
+
+
+}

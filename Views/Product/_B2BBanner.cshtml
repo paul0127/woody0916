@@ -1,0 +1,13 @@
+﻿@model WoodyIconShopModel.Models.ADSetting
+
+@{ 
+    WoodyIconShopModel.Models.ShopConfig shopConfig = ViewBag.shopConfig;
+}
+@if (Model != null)
+{
+    <!-- B2B Banner -->
+    <a href="@Model.ADURL">
+        <img class="img-responsive" src="@ViewBag.shopConfig.ServerImgPath@Model.ImageSetting.Name">
+    </a>
+}
+

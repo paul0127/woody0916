@@ -1,0 +1,10 @@
+﻿@{
+    if (ECommerceReveal.Helper.AppSettingsHelper.IsSiteModeB2B())
+    {
+        Layout = "~/Views/Shared/_B2BLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}

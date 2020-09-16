@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "購物須知";
+}
+<style>
+
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">會員中心</div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        <a href="@Url.Action("Member", "Member")" class="list-group-item">會員資料修改</a>
+                        <a href="@Url.Action("Policy", "Member")" class="list-group-item active">購物須知</a>
+                        <a href="@Url.Action("B2BMemberOrder", "Member")" class="list-group-item">訂單查詢</a>
+                        <a href="@Url.Action("Code", "Member")" class="list-group-item">優惠序號</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 policy">
+            <div class="page-header h3">購物須知</div>
+            <div class="page-heading ms">
+                <span class="page-heading-title">初次購物</span>
+            </div>
+            <p>
+                <ul>
+                    <li>
+                        點選目錄內的「會員登入」，登入後即可開始於購物網進行購物。
+                    </li>
+                    <li>
+                        商品訂購及配送訊息一律由e-mail進行通知，請正確填寫您的e-mail信箱。訂購成功或失敗皆會以email通知，訂購完畢後請留意您的e-mail信箱相關信件，若訂單失敗未按照信件指示進行更正則視為棄單處理，棄單次數達兩次以上將影響您日後購買之權利。未收到相關信件請前往垃圾郵件查看或聯絡我們！
+                    </li>
+                    <li>訂單內容務必完整填寫，若提供錯誤資訊造成貨物送達無人簽收需重複配送所產生的費用責任需自行負擔。</li>
+                    <li>
+                        購物流程：
+                        <img src="@Url.Content("~/Content/_images/policy1.png")" class="img-responsive">
+                    </li>
+
+                </ul>
+            </p>
+            <div class="page-heading ms">
+                <span class="page-heading-title">付款方式</span>
+            </div>
+            <p>
+                【匯款】<br />
+                銀行:聯邦銀行桃鷹分行<br />
+                代號:803<br />
+                戶頭:華宥企業有限公司<br />
+                匯款帳號029102029126
+                <hr />
+                【支票付款】
+                <hr />
+                【貨到收款】
+
+            </p>
+            <div class="page-heading ms">
+                <span class="page-heading-title">配送方式</span>
+            </div>
+            <p>
+                【車隊派送】<br />
+                －配送到店<br />
+                －配送地區：新北市、台北市、基隆市、桃竹苗、台中市<br />
+            <p style="color:red">
+                ※以下區域無提供配送服務：<br />
+                －南臺灣地區(彰化、南投、雲林、嘉義、台南、高雄、屏東)<br />
+                －東台灣地區(宜蘭、花蓮、台東)<br />
+                －蘭嶼<br />
+                －澎湖(望安鄉、七美鄉、虎井島、桶盤島、大倉嶼、員貝嶼、鳥嶼、吉貝嶼)<br />
+                －金門(烏坵鄉、大膽島、二膽島
+            </p>
+            <hr />
+            【黑貓宅急便】<br />
+            －配送到店<br />
+            －配送地區：台灣本島<br />
+            <p style="color:red">
+                ※以下區域無提供配送服務：<br />
+                －蘭嶼<br />
+                －澎湖(望安鄉、七美鄉、虎井島、桶盤島、大倉嶼、員貝嶼、鳥嶼、吉貝嶼)<br />
+                －金門(烏坵鄉、大膽島、二膽島)
+            <p />
+            <hr />
+            【新竹物流】<br />
+            －配送到店<br />
+            －配送地區：台灣本島及外島<br />
+            <p style="color:red">
+                ※外島地區運費另計<p />
+                <hr />
+                【天成貨運-當日配】<br />
+                －配送到店<br />
+                －配送地區:台北市全區、新北市(中和、永和、鶯歌、三重、新莊、新店、泰山、林口、汐止、蘆洲、五股)
+            </p>
+        </div>
+    </div>
+</div>

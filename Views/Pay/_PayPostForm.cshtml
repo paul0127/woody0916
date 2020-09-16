@@ -1,0 +1,33 @@
+﻿@model System.Collections.Specialized.NameValueCollection
+@{ 
+    //************************************************
+    // Copyright (c) 2016 January Technology Corporation
+    // Created by: Alex
+    // Created Date: 2017/04/08
+    //************************************************
+
+    Layout = null;
+}
+
+<html>
+<head>
+    <script type='text/javascript' src='@VirtualPathUtility.ToAbsolute("~/Scripts/jquery.min.js")'></script>
+    <script type='text/javascript' src='@VirtualPathUtility.ToAbsolute("~/Scripts/jquery.cookie.js")'></script>
+    <script language='javascript'>
+        //document.cookie = 'shopapp=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+        $(document).ready(function () {
+            $.cookie('shopapp', '', { expires: 30, path: '/' });
+            var vPostForm = document.PostForm;
+            vPostForm.submit();
+        });
+    </script>
+</head>
+<body>
+    <form id='PostForm' name='PostForm' action='@ViewBag.url' method='post'>
+        @foreach (string key in Model)
+        {
+            <input type="hidden" name="@key" value="@Model[key]">
+        }
+    </form>
+</body>
+</html>

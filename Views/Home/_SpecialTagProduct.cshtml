@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WoodyIconShopModel.Models.SpecialTag>
+
+
+@{ 
+    WoodyIconShopModel.Models.ShopConfig shopConfig = ViewBag.shopConfig;
+}
+
+    <!-- 限時搶購 -->
+    <div class="container">
+        <div class="page-heading">
+            <span class="page-heading-title"><i class="fa fa-clock-o" aria-hidden="true"></i> 限時搶購</span>
+            <a class="pull-right page-heading-more" href="@Url.Action("Index", "Product", new { tag = "0" })">更多商品+</a>
+        </div>
+        <div class="row">
+            @foreach (WoodyIconShopModel.Models.SpecialTag tag in Model)
+            {
+                <div class="col-xs-12 col-sm-6">
+                    <div class="limited">
+                        <a href="@Url.Action("ProductDetail", "Product", new { Id = tag.ProductId })"><img class="img-responsive" src="@shopConfig.ServerImgPath@tag.ImageSetting.Name"></a>
+                        <div class="limited-title">
+                            <sapn class="countdown">                          
+                                @{TimeSpan lasttime = tag.Product.ProductPrices.FirstOrDefault().SpecialEnd.Value.AddDays(1) - DateTime.Now; }
+                                <input type="hidden" class="deadline" value="@(tag.Product.ProductPrices.FirstOrDefault().SpecialEnd.Value.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss"))" />
+                                倒數<div style="display:inline" class="day">@lasttime.Days</div>天<div style="display:inline"  class="hour">@lasttime.Hours</div>小時<div style="display:inline"  class="minute">@lasttime.Minutes</div>分<div style="display:inline"  class="second">@lasttime.Seconds</div>秒
+                            </sapn>
+                            <span>&nbsp;剩餘 @tag.Product.Stock 組</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+<script>
+        //倒數計時function
+        function countdown() {
+            $('.countdown').each(function () {
+
+                var time = new Date(new Date($(this).find('.deadline').val()) - new Date() + new Date().getTimezoneOffset() * 60000 );
+
+                $(this).find('.day').text(time.getDate() - 1);
+                $(this).find('.hour').text(time.getHours());
+                $(this).find('.minute').text(time.getMinutes());
+                $(this).find('.second').text(time.getSeconds());
+
+
+            });
+        }
+</script>

@@ -1,0 +1,137 @@
+﻿@using PagedList.Mvc
+@using PagedList
+@using WoodyIconShopModel.Models
+@model IPagedList<WoodyIconShopModel.Models.Product>
+
+
+@{
+    ShopConfig shopConfig = ViewBag.shopConfig;
+    WoodyIconShopModel.Models.ViewModel.ProductSearchViewModel search = ((WoodyIconShopModel.Models.ViewModel.ProductSearchViewModel)ViewData["searchProduct"]);   
+}
+@helper brandname(int? brid, string prname)
+{
+if (brid != null)
+{
+    var brandlist = (List<BrandList>)ViewData["brandlist"];
+    string brname = brandlist.Where(s => s.Id == brid).FirstOrDefault().Name;
+    prname = brname + prname;
+}
+
+    @prname
+}
+
+<style>
+    .product-title > p {
+        min-height:40px;
+    }
+</style>
+
+
+<div class="page-heading ms">
+    <!-- B2B Product -->
+    <span class="page-heading-title">@ViewBag.SubTitle</span>
+</div>
+<div class="sort">
+    <div class="dropdown">
+        <select class="dropdown-select-version select" name="options" id="SelectOrder" onchange="order_product(this.value)">
+            <option value="">排序</option>
+            <option value="0">上架時間由新至舊</option>
+            <option value="1">上架時間由舊至新</option>
+            <option value="2">商品價格由低至高</option>
+            <option value="3">商品價格由高至低</option>
+        </select>
+    </div>
+</div>
+@for (int i = 0; i < Model.Count(); i = i + 4)
+{
+    <div class="row prod-list">
+        @for (int j = i; j < Model.Count() && j < i + 4; j++)
+        {
+            <div class="col-xs-6 col-sm-3">
+                <a href="@Url.Action("ProductDetail", "Product", new { id = Model.ElementAt(j).Id })">
+                    @{
+                        WoodyIconShopModel.Models.ProductImage image = Model.ElementAt(j).ProductImage.Where(pi => pi.Main && pi.ImageSetting != null && pi.ImageSetting.IsEnable).FirstOrDefault();
+                        string imageurl = Url.Content("~/Content/images/transparent.png");
+                        if (image != null)
+                        {
+                            imageurl = Url.Content(shopConfig.ServerImgPath + image.ImageSetting.Name);
+                        }
+                    }
+                    <img class="prod-img img-responsive" src="@imageurl"  />
+                </a>
+                <div class="prod-title">@brandname(Model.ElementAt(j).Brand, Model.ElementAt(j).Name)</div>
+                <div class="prod-price">$@ProductPresenter.GetPrice(Model.ElementAt(j))</div>
+            </div>
+
+            if ((j - i) % 2 == 1)
+            {
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+            }
+        }
+
+    </div>
+}
+
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @id = "formpage" }))
+{
+    <input type="hidden" name="type" value="@(Convert.ToString(search.type) ?? "")" />
+    <input type="hidden" name="name" value="@(Convert.ToString(search.name) ?? "")" />
+    <input type="hidden" name="stock" value="@(Convert.ToString(search.stock) ?? "")" />
+    <input type="hidden" name="tag" value="@(Convert.ToString(search.tag) ?? "")" />
+    <input type="hidden" name="order" value="@(Convert.ToString(search.order) ?? "")" />
+    <input type="hidden" id="page" name="page" value="0" />
+    <input type="button" id="formpagebtn" style="display:none"  onclick="GetProduct(this.form['page'].value, this.form['type'].value, this.form['name'].value, this.form['stock'].value, this.form['tag'].value, this.form['order'].value)" />
+
+    <div class="row text-center">
+        <div class="col-sm-12">
+            @Html.PagedListPager(Model, page => "javascript: $('#page').val(" + page + "); $('#formpagebtn').click();",
+                PagedListRenderOptions.ClassicPlusFirstAndLast)
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-sm-12 pagination-sm">
+            第 @Model.FirstItemOnPage 到第 @Model.LastItemOnPage 項, 共 @Model.TotalItemCount 項
+        </div>
+    </div>
+}
+
+
+
+   
+<script type="text/javascript">
+  
+
+    function order_product(ordertype) {
+        //排序分類
+        switch (ordertype) {
+            //上架時間由新至舊
+            case "0":
+                GetProduct(1, '@search.type', '@search.name', '@search.stock', '@search.tag', '0');
+
+                break;
+            //上架時間由舊至新
+            case "1":
+                GetProduct(1, '@search.type', '@search.name', '@search.stock', '@search.tag', '1');
+
+                break;
+
+            //商品價格由低至高
+            case "2":
+                GetProduct(1, '@search.type', '@search.name', '@search.stock', '@search.tag', '2');
+
+                break;
+            //商品價格由高至低
+            case "3":
+                GetProduct(1, '@search.type', '@search.name', '@search.stock', '@search.tag', '3');
+
+                break;
+
+        }
+
+     
+    }
+
+
+</script>

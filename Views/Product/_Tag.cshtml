@@ -1,0 +1,13 @@
+﻿@model IEnumerable<WoodyIconShopModel.Models.ProductTag>
+
+
+
+
+<ul class="side-menu">
+    @foreach (var tag in Model)
+    {
+        <li>
+            <a href="@Url.Action("Index", "Product", new { tag = tag.Id })">@tag.TagName</a>
+        </li>
+    }
+</ul>

@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="" prefix='og: http://ogp.me/ns#'>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    @*<meta name="robots" content="noindex,nofollow" />*@
+    <meta name="robots" content="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="keywords" content="@ViewBag.Keywords">
+
+    <!--OG -->
+    <meta property="og:title" content="@ViewBag.Title">
+    <meta property="og:url" content="@ViewBag.webUrl">
+    <meta property="og:image" content="@ViewBag.ImageUrlFirst">
+    <meta property="og:description" content="@ViewBag.Description">
+
+    <title>@ViewBag.Title - @Resources.Lang.WebsiteName</title>
+
+    @Styles.Render("~/Content/B2B/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/B2B/sweetalert.css")">
+
+    @RenderSection("scriptInHead", required: false)
+</head>
+<body>
+    <!-- layout頭部 -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <img src="@Url.Content("~/Content/_images/logo_pc.png")" class="hidden-md hidden-lg">
+                    <img src="@Url.Content("~/Content/_images/logo_pc.png")" class="hidden-xs hidden-sm">
+                </a>
+                <!-- mob-搜尋 -->
+                <a class="navbar-item hidden-lg hidden-md hidden-sm" href="#" data-toggle="collapse" data-target="#filter-panel"><i class="fa fa-search" aria-hidden="true"></i></a>
+                <!-- mob-購物車 -->
+                <a class="navbar-item hidden-lg hidden-md hidden-sm" id="mobcart" href="@Url.Action("Cart", "Pay", new { })">
+                    @Html.Action("_GetMobCart", "Cart")
+                </a>
+                @*<a class="navbar-item hidden-lg hidden-md hidden-sm" href="@Url.Action("Cart", "Pay", new { })"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge">0</span></a>*@
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- pc-搜尋 -->
+                    <li class="search-btn hidden-xs" data-toggle="collapse" data-target="#filter-panel"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                    @*<li class="hidden-xs"><a href="@Url.Action("Merchants", "Home")">招商合作</a></li>*@
+                    <li class="hidden-xs"><a href="@Url.Action("About", "Home")">關於我們</a></li>
+                    <li>@Html.Partial("_B2BLoginPartial")</li>
+                    <li class="dropdown hidden-xs">
+                        <a href="@Url.Action("Member", "Member")" class="dropdown-toggle" data-toggle="dropdown">會員中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Member", "Member")">會員資料</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("Policy", "Member")">購物須知</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("B2BMemberOrder", "Member")">訂單查詢</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("Code", "Member")">優惠序號</a></li>
+                        </ul>
+                    </li>
+                    <!-- pc-購物車 -->
+                    <li class="shop_cart-btn hidden-xs dropdown" id="Cart">
+                        @Html.Action("_GetCart", "Cart")
+                    </li>
+                    @*<li><a href="https://www.facebook.com/正新鮮-1213021652152735/?ref=aymt_homepage_panel"><i class="fa fa-facebook-official" aria-hidden="true"></i> 粉絲團</a></li>*@
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <div class="container">
+                @Html.Action("_TypeNav", "Home")
+            </div>
+            <ul class="nav navbar-nav navbar-right hidden-lg hidden-md hidden-sm">
+                @*<li><a href="@Url.Action("Merchants", "Home")">招商合作</a></li>*@
+                <li><a href="@Url.Action("About", "Home")">關於我們</a></li>
+                <li class="dropdown hidden-lg">
+                    <a href="@Url.Action("Member", "Member")" class="dropdown-toggle" data-toggle="dropdown">會員中心 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Member", "Member")">會員資料</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Policy", "Member")">購物須知</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("B2BMemberOrder", "Member")">訂單查詢</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Code", "Member")">優惠序號</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div id="filter-panel" class="collapse filter-panel navbar-fixed-top">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="container">
+                    <div class="row">
+                        @Html.Partial("_SearchProduct", new WoodyIconShopModel.Models.ViewModel.ProductSearchViewModel())
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="nav-tag">
+        <div class="container">
+            @Html.Action("_TagNav", "Home")
+        </div>
+    </nav>
+
+
+    <!-- 右側浮動購物車 -->
+    <div id="CartImg">
+        @Html.Action("_GetCartImg", "Cart")
+    </div>
+    <!-- 回到頂端 -->
+    <div id="Gotop" class="affix"><i class="fa fa-plane icon-left"></i> 回到頂端</div>
+
+    <!-- ajax loading -->
+    <div id='loadingDiv' style="display:none;position:fixed;z-index:1000;top:0;left:0;height:100%;width:100%;background: rgba( 255, 255, 255, .8 ) url('@Url.Content("~/Content/images/ajax-loader.gif")') 50% 50% no-repeat;">
+    </div>
+
+
+
+    @if (ViewBag.breadcrumb1 != null)
+    {
+        <!-- 麵包屑路徑 -->
+        <section>
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">首頁</a>
+                    </li>
+                    <li class="@(ViewBag.breadcrumb2 != null ? "" : "active")">
+                        @if (ViewBag.breadcrumb2 != null)
+                        {<a href="@ViewBag.breadcrumbUrl1">@ViewBag.breadcrumb1</a>}
+                    else
+                    { @ViewBag.breadcrumb1}
+                    </li>
+                    @if (ViewBag.breadcrumb2 != null)
+                    {
+                        <li class="@(ViewBag.breadcrumb3 != null ? "" : "active")">
+
+                            @if (ViewBag.breadcrumb3 != null)
+                            {<a href="@ViewBag.breadcrumbUrl2">@ViewBag.breadcrumb2</a>}
+                        else
+                        { @ViewBag.breadcrumb2}
+                        </li>
+                        if (ViewBag.breadcrumb3 != null)
+                        {
+                            <li class="active">
+                                @ViewBag.breadcrumb3
+                            </li>
+                        }
+                    }
+                </ol>
+            </div>
+        </section>
+    }
+
+
+    @RenderBody()
+
+    <!-- layout尾部 -->
+    <footer>
+        <div class="container">
+            <div style="text-align : center;vertical-align : middle;">
+                @Html.Raw(Resources.Lang.FooterInfo) - <a href="https://www.januarytc.com/" target="_blank">正月科技</a>建置與維護
+            </div>
+        </div>
+    </footer>
+    <!-- layout尾部結束 -->
+    <script src="@Url.Content("~/Scripts/navbar.js")"></script>
+
+    <!-- 彈出視窗使用sweetalert 參考網址 http://mishengqiang.com/sweetalert/ -->
+    <script src="@Url.Content("~/Scripts/sweetalert.min.js")"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("#Gotop").click(function () {
+                jQuery("html,body").animate({
+                    scrollTop: 0
+                }, 1000);
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $('#Gotop').fadeIn("fast");
+                } else {
+                    $('#Gotop').stop().fadeOut("fast");
+                }
+            });
+
+
+        });
+
+
+
+        $(document).ajaxStart(function () {
+            $("#loadingDiv").css("display", "block");
+        });
+        $(document).ajaxComplete(function () {
+            $("#loadingDiv").css("display", "none");
+        });
+
+    </script>
+
+    @* 購物車Js *@
+    <script type="text/javascript">
+        //加入編號為productId的商品進購物車
+
+        function GetCart() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("_GetCart", "Cart")',
+                data: {}
+            })
+            .done(function (msg) {
+                //將回傳的購物車頁面 填入 li#Cart
+                $('li#Cart').html(msg);
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("_GetMobCart", "Cart")',
+                data: {}
+            })
+            .done(function (msg) {
+                //將回傳的購物車頁面 填入 li#Cart
+                $('a#mobcart').html(msg);
+            });
+        }
+
+        function GetCartImg() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("_GetCartImg", "Cart")',
+                data: {}
+            })
+            .done(function (msg) {
+                //將回傳的購物車頁面 填入 li#Cart
+                $('div#CartImg').html(msg);
+            });
+        }
+
+        function GetProduct(page, type, name, stock, tag, order) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("_B2BProduct", "Product")',
+                data: { page: page, type: type, name: name, stock: stock, tag: tag, order: order }
+            })
+            .done(function (msg) {
+                $('div#product').html(msg);
+                $('#SelectOrder option[value=' + order + ']').attr('selected', true);
+                clamp_product_title();
+            });
+        }
+
+
+
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

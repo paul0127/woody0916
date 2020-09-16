@@ -1,0 +1,537 @@
+﻿@using WoodyIconShopModel.Models;
+
+@model WoodyIconShopModel.Models.Product
+
+@{
+    ViewBag.Title = Model.Name;
+    ShopConfig shopConfig = ViewBag.shopConfig;
+    int stock = ViewBag.stock;
+
+    ViewBag.webUrl = (shopConfig.WebUrl + "Product/ProductDetail/" + Model.Id);
+
+    ViewBag.breadcrumb1 = ViewBag.MainTypeName;
+    ViewBag.breadcrumbUrl1 = Url.Action("Index", "Product", new { type = Model.ProductType.UpperId });
+    ViewBag.breadcrumb2 = Model.ProductType.Typename;
+    ViewBag.breadcrumbUrl2 = Url.Action("Index", "Product", new { type = Model.Type.Value });
+    ViewBag.breadcrumb3 = Model.Name;
+
+    ViewBag.Description = Model.MetaDescription;
+    ViewBag.Keywords = Model.MetaKeywords;
+    
+    
+    int Row = 6;//食品履歷 FB分享 Class設定
+}
+<!--body前-->
+@section scriptInHead{
+@Styles.Render("~/Content/B2B/slick")
+<link href="@Url.Content("~/Content/B2B/ckeditor-contents.css")" rel="stylesheet" />
+}
+
+
+
+<!-- 商品詳細頁內容開始 -->
+<section>
+    <div class="container">
+        <div class="row">
+            <!-- 側邊欄位，手機隱藏 -->
+            <div class="col-xs-12 col-sm-2 hidden-xs">
+                @Html.Action("_TypeLink", "Product", new { type = Model.Type })
+            </div>
+            <div class="col-xs-12 col-sm-10">
+                <!-- 商品明細 -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="slider slider-for">
+                          
+                            @foreach (var image in Model.ProductImage.Where(pi => pi.ImageSetting != null && pi.ImageSetting.IsEnable).OrderByDescending(i => i.Main).Take(6))
+                            {
+                                <div><img src="@Url.Content(shopConfig.ServerImgPath + image.ImageSetting.Name)" class="img-responsive" /></div>  
+                                ViewBag.ImageUrlFirst = (shopConfig.ServerImgPath + image.ImageSetting.Name);                         
+                            }
+                        </div>
+                        <div class="slider slider-nav" style="margin:15px 0">
+                            @foreach (var image in Model.ProductImage.Where(pi => pi.ImageSetting != null && pi.ImageSetting.IsEnable).OrderByDescending(i => i.Main).Take(6))
+                            {
+                                <div><img src="@Url.Content(shopConfig.ServerImgPath + image.ImageSetting.Name)" class="img-responsive" /></div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="row">
+                            @if (Model.ForFoodurl != null && Model.ForFoodurl != "")
+                            {
+                                <div class="col-xs-6">
+                                    <a class="btn btn-success" target="_blank" href="@Model.ForFoodurl">食品履歷</a>
+                                </div>                               
+                            }
+                            else
+                            {
+                                Row = 12;
+                            }
+                                <div class="col-xs-@Row">
+                                    <div class="btn-toolbar share-btn pull-right">
+                                        <div class="btn-group">
+                                            <a id="fbshare" class="btn" style="font-size:18px;"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>分享</a>
+                                        </div>
+                                    </div>
+                                </div>
+                           
+                           
+                        </div>
+                        <h1 class="prod-detail-title">@Model.Name</h1>
+                        <div class="prod-detail-intro ckeditor">
+                            @Html.Raw(WebUtility.HtmlDecode(Model.Introduction ?? "").Replace("<img ", "<img class=\"img-responsive img-full\" ").Replace("style=\" ", "style=\" margin:auto; "))
+                        </div>
+
+                        <div class="prod-detail-price">
+                            原價 $@ProductPresenter.GetOriginalPrice(Model)
+                        </div>
+
+                        @switch (ProductPresenter.IsPromotePriceOrSpecialPrice(Model))
+                        {
+                            case 1:
+                                <div class="prod-detail-offer">
+                                    優惠價格 @ProductPresenter.GetPrice(Model)
+                                </div>
+                                break;
+                            case 2:
+                                TimeSpan lasttime = Model.ProductPrices.FirstOrDefault().SpecialEnd.Value.AddDays(1) - DateTime.Now;
+                                <div class="prod-detail-offer">
+                                    限時優惠 @ProductPresenter.GetPrice(Model)
+                                </div>
+                                <div class="prod-detail-timer countdown">
+                                    <input type="hidden" class="deadline" value="@(Model.ProductPrices.FirstOrDefault().SpecialEnd.Value.AddDays(1).ToString("yyyy/MM/dd HH:mm:ss"))" />
+                                    剩<div style="display:inline" class="day">@lasttime.Days</div>天
+                                    <span class="hour">@lasttime.Hours</span>時
+                                    <span class="minute">@lasttime.Minutes</span>分
+                                    <span class="second">@lasttime.Seconds</span>秒
+                                </div>
+                                break;
+                            default:
+                                break;
+                        }
+                      
+
+
+                        @if (Model.Stock < 10)
+                        {
+                            <div class="prod-detail-in_stock">
+                                剩餘庫存：@Model.Stock
+                            </div>
+                        }
+
+                        <!-- pc購物車 -->
+                        <div class="prod-detail-action_box hidden-xs hidden-sm">
+                            <hr />
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]" onclick="decreaseBuyNumber()">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input id="number_add_cart" type="number" name="quant[1]" class="form-control input-number" value="1" min="1" max="10"  onchange="check_number(this);" >
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]" onclick="increaseBuyNumber()">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <button type="button" class="btn btn-custom btn-block add-cart" onclick="AddToCart('@Model.Id',document.getElementById('number_add_cart').value)" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> 加入購物車</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 贈品 -->
+                @Html.Action("_Gift", "Product")
+
+
+                <!-- 商品加購 -->
+                @Html.Action("_Purchase", "Product")
+                
+
+                <!-- 商品介紹 -->
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a href="#tab_default_1" data-toggle="tab">
+                                商品介紹
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="#tab_default_2" data-toggle="tab">
+                                商品規格
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_default_1">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="prod-text-editor ckeditor">
+                                        <!-- 商品介紹編輯器 -->
+                                        @Html.Raw(WebUtility.HtmlDecode(Model.Description ?? "").Replace("<img ", "<img class=\"img-responsive img-full\" ").Replace("style=\" ", "style=\" margin:auto; "))
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="tab_default_2">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="prod-text-editor ckeditor">
+                                        <!-- 商品規格編輯器 -->
+                                        @Html.Raw(WebUtility.HtmlDecode(Model.SizeIntroduction ?? "").Replace("<img ", "<img class=\"img-responsive img-full\" ").Replace("style=\" ", "style=\" margin:auto; "))
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- 推薦商品 -->
+                @Html.Action("_Recommend", "Product")
+
+            </div>
+        </div>
+    </div>
+    <!-- 行動裝置購物車 -->
+    <div class="prod-detail-action_box_mob hidden-md hidden-lg navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]" onclick="decreaseBuyNumber_mobile()">
+                                <span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                        </span>
+                        <input id="number_add_cart_mobeile" type="number" name="quant[1]" class="form-control input-number" value="1" min="1" max="10" onchange="check_number_mobile(this);">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]" onclick="increaseBuyNumber_mobile()">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <button type="button" class="btn btn-custom btn-block add-cart" onclick="AddToCart('@Model.Id',document.getElementById('number_add_cart_mobeile').value)" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> 加入購物車</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /商品詳細頁內容結束 -->
+
+
+<!--body後-->
+@section scripts{
+    <script src="@Url.Content("~/Scripts/slick.min.js")"></script>
+
+     <!-- Fb基本設定 -->
+    <script>
+        //FB SDK載入
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId            : '@System.Configuration.ConfigurationManager.AppSettings["Facebook_AppId"]',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : '@System.Configuration.ConfigurationManager.AppSettings["Facebook_Version"]'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/zh_TW/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        //分享
+        document.getElementById('fbshare').onclick = function() {
+            FB.ui({
+                method:'share',
+                mobile_iframe: true,
+                href: '@Url.Action("ProductDetail", "Product", new RouteValueDictionary(new { Id = Model.Id }), Request.Url.Scheme, null)',
+            }, function(response){
+                if (response && !response.error_message) {
+                    //alert('Posting completed.');
+                    alert('分享成功');
+                } else {
+                    //alert('Error while posting.');
+                    //alert('發生錯誤');
+                }
+            });
+        }
+
+    </script>
+
+
+    <!-- 只有商品詳細頁使用 -->
+    <script type="text/javascript">
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slider-nav',
+            autoplay: true,
+            autoplaySpeed: 6000
+        });
+        $('.slider-nav').slick({
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            dots: false,
+            centerMode: false,
+            focusOnSelect: true,
+            autoplay: true,
+            autoplaySpeed: 6000
+        });
+    </script>
+    <!-- /只有商品詳細頁使用 -->
+
+    <script>
+        //購物車數量驗證
+
+
+        function increaseBuyNumber() {
+            var number_add_cart = document.getElementById('number_add_cart');
+            if ($.isNumeric(number_add_cart.value) && Number(number_add_cart.value) >= 0) {
+                number_add_cart.value = (Number(number_add_cart.value) + 1).toString();
+            }
+            else {
+                number_add_cart.value = '1';
+            }
+
+            if (Number(number_add_cart.value) > 10) {
+                number_add_cart.value = '10';
+            }
+        }
+        function  increaseBuyNumber_mobile() {
+            var number_add_cart = document.getElementById('number_add_cart_mobeile');
+            if ($.isNumeric(number_add_cart.value) && Number(number_add_cart.value) >= 0) {
+                number_add_cart.value = (Number(number_add_cart.value) + 1).toString();
+            }
+            else {
+                number_add_cart.value = '1';
+            }
+
+            if (Number(number_add_cart.value) > 10) {
+                number_add_cart.value = '10';
+            }
+        }
+
+       
+
+        function decreaseBuyNumber() {
+            var number_add_cart = document.getElementById('number_add_cart');
+            if ($.isNumeric(number_add_cart.value) && Number(number_add_cart.value) > 1) {
+                number_add_cart.value = (Number(number_add_cart.value) - 1).toString();
+            }
+            else {
+                number_add_cart.value = '1';
+            }
+        }
+
+        function check_number(input) {
+            var number_input = input.value;
+
+            if (!$.isNumeric(number_input)) {
+                input.value = '1';
+                return;
+            }
+
+            if (Number(number_add_cart.value) <= 0) {
+                input.value = '1';
+                return;
+            }
+
+
+            if (Number(number_add_cart.value) > 100) {
+                input.value = '100';
+                return;
+            }
+        }
+
+    </script>
+    <script>
+        increaseBuyNumber_mobile
+        function increaseBuyNumber_mobile() {
+            var number_add_cart_mobeile = document.getElementById('number_add_cart_mobeile');
+            if ($.isNumeric(number_add_cart_mobeile.value) && Number(number_add_cart_mobeile.value) >= 0) {
+                number_add_cart_mobeile.value = (Number(number_add_cart_mobeile.value) + 1).toString();
+            }
+            else {
+                number_add_cart_mobeile.value = '1';
+            }
+
+            if (Number(number_add_cart_mobeile.value) > 10) {
+                number_add_cart_mobeile.value = '10';
+            }
+        }
+
+        function decreaseBuyNumber_mobile() {
+            var number_add_cart_mobeile = document.getElementById('number_add_cart_mobeile');
+            if ($.isNumeric(number_add_cart_mobeile.value) && Number(number_add_cart_mobeile.value) > 1) {
+                number_add_cart_mobeile.value = (Number(number_add_cart_mobeile.value) - 1).toString();
+            }
+            else {
+                number_add_cart_mobeile.value = '1';
+            }
+        }
+
+        function check_number_mobile(input) {
+            var number_input = input.value;
+
+            if (!$.isNumeric(number_input)) {
+                input.value = '1';
+                return;
+            }
+
+            if (Number(number_add_cart_mobeile.value) <= 0) {
+                input.value = '1';
+                return;
+            }
+
+
+            if (Number(number_add_cart_mobeile.value) > 100) {
+                input.value = '100';
+                return;
+            }
+        }
+    </script>
+    <script>
+        function AddToCart(productId, quantity) {
+            if (Math.round(quantity) !== Number(quantity) || Number(quantity) <= 0)
+                return;
+            else quantity = Math.round(quantity);
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("_B2BAddToCart", "Cart")',
+                data: { id: productId, quantity: quantity },
+                async: false
+            }).done(function (msg) {
+                if (msg == "") {
+                    swal({
+                        title: '加入成功',
+                        type: 'success',
+                        timer: 1200,
+                        showConfirmButton: false
+                    });
+
+
+                    AddGift(productId, quantity);
+                    AddPurchase(productId, quantity);
+
+                }
+                else {
+                    swal({
+                        title: '數量大於庫存量',
+                        type: 'error',
+                        timer: 1200,
+                        showConfirmButton: false
+                    });
+                }
+
+
+
+                //將回傳的購物車頁面 填入 li#Cart
+                GetCart();
+                GetCartImg();
+            });
+
+
+        }
+
+        function AddGift(productId, quantity) {
+            var isnostock = false;
+            var gift = $('#product_gift').find('.thumbnail.selected div.caption input');
+            var giftlist = $('#product_gift').find('.thumbnail.selected div.caption input').map(function () {
+                return $(this).val();
+            }).get();
+
+
+            if (gift.length == 0)
+                return;
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("_B2BAddToCartMultiple", "Cart")',
+                data: { id: giftlist, quantity: quantity, Type: @((int)CartType.Gift), ParentProductId: productId },
+                async: false
+            }).done(function (msg) {
+                if (msg != "") {
+                    swal({
+                        title: '贈品庫存不足',
+                        type: 'error',
+                        timer: 1200,
+                        showConfirmButton: false
+                    });
+                }
+            });
+
+
+        }
+
+        function AddPurchase(productId, quantity) {
+            var gift = $('#product_purchase').find('.thumbnail.selected div.caption input');
+
+            if (gift.length == 0)
+                return;
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("_B2BAddToCart", "Cart")',
+                data: { id: gift.val(), quantity: 1, Type: @((int)CartType.Purchase), ParentProductId: productId },
+                async: false
+            }).done(function (msg) {
+                if (msg != "") {
+                    swal({
+                        title: '加購商品庫存不足',
+                        type: 'error',
+                        timer: 1200,
+                        showConfirmButton: false
+                    });
+                }
+            });
+        }
+
+    </script>
+
+
+    <script>
+        //設定倒數計時
+        $(document).ready(function () {
+            setInterval(function () { countdown(); }, 1000);
+        });
+
+        //倒數計時function
+        function countdown() {
+            $('.countdown').each(function () {
+
+                var time = new Date(new Date($(this).find('.deadline').val()) - new Date() + new Date().getTimezoneOffset() * 60000 );
+                
+                $(this).find('.day').text(time.getDate() - 1);
+                $(this).find('.hour').text(time.getHours());
+                $(this).find('.minute').text(time.getMinutes());
+                $(this).find('.second').text(time.getSeconds());
+
+
+            });
+        }
+    </script>
+}

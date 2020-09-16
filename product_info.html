@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="./Content/Site.css" />
+  </head>
+  <body>
+    <!-- layout頭部 -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target=".navbar-ex1-collapse"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <img src="/Content/images/logo.png" class="hidden-md hidden-lg" />
+            <img
+              src="/Content/images/logo_pc.png"
+              class="hidden-xs hidden-sm"
+            />
+          </a>
+          <!-- mob-搜尋 -->
+          <a
+            class="navbar-item hidden-lg hidden-md hidden-sm"
+            href="#"
+            data-toggle="collapse"
+            data-target="#filter-panel"
+            ><i class="fa fa-search" aria-hidden="true"></i
+          ></a>
+          <!-- mob-購物車 -->
+          <a
+            class="navbar-item hidden-lg hidden-md hidden-sm"
+            id="mobcart"
+            href="/Pay/Cart"
+          >
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span class="badge">0</span>
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <!-- pc-搜尋 -->
+            <li
+              class="search-btn hidden-xs"
+              data-toggle="collapse"
+              data-target="#filter-panel"
+            >
+              <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </li>
+            <li class="hidden-xs"><a href="/Home/Merchants">招商合作</a></li>
+            <li class="hidden-xs"><a href="/Home/About">關於我們</a></li>
+            <li>
+              <a href="/Account/Login?returnUrl=%2FProduct%3Ftag%3D8"
+                >登入/註冊</a
+              >
+            </li>
+            <li class="dropdown hidden-xs">
+              <a
+                href="/Member/Member"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                >會員中心 <b class="caret"></b
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a href="/Member/Member">會員資料</a></li>
+                <li class="divider"></li>
+                <li><a href="/Member/Policy">購物須知</a></li>
+                <li class="divider"></li>
+                <li><a href="/Member/Member_Order">訂單查詢</a></li>
+                <li class="divider"></li>
+                <li><a href="/Member/Code">優惠序號</a></li>
+              </ul>
+            </li>
+            <!-- pc-購物車 -->
+            <li class="shop_cart-btn hidden-xs dropdown" id="Cart">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >購物車 <span class="badge">0</span><b class="caret"></b
+              ></a>
+              <ul class="dropdown-menu shop_cart-menu">
+                <li>
+                  <a class="btn btn-default text-center" href="#"
+                    >購物車無任何商品</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="hidden-xs">
+              <a
+                href="https://www.facebook.com/正新鮮-1213021652152735/?ref=aymt_homepage_panel"
+                ><i class="fa fa-facebook-official" aria-hidden="true"></i>
+                粉絲團</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+
+      <div
+        class="collapse navbar-collapse navbar-ex1-collapse"
+        style="background: white"
+      >
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >點心飲品 <b class="caret"></b
+              ></a>
+
+              <ul class="dropdown-menu">
+                <li><a href="/Product?type=46">健康零嘴</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=31">麥片穀類</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=32">養生好茶</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=33">天然果醋</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >蔬果米肉 <b class="caret"></b
+              ></a>
+
+              <ul class="dropdown-menu">
+                <li><a href="/Product?type=36">蔬菜水果</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=37">優質肉品</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=38">在地好米</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=39">手感麵條</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >醬料湯品 <b class="caret"></b
+              ></a>
+
+              <ul class="dropdown-menu">
+                <li><a href="/Product?type=41">調味醬料</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=42">加熱即食</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=43">真空料理</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >其他 <b class="caret"></b
+              ></a>
+
+              <ul class="dropdown-menu">
+                <li><a href="/Product?type=25">個人清潔</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <ul class="nav navbar-nav navbar-right hidden-lg hidden-md hidden-sm">
+          <li><a href="/Home/Merchants">招商合作</a></li>
+          <li><a href="/Home/About">關於我們</a></li>
+          <li class="dropdown">
+            <a
+              href="/Member/Member"
+              class="dropdown-toggle"
+              data-toggle="dropdown"
+              >會員中心 <b class="caret"></b
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="/Member/Member">會員資料</a></li>
+              <li class="divider"></li>
+              <li><a href="/Member/Policy">購物須知</a></li>
+              <li class="divider"></li>
+              <li><a href="/Member/Member_Order">訂單查詢</a></li>
+              <li class="divider"></li>
+              <li><a href="/Member/Code">優惠序號</a></li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="https://www.facebook.com/正新鮮-1213021652152735/?ref=aymt_homepage_panel"
+              ><i class="fa fa-facebook-official" aria-hidden="true"></i>
+              粉絲團</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="filter-panel" class="collapse filter-panel navbar-fixed-top">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="container">
+            <div class="row">
+              <form action="/Product" method="post">
+                <div class="col-xs-9 col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    placeholder="請輸入關鍵字"
+                  />
+                </div>
+                <div class="col-xs-3 col-sm-2">
+                  <button
+                    id="btnSearch"
+                    class="btn btn-success btn-block"
+                    type="submit"
+                  >
+                    搜尋
+                  </button>
+                  <script>
+                    $("#btnSearch").click(function () {
+                      fbq("track", "Search"); // 2018/09/01, lozenlin, add
+                    });
+                  </script>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-tag">
+      <div class="container">
+        <a class="nav-link" href="/Product?tag=8">煲好湯 即食機能湯品</a>
+        <a class="nav-link" href="/Product?tag=17">苗條必備飲品</a>
+        <a class="nav-link" href="/Product?tag=19">退火養生飲品</a>
+        <a class="nav-link" href="/Product?tag=18">在家健康零嘴</a>
+        <a class="nav-link" href="/Product?tag=7">珍田生機果仁</a>
+      </div>
+    </nav>
+
+    <!-- 右側浮動購物車 -->
+    <div id="CartImg">
+      <!--有金額時套用 shopcart-shortcut-active 無金額時套用shopcart-shortcut -->
+
+      <a>
+        <div class="affix hidden-xs shopcart-shortcut">
+          0<br />
+          結帳去
+        </div>
+      </a>
+    </div>
+    <!-- 回到頂端 -->
+    <div id="Gotop" class="affix">
+      <i class="fa fa-plane icon-left"></i>回到頂端
+    </div>
+
+    <!-- ajax loading -->
+    <div
+      id="loadingDiv"
+      style="
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.8)
+          url('/Content/images/ajax-loader.gif') 50% 50% no-repeat;
+      "
+    ></div>
+
+    <!-- 麵包屑路徑 -->
+    <section>
+      <div class="container">
+        <ol class="breadcrumb">
+          <li>
+            <a href="/">首頁</a>
+          </li>
+          <li class="active">煲好湯 即食機能湯品</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 產品列表內容開始 -->
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-2 hidden-xs">
+            <ul class="side-menu">
+              <li>
+                <a href="javascript:(0)">點心飲品</a>
+                <ul class="side-menu-child">
+                  <li><a href="/Product?type=46">健康零嘴</a></li>
+                  <li><a href="/Product?type=31">麥片穀類</a></li>
+                  <li><a href="/Product?type=32">養生好茶</a></li>
+                  <li><a href="/Product?type=33">天然果醋</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="javascript:(0)">蔬果米肉</a>
+                <ul class="side-menu-child">
+                  <li><a href="/Product?type=36">蔬菜水果</a></li>
+                  <li><a href="/Product?type=37">優質肉品</a></li>
+                  <li><a href="/Product?type=38">在地好米</a></li>
+                  <li><a href="/Product?type=39">手感麵條</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="javascript:(0)">醬料湯品</a>
+                <ul class="side-menu-child">
+                  <li><a href="/Product?type=41">調味醬料</a></li>
+                  <li><a href="/Product?type=42">加熱即食</a></li>
+                  <li><a href="/Product?type=43">真空料理</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="javascript:(0)">其他</a>
+                <ul class="side-menu-child">
+                  <li><a href="/Product?type=25">個人清潔</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-10">
+            <div class="prod-list-banner">
+              <a href="https://www.i7fresh.tw/Product?tag=8">
+                <img
+                  class="img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/prod-head-banner2017080317432020181029162131.png"
+                />
+              </a>
+            </div>
+            <div id="product">
+              <style>
+                .product-title > p {
+                  min-height: 40px;
+                }
+              </style>
+
+              <div class="page-heading ms">
+                <span class="page-heading-title">煲好湯 即食機能湯品</span>
+              </div>
+              <div class="sort">
+                <div class="dropdown">
+                  <select
+                    class="dropdown-select-version select"
+                    name="options"
+                    id="SelectOrder"
+                    onchange="order_product(this.value)"
+                  >
+                    <option value="">排序</option>
+                    <option value="0">上架時間由新至舊</option>
+                    <option value="1">上架時間由舊至新</option>
+                    <option value="2">商品價格由低至高</option>
+                    <option value="3">商品價格由高至低</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/84be71ac-0aca-498e-ba72-43629c1f8a30"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/清燉雞2包-60020171106113442.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】清燉雞湯*2包</div>
+                  <div class="prod-price">$510</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/c22f00d8-f9ff-42c4-9660-83802cc820a0"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/天麻雞2包-60020171106115719.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】天麻雞湯*2包</div>
+                  <div class="prod-price">$630</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/4eb33203-3b40-4350-b0fd-810027cabb76"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/何首烏雞2包-60020171106132928.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】何首烏雞湯*2包</div>
+                  <div class="prod-price">$610</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/7d59139c-4be6-47f9-9038-32c917d5092b"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/補氣雞2包-60020171106133948.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】補氣雞湯*2包</div>
+                  <div class="prod-price">$570</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/f3ed18f9-ff97-40a6-bf07-d88de0936e73"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/四物排骨2包-60020171106135721.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】四物排骨湯*2包</div>
+                  <div class="prod-price">$530</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/e579e9ed-48b0-4476-8eb3-c3023bdbbf63"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/杜仲排骨2包-60020171106140845.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】杜仲排骨湯*2包</div>
+                  <div class="prod-price">$610</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/f121cd7b-6fa1-47bc-a760-2e5f7dcbf98c"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆排骨2包-60020171106142527.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】黑豆排骨湯*2包</div>
+                  <div class="prod-price">$570</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/3eb54579-61e8-4ce0-bad4-b14e3268706f"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/十全排骨2包-60020171106144626.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】十全排骨湯*2包</div>
+                  <div class="prod-price">$570</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/49a4f4a9-4a8f-487b-ba32-8ff5586d14a6"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/花生豬腳2包-60020171106150936.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】花生豬腳湯*2包</div>
+                  <div class="prod-price">$530</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/66a94d8f-a803-4be6-aa52-05b58b2f80dd"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/黃豆豬腳2包-60020171106151955.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】黃豆豬腳湯*2包</div>
+                  <div class="prod-price">$530</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/bdecdb4d-74eb-46a7-8abc-0528c3f29382"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/蓪草豬腳2包-60020171106153345.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】蓪草豬腳湯*2包</div>
+                  <div class="prod-price">$570</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/80cdc337-eb4d-4319-af9a-66f17099fd33"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/青木瓜豬腳2包-60020171106154954.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】青木瓜豬腳湯*2包</div>
+                  <div class="prod-price">$570</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/90f3b059-5084-473d-accd-a2b2b5edfb0f"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/天麻鱸魚2包-60020171106160712.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】天麻鱸魚湯*2包</div>
+                  <div class="prod-price">$630</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/31fd82ed-d3a2-470c-8734-bbd1562a788a"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/薑片鱸魚2包-60020171106161553.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】薑片鱸魚湯*2包</div>
+                  <div class="prod-price">$530</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/d19f8bae-6e75-4c32-ae0e-7a66162aacd3"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/補氣鱸魚2包-60020171106162402.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】補氣鱸魚湯*2包</div>
+                  <div class="prod-price">$570</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/efa30a43-9bd8-4609-9a90-5dcdefec0592"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/清燉雞4包-60020171106114609.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】清燉雞湯*4包</div>
+                  <div class="prod-price">$1099</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/1254c278-fa0c-44a4-80b7-eaf14889a37b"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/天麻雞4包-60020171106132313.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】天麻雞湯*4包</div>
+                  <div class="prod-price">$1299</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/c13f7b91-1621-4a4a-a8b1-b9f70649ded3"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/何首烏雞4包-60020171106133210.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】何首烏雞湯*4包</div>
+                  <div class="prod-price">$1249</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/255d678b-8260-4a24-a870-fe290fd232e9"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/補氣雞4包-60020171106134524.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】補氣雞湯*4包</div>
+                  <div class="prod-price">$1199</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/6a78e176-cb2e-47b5-9ef9-e02393dbe471"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/雞湯各1-60020171117180019.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】強身組合(4款各1)</div>
+                  <div class="prod-price">$1149</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/24f8b1c4-3c30-4240-97e1-29d6dd475d5f"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/四物排骨4包-60020171106140050.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】四物排骨湯*4包</div>
+                  <div class="prod-price">$1149</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/409e0eb3-c247-42f3-a0e0-fccf91cc491b"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/杜仲排骨4包-60020171106141211.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】杜仲排骨湯*4包</div>
+                  <div class="prod-price">$1249</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/742ef172-e407-43d7-85f7-174f5d6fbac3"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆排骨4包-60020171106143833.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】黑豆排骨湯*4包</div>
+                  <div class="prod-price">$1199</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/af4d1cf5-08e0-4b24-8f86-ea30ac6acbe2"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/十全排骨4包-60020171106145403.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】十全排骨湯*4包</div>
+                  <div class="prod-price">$1199</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/90d03f96-8a50-4439-af45-4a768e240b15"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/排骨各1-60020171117180158.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】保養組合(4款各1)</div>
+                  <div class="prod-price">$1149</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/ef220e84-5db5-49df-aa06-1ec6174d07b4"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/花生豬腳4包-60020171106151223.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】花生豬腳湯*4包</div>
+                  <div class="prod-price">$1149</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/cd82b9ce-3a17-4628-9f55-8cc6917760ed"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/黃豆豬腳4包-60020171106152208.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】黃豆豬腳湯*4包</div>
+                  <div class="prod-price">$1149</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/a8a93328-30d1-4275-b46e-e26462224f09"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/蓪草豬腳4包-60020171106153815.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】蓪草豬腳湯*4包</div>
+                  <div class="prod-price">$1199</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/9d0a2300-6862-482f-abff-f7aa32122f2b"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/青木瓜豬腳4包-60020171106155200.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】青木瓜豬腳湯*4包</div>
+                  <div class="prod-price">$1199</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/397b9fff-be97-466f-86f7-adb833fada5e"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/豬腳各1-60020171117180321.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】潤膚組合(4款各1)</div>
+                  <div class="prod-price">$1109</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/af3ecbb2-7faf-401a-b6f8-e354981f5320"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/天麻鱸魚4包-60020171106160857.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】天麻鱸魚湯*4包</div>
+                  <div class="prod-price">$1299</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/22b427bb-7347-48b9-9630-20709378f170"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/薑片鱸魚4包-60020171106161803.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】薑片鱸魚湯*4包</div>
+                  <div class="prod-price">$1099</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/2d62134e-17ae-4326-bdda-e106cdb439eb"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/補氣鱸魚4包-60020171106162636.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】補氣鱸魚湯*4包</div>
+                  <div class="prod-price">$1199</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/84e9ba96-5445-4a16-8c76-f6470d14902b"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/鱸魚各1-60020171117180513.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">
+                    【煲好湯】康復組合 (薑片*2+天麻+補氣)
+                  </div>
+                  <div class="prod-price">$1169</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/a9f42d52-36c1-4b38-bced-67a435a1b8be"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/清燉雞8包-60020171117175451.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】清燉雞湯*8包</div>
+                  <div class="prod-price">$2154</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/0f175ae9-c4f7-4dd4-9170-1ab4d37a47f1"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/天麻雞8包-60020171117175209.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】天麻雞湯*8包</div>
+                  <div class="prod-price">$2546</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/ca3a5609-4a60-4269-9f74-3d13225adc9a"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/何首烏雞8包-60020171117175325.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】何首烏雞湯*8包</div>
+                  <div class="prod-price">$2448</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/7c82f9ae-d8ca-426c-9fbf-cec16026a66d"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/補氣雞8包-60020171117175630.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】補氣雞湯*8包</div>
+                  <div class="prod-price">$2350</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/acfc7f8f-5cde-4ee3-b7ba-710f6297a822"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/雞湯各2-60020171204161215.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】強身組合(4款各2)</div>
+                  <div class="prod-price">$2252</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/077e1ac6-9e92-41d5-816f-ca2d28867494"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/四物排骨8包-60020171117175242.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】四物排骨湯*8包</div>
+                  <div class="prod-price">$2252</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/96245ad5-b0f3-432f-8a0a-52bb8189306d"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/杜仲排骨8包-60020171117175358.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】杜仲排骨湯*8包</div>
+                  <div class="prod-price">$2448</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/ef21d444-4181-426b-815e-2763a7c6bfa6"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆排骨8包-60020171117175525.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】黑豆排骨湯*8包</div>
+                  <div class="prod-price">$2350</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/5484940c-131d-4c0b-a4f5-d41fce713ed7"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/十全排骨8包-60020171117175058.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】十全排骨湯*8包</div>
+                  <div class="prod-price">$2350</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/7f7e9137-7870-47f3-b02b-d2e71ea726a3"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/排骨各2-60020171204164219.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】保養組合(4款各2)</div>
+                  <div class="prod-price">$2252</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row prod-list">
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/67f031b3-1a97-4645-b1d5-7ed4a476b7b4"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/花生豬腳8包-60020171117174100.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】花生豬腳湯*8包</div>
+                  <div class="prod-price">$2252</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/c232c7ac-3045-401e-8b30-f464ac3c4ed3"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/黃豆豬腳8包-60020171117174512.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】黃豆豬腳湯*8包</div>
+                  <div class="prod-price">$2252</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/0a3cccfe-c0b6-4803-9707-cebc97394af5"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/蓪草豬腳8包-60020171117174703.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】蓪草豬腳湯*8包</div>
+                  <div class="prod-price">$2350</div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                  <a
+                    href="/Product/ProductDetail/a6f718fa-f806-400f-ae2f-3a19469b1f87"
+                  >
+                    <img
+                      class="prod-img img-responsive"
+                      src="https://admin.i7fresh.tw/Content/Uploads/Images/青木瓜豬腳8包-60020171117174423.jpg"
+                    />
+                  </a>
+                  <div class="prod-title">【煲好湯】青木瓜豬腳湯*8包</div>
+                  <div class="prod-price">$2350</div>
+                </div>
+                <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+              </div>
+
+              <form action="/" id="formpage" method="post">
+                <input type="hidden" name="type" value="" />
+                <input type="hidden" name="name" value="" />
+                <input type="hidden" name="stock" value="" />
+                <input type="hidden" name="tag" value="8" />
+                <input type="hidden" name="order" value="" />
+                <input type="hidden" id="page" name="page" value="0" />
+                <input
+                  type="button"
+                  id="formpagebtn"
+                  style="display: none"
+                  onclick="GetProduct(this.form['page'].value, this.form['type'].value, this.form['name'].value, this.form['stock'].value, this.form['tag'].value, this.form['order'].value)"
+                />
+                <div class="row text-center">
+                  <div class="col-sm-12">
+                    <div class="pagination-container">
+                      <ul class="pagination">
+                        <li class="disabled PagedList-skipToFirst">
+                          <a>««</a>
+                        </li>
+                        <li class="disabled PagedList-skipToPrevious">
+                          <a rel="prev">«</a>
+                        </li>
+                        <li class="active"><a>1</a></li>
+                        <li>
+                          <a
+                            href="javascript: $(&#39;#page&#39;).val(2); $(&#39;#formpagebtn&#39;).click();"
+                            >2</a
+                          >
+                        </li>
+                        <li class="PagedList-skipToNext">
+                          <a
+                            href="javascript: $(&#39;#page&#39;).val(2); $(&#39;#formpagebtn&#39;).click();"
+                            rel="next"
+                            >»</a
+                          >
+                        </li>
+                        <li class="PagedList-skipToLast">
+                          <a
+                            href="javascript: $(&#39;#page&#39;).val(2); $(&#39;#formpagebtn&#39;).click();"
+                            >»»</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row text-center">
+                  <div class="col-sm-12 pagination-sm">
+                    第 1 到第 48 項, 共 54 項
+                  </div>
+                </div>
+              </form>
+
+              <script type="text/javascript">
+                function order_product(ordertype) {
+                  //排序分類
+                  switch (ordertype) {
+                    //上架時間由新至舊
+                    case "0":
+                      GetProduct(1, "", "", "", "8", "0");
+
+                      break;
+                    //上架時間由舊至新
+                    case "1":
+                      GetProduct(1, "", "", "", "8", "1");
+
+                      break;
+
+                    //商品價格由低至高
+                    case "2":
+                      GetProduct(1, "", "", "", "8", "2");
+
+                      break;
+                    //商品價格由高至低
+                    case "3":
+                      GetProduct(1, "", "", "", "8", "3");
+
+                      break;
+                  }
+                }
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /產品列表內容結束 -->
+
+    <!-- layout尾部 -->
+    <footer>
+      <div class="container">
+        <div style="text-align: center; vertical-align: middle">
+          <p>
+            客服專線：02-2254-5329 AM 09:00-12:00、PM 1:00~6:00 (週一至週五)
+          </p>
+          <p>
+            Copyright © 2017 正新鮮，All rights reserved. -
+            <a href="https://www.januarytc.com/" target="_blank">正月科技</a
+            >建置與維護
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- layout尾部結束 -->
+
+    <script src="/Scripts/navbar.js"></script>
+
+    <!-- 彈出視窗使用sweetalert 參考網址 http://mishengqiang.com/sweetalert/ -->
+    <script src="/Scripts/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+      $(function () {
+        $("#Gotop").click(function () {
+          jQuery("html,body").animate(
+            {
+              scrollTop: 0,
+            },
+            1000
+          );
+        });
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 300) {
+            $("#Gotop").fadeIn("fast");
+          } else {
+            $("#Gotop").stop().fadeOut("fast");
+          }
+        });
+      });
+
+      $(document).ajaxStart(function () {
+        $("#loadingDiv").css("display", "block");
+      });
+      $(document).ajaxComplete(function () {
+        $("#loadingDiv").css("display", "none");
+      });
+    </script>
+
+    <script type="text/javascript">
+      //加入編號為productId的商品進購物車
+
+      function GetCart() {
+        $.ajax({
+          type: "POST",
+          url: "/Cart/_GetCart",
+          data: {},
+        }).done(function (msg) {
+          //將回傳的購物車頁面 填入 li#Cart
+          $("li#Cart").html(msg);
+        });
+
+        $.ajax({
+          type: "POST",
+          url: "/Cart/_GetMobCart",
+          data: {},
+        }).done(function (msg) {
+          //將回傳的購物車頁面 填入 li#Cart
+          $("a#mobcart").html(msg);
+        });
+      }
+      function GetCartImg() {
+        $.ajax({
+          type: "POST",
+          url: "/Cart/_GetCartImg",
+          data: {},
+        }).done(function (msg) {
+          //將回傳的購物車頁面 填入 li#Cart
+          $("div#CartImg").html(msg);
+        });
+      }
+
+      function GetProduct(page, type, name, stock, tag, order) {
+        $.ajax({
+          type: "POST",
+          url: "/Product/_Product",
+          data: {
+            page: page,
+            type: type,
+            name: name,
+            stock: stock,
+            tag: tag,
+            order: order,
+          },
+        }).done(function (msg) {
+          $("div#product").html(msg);
+          $("#SelectOrder option[value=" + order + "]").attr("selected", true);
+          clamp_product_title();
+        });
+      }
+    </script>
+
+    <script src="/Scripts/clamp.min.js"></script>
+    <script>
+      $(".carousel").carousel({
+        interval: 5000,
+      });
+
+      clamp_product_title();
+
+      function clamp_product_title() {
+        //設定商品名稱縮排
+        var product_title = document.getElementsByClassName("product-title");
+
+        for (var i = 0; i < product_title.length; i++) {
+          $clamp(product_title[i].getElementsByTagName("p")[0], { clamp: 2 });
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = Resources.Lang.Index_Title;
+    ViewBag.Description = Resources.Lang.Index_Desc;
+   
+}
+
+@section scriptInHead{
+    @Styles.Render("~/Content/B2B/slick")
+    
+}
+
+
+<!-- /layout頭部結束 -->
+<!-- 輪播 -->
+@Html.Action("_ADBanner", "Home")
+
+
+<!-- 限時搶購 -->
+@Html.Action("_SpecialTagProduct", "Home")
+
+
+<!-- 商品櫥窗 -->
+<div class="container">
+    @Html.Action("_TagProduct", "Home")
+</div>
+
+@*<!-- 輪播 -->
+    <div class="banner-bg">
+        <div class="container">
+            <!--輪播banner-->
+            <!--圖片尺寸1170*500-->
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators hidden-xs">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                </ol>
+
+                <!-- 輪播圖片 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <a href="http://www.i7fresh.tw/Product/ProductDetail/8aa7e5ff-3b81-4d19-9293-cc1787c25934">
+                            <img class="img-responsive img-full" src="@Url.Content("~/Content/images/bn071102.png")" />
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="http://www.i7fresh.tw/Product/ProductDetail/97ac8b25-51ac-4423-b60a-abbf8e37bd4f">
+                            <img class="img-responsive img-full" src="@Url.Content("~/Content/images/bn071101.png")" />
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="http://www.i7fresh.tw/Product/ProductDetail/b27cb954-e10c-410a-bae9-034b8aacb54b">
+                            <img class="img-responsive img-full" src="@Url.Content("~/Content/images/bn071201.jpg")" />
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="icon-prev"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="icon-next"></span>
+                </a>
+            </div>
+        </div>
+    </div>*@
+
+<!-- 商品列表
+<div class="content">
+    <div class="float-banner hidden-xs hidden-sm hidden-md affix"><a href="@Url.Action("About")"></a></div>
+    <div class="container">
+        @Html.Action("_TagProduct", "Home")
+    </div>
+</div>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/moment-with-langs.min.js")
+    @Scripts.Render("~/Scripts/bootstrap-datetimepicker.min.js")
+
+
+    <!-- /只在首頁引用 -->
+<script src="@Url.Content("~/Scripts/slick.min.js")"></script>
+<!-- 首頁輪播banner js，只在首頁引用 -->
+<script>
+    $('.banner').slick({
+        autoplay: true,
+        autoplaySpeed: 4000,
+        arrows: false,
+        centerMode: true,
+        dots: true,
+        infinite: true,
+        centerPadding: '0px',
+        variableWidth: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 770,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '0px',
+                    variableWidth: false,
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '0px',
+                    variableWidth: false,
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+</script>
+<script>
+
+    //登入errror處理
+    $(function myfunction() {
+        var Loginerror = '@ViewBag.Error';
+        if (Loginerror == "請先登入") {
+            alert(Loginerror);
+            window.location.href = '@Url.Action("B2BIndex", "Home")';
+        }
+
+    })
+
+    $('.carousel').carousel({
+        interval: 5000,
+    });
+
+
+</script>
+<script>
+        //設定倒數計時
+        $(document).ready(function () {
+            setInterval(function () { countdown(); }, 1000);
+        });
+    
+</script>
+
+}-->

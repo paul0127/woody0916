@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WoodyIconShopModel.Models.ActNumberLog>
+
+@{ 
+    IEnumerable<WoodyIconShopModel.Models.ActNumber> acts = ViewBag.Act;
+    int count = 0;
+}
+
+
+
+<table class="table  table-condensed">
+    <tr>
+        <th>折價卷金額</th>
+        <th>使用期限</th>
+        <th>滿額使用</th>
+        <th>狀態</th>
+    </tr>
+    @foreach (var log in Model)
+    {
+        var act = acts.Where(a => a.Number == log.Number).FirstOrDefault();
+
+        if (act == null || act.Type == (int)WoodyIconShopModel.Models.ActNumberType.MemberType)
+        {
+            continue;
+        }
+
+        <tr>
+            <td>@act.Bonus.Money</td>
+            <td>@Html.DisplayFor(m => act.Bonus.DateStart) - @Html.DisplayFor(m => act.Bonus.DateEnd)</td>
+            <td>@act.Bonus.Limit</td>
+            <td>可使用</td>
+        </tr>
+
+        count++;
+    }
+</table>
+
+@if (count == 0)
+{
+    <span>尚無紀錄</span>
+}

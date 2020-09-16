@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "招商合作";
+}
+
+
+@*招商合作(20171025cyh)*@
+
+<div class="merchants">
+    <section class="color-bg section1">
+        <div class="container">
+            <h1>招商合作</h1>
+            <hr />
+            <p>親愛的合作廠商，您好，</p>
+            <p>正新鮮，係由「博舟資訊股份有限公司」所經營的食品履歷電商銷售平台。正新鮮積極配合政府食品安全規範，提供最新最好的平台技術，敬邀全國績優廠商及台灣在地好農共同進駐我們的行列，一同創造營業佳績。</p>
+            <p>如您有意願與本公司合作共同推廣商品，請下載並填寫『正新鮮_廠商資料表』，並提供公司相關主力商品之照片檔案與說明資料，並mail至以下負責窗口，當我們收到相關資料後，會由專人進行審核評估作業並與您聯絡。我們非常歡迎商家加入我們，我們抱持著永續經營，持續將好的產品提供給消費者而努力。</p>
+        </div>
+    </section>
+
+    <section class="features text-center section-padding gray-bg" id="service">
+        <div class="container">
+            <!-- Headline -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="arrow">請注意由於我方為電子商務合作平台，合作廠商應具備以下條件</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="services">
+                        <!-- Service Box 1 -->
+                        <div class="col-md-4 wp2 item">
+                            <div class="icon">
+                                <i class="fa fa-gift" aria-hidden="true"></i><!-- Icon -->
+                            </div>
+                            <h2>商品資訊</h2><!-- Title -->
+                            <p>
+                                貴公司能提供聯絡窗口，合作的商品能提供完整的圖片與必要之規格說明文案。
+                            </p><!-- Description -->
+                            <hr class="hidden-lg hidden-sm hidden-md" />
+                        </div>
+                        <!-- Service Box 2 -->
+                        <div class="col-md-4 wp2 item delay-05s">
+                            <div class="icon">
+                                <i class="fa fa-truck" aria-hidden="true"></i><!-- Icon -->
+                            </div>
+                            <h2>出貨相關</h2><!-- Title -->
+                            <p>
+                                貴公司需能配合維護商品庫存狀態、與處理銷售訂單並完成出貨之相關事宜。
+                            </p><!-- Description -->
+                            <hr class="hidden-lg hidden-sm hidden-md" />
+                        </div>
+                        <!-- Service Box 3 -->
+                        <div class="col-md-4 wp2 item delay-1s">
+                            <div class="icon">
+                                <i class="fa fa-balance-scale" aria-hidden="true"></i><!-- Icon -->
+                            </div>
+                            <h2>退換貨規則</h2><!-- Title -->
+                            <p>
+                                貴公司需認同我方服務顧客之重要性，並能夠接受鑑賞期內的退換貨規則。
+                            </p><!-- Description -->
+                            <hr class="hidden-lg hidden-sm hidden-md" />
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <p>負責人：黃先生</p>
+                    <p>聯絡電話：02-8811-1217</p>
+                    <p>E-mail： i7fresh@januarytc.com</p>
+                    <hr class="hidden-lg hidden-sm hidden-md" />
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <p><b>合作廠商請務必附上以下相關資料：</b></p>
+                    <p>1.正新鮮_廠商資料表 <a id="btnDownloadApplicationForm" href="@Url.Content("~/up_load/supplier_Information.doc")" class="btn btn-primary" target="_blank">下載表格</a></p>
+                    <p>2.公司相關主力商品之照片檔案與說明資料(簡短介紹即可)</p>
+                    <hr class="hidden-lg hidden-sm hidden-md" />
+                </div>
+            </div>
+
+        </div>
+        <script>
+            $("#btnDownloadApplicationForm").click(function () {
+                fbq('track', 'Lead');   // 2018/09/01, lozenlin, add
+            });
+        </script>
+    </section>
+
+</div>

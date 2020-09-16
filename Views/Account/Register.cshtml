@@ -1,0 +1,87 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@using ECommerceReveal.Models
+@*@model ECommerceReveal.Models.RegisterViewModel*@
+@model RegisterViewModel
+@{
+    ViewBag.Title = "加入會員";
+    var captcha = Html.Captcha("換一張", "", 4, "請輸入驗證碼", true, new CaptchaMvc.Models.ParameterModel[0]);
+}
+
+<style>
+    .alert-register {
+        border-color: #8EC31B;
+        background-color: #8EC31B;
+        color: white;
+    }
+</style>
+
+<div class="container Register-page">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <div class="alert alert-register">
+                <p class="text-center" >註冊正新鮮帳號</p>
+            </div>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })                                                
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    
+                    @Html.Label("驗證碼", new { @class = "col-sm-2 control-label" })                    
+                    @Html.Partial("_Captcha", captcha.BuildInfo)
+     
+                </div>
+               <input type="hidden" name="Parameter" value="@ViewData["QueryString"].ToString()" />
+               <input type="hidden" name="gtype" value="@ViewData["QuerygString"].ToString()" />
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id="btnConfirm" type="submit" class="btn btn-lg btn-block btn-custom" value="註冊" />
+                        <text>如看不到驗證碼請開啟cookie</text>
+                        <script>
+                            $("#btnConfirm").click(function () {
+                                fbq('track', 'CompleteRegistration');   // 2018/09/01, lozenlin, add
+                            });
+                        </script>
+                    </div>
+                    
+                </div>
+            }
+        </div>
+        <div class="col-xs-12 col-sm-4 login-right">
+            <div class="alert alert-register">
+                <p class="text-center">免註冊直接登入</p>
+            </div>
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+@Scripts.Render("~/bundles/jqueryval")
+}

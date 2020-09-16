@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WoodyIconShopModel.Models.ViewModel.ProductTypeIndexViewModel>
+
+@{
+    var upTypes = Model.Where(t => t.UpperId == 0);
+}
+
+
+<ul class="nav navbar-nav">
+    @foreach (var upt in upTypes)
+    {
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@upt.Typename <b class="caret"></b></a>
+            @{ var subTypes = Model.Where(t => t.UpperId == upt.Id); bool isFirst = true;}
+            <ul class="dropdown-menu">
+                @foreach (var subt in subTypes)
+                {
+                    if (!isFirst)
+                    {
+                        <li class="divider"></li>
+                    }
+
+                    <li><a href="@Url.Action("Index", "Product", new { type = subt.Id })">@subt.Typename</a></li>
+                    isFirst = false;
+                }
+            </ul>
+        </li>
+    }
+
+</ul>

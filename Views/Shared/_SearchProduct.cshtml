@@ -1,0 +1,20 @@
+﻿@model WoodyIconShopModel.Models.ViewModel.ProductSearchViewModel
+
+@{
+
+}
+
+@using (Html.BeginForm("Index", "Product", FormMethod.Post))
+{
+    <div class="col-xs-9 col-sm-10">
+        <input type="text" class="form-control" name="name" placeholder="請輸入關鍵字">
+    </div>
+    <div class="col-xs-3 col-sm-2">
+        <button id="btnSearch" class="btn btn-success btn-block" type="submit">搜尋</button>
+        <script>
+            $("#btnSearch").click(function () {
+                fbq('track', 'Search'); // 2018/09/01, lozenlin, add
+            });
+        </script>
+    </div>
+}

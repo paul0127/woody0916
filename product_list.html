@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Content/bootstrap.min.css">
+    <link rel="stylesheet" href="./Content/Site.css">
+  </head>
+  <body>
+    <!-- layout頭部 -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target=".navbar-ex1-collapse"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <img src="/Content/images/logo.png" class="hidden-md hidden-lg" />
+            <img
+              src="/Content/images/logo_pc.png"
+              class="hidden-xs hidden-sm"
+            />
+          </a>
+          <!-- mob-搜尋 -->
+          <a
+            class="navbar-item hidden-lg hidden-md hidden-sm"
+            href="#"
+            data-toggle="collapse"
+            data-target="#filter-panel"
+            ><i class="fa fa-search" aria-hidden="true"></i
+          ></a>
+          <!-- mob-購物車 -->
+          <a
+            class="navbar-item hidden-lg hidden-md hidden-sm"
+            id="mobcart"
+            href="/Pay/Cart"
+          >
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span class="badge">0</span>
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <!-- pc-搜尋 -->
+            <li
+              class="search-btn hidden-xs"
+              data-toggle="collapse"
+              data-target="#filter-panel"
+            >
+              <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </li>
+            <li class="hidden-xs"><a href="/Home/Merchants">招商合作</a></li>
+            <li class="hidden-xs"><a href="/Home/About">關於我們</a></li>
+            <li><a href="/Account/Login?returnUrl=%2F">登入/註冊</a></li>
+            <li class="dropdown hidden-xs">
+              <a
+                href="/Member/Member"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                >會員中心 <b class="caret"></b
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a href="/Member/Member">會員資料</a></li>
+                <li class="divider"></li>
+                <li><a href="/Member/Policy">購物須知</a></li>
+                <li class="divider"></li>
+                <li><a href="/Member/Member_Order">訂單查詢</a></li>
+                <li class="divider"></li>
+                <li><a href="/Member/Code">優惠序號</a></li>
+              </ul>
+            </li>
+            <!-- pc-購物車 -->
+            <li class="shop_cart-btn hidden-xs dropdown" id="Cart">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >購物車 <span class="badge">0</span><b class="caret"></b
+              ></a>
+              <ul class="dropdown-menu shop_cart-menu">
+                <li>
+                  <a class="btn btn-default text-center" href="#"
+                    >購物車無任何商品</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="hidden-xs">
+              <a
+                href="https://www.facebook.com/正新鮮-1213021652152735/?ref=aymt_homepage_panel"
+                ><i class="fa fa-facebook-official" aria-hidden="true"></i>
+                粉絲團</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+
+      <div
+        class="collapse navbar-collapse navbar-ex1-collapse"
+        style="background: white"
+      >
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >點心飲品 <b class="caret"></b
+              ></a>
+
+              <ul class="dropdown-menu">
+                <li><a href="/Product?type=46">健康零嘴</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=31">麥片穀類</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=32">養生好茶</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=33">天然果醋</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >蔬果米肉 <b class="caret"></b
+              ></a>
+
+              <ul class="dropdown-menu">
+                <li><a href="/Product?type=36">蔬菜水果</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=37">優質肉品</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=38">在地好米</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=39">手感麵條</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >醬料湯品 <b class="caret"></b
+              ></a>
+
+              <ul class="dropdown-menu">
+                <li><a href="/Product?type=41">調味醬料</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=42">加熱即食</a></li>
+                <li class="divider"></li>
+                <li><a href="/Product?type=43">真空料理</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >其他 <b class="caret"></b
+              ></a>
+
+              <ul class="dropdown-menu">
+                <li><a href="/Product?type=25">個人清潔</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <ul class="nav navbar-nav navbar-right hidden-lg hidden-md hidden-sm">
+          <li><a href="/Home/Merchants">招商合作</a></li>
+          <li><a href="/Home/About">關於我們</a></li>
+          <li class="dropdown">
+            <a
+              href="/Member/Member"
+              class="dropdown-toggle"
+              data-toggle="dropdown"
+              >會員中心 <b class="caret"></b
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="/Member/Member">會員資料</a></li>
+              <li class="divider"></li>
+              <li><a href="/Member/Policy">購物須知</a></li>
+              <li class="divider"></li>
+              <li><a href="/Member/Member_Order">訂單查詢</a></li>
+              <li class="divider"></li>
+              <li><a href="/Member/Code">優惠序號</a></li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="https://www.facebook.com/正新鮮-1213021652152735/?ref=aymt_homepage_panel"
+              ><i class="fa fa-facebook-official" aria-hidden="true"></i>
+              粉絲團</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="filter-panel" class="collapse filter-panel navbar-fixed-top">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="container">
+            <div class="row">
+              <form action="/Product" method="post">
+                <div class="col-xs-9 col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    placeholder="請輸入關鍵字"
+                  />
+                </div>
+                <div class="col-xs-3 col-sm-2">
+                  <button
+                    id="btnSearch"
+                    class="btn btn-success btn-block"
+                    type="submit"
+                  >
+                    搜尋
+                  </button>
+                  <script>
+                    $("#btnSearch").click(function () {
+                      fbq("track", "Search"); // 2018/09/01, lozenlin, add
+                    });
+                  </script>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-tag">
+      <div class="container">
+        <a class="nav-link" href="/Product?tag=8">煲好湯 即食機能湯品</a>
+        <a class="nav-link" href="/Product?tag=17">苗條必備飲品</a>
+        <a class="nav-link" href="/Product?tag=19">退火養生飲品</a>
+        <a class="nav-link" href="/Product?tag=18">在家健康零嘴</a>
+        <a class="nav-link" href="/Product?tag=7">珍田生機果仁</a>
+      </div>
+    </nav>
+
+    <!-- 右側浮動購物車 -->
+    <div id="CartImg">
+      <!--有金額時套用 shopcart-shortcut-active 無金額時套用shopcart-shortcut -->
+
+      <a>
+        <div class="affix hidden-xs shopcart-shortcut">
+          0<br />
+          結帳去
+        </div>
+      </a>
+    </div>
+    <!-- 回到頂端 -->
+    <div id="Gotop" class="affix">
+      <i class="fa fa-plane icon-left"></i>回到頂端
+    </div>
+
+    <!-- ajax loading -->
+    <div
+      id="loadingDiv"
+      style="
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.8)
+          url('/Content/images/ajax-loader.gif') 50% 50% no-repeat;
+      "
+    ></div>
+
+    <!-- /layout頭部結束 -->
+    <!-- 輪播 -->
+
+    <div class="slider banner"></div>
+
+    <!-- 限時搶購 -->
+
+    <!-- 限時搶購 -->
+    <div class="container">
+      <div class="page-heading">
+        <span class="page-heading-title"
+          ><i class="fa fa-clock-o" aria-hidden="true"></i> 限時搶購</span
+        >
+        <a class="pull-right page-heading-more" href="/Product?tag=0"
+          >更多商品+</a
+        >
+      </div>
+      <div class="row"></div>
+    </div>
+
+    <script>
+      //倒數計時function
+      function countdown() {
+        $(".countdown").each(function () {
+          var time = new Date(
+            new Date($(this).find(".deadline").val()) -
+              new Date() +
+              new Date().getTimezoneOffset() * 60000
+          );
+
+          $(this)
+            .find(".day")
+            .text(time.getDate() - 1);
+          $(this).find(".hour").text(time.getHours());
+          $(this).find(".minute").text(time.getMinutes());
+          $(this).find(".second").text(time.getSeconds());
+        });
+      }
+    </script>
+
+    <!-- 商品櫥窗 -->
+    <div class="container">
+      <div class="page-heading">
+        <span class="page-heading-title">煲好湯 即食機能湯品</span
+        ><a class="pull-right page-heading-more" href="/Product?tag=8"
+          >更多商品+</a
+        >
+      </div>
+      <div class="row">
+        <div class="col-sm-3 hidden-xs">
+          <a href="/Product?tag=8"
+            ><img
+              class="prod-img img-responsive"
+              src="https://admin.i7fresh.tw/Content/Uploads/Images/煲好湯_270x54020171106131044.jpg"
+          /></a>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="row prod-list">
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/84be71ac-0aca-498e-ba72-43629c1f8a30"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/清燉雞2包-60020171106113442.jpg"
+                />
+              </a>
+              <div class="prod-title">【煲好湯】清燉雞湯*2包</div>
+              <div class="prod-price">$510</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/c22f00d8-f9ff-42c4-9660-83802cc820a0"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/天麻雞2包-60020171106115719.jpg"
+                />
+              </a>
+              <div class="prod-title">【煲好湯】天麻雞湯*2包</div>
+              <div class="prod-price">$630</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/4eb33203-3b40-4350-b0fd-810027cabb76"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/何首烏雞2包-60020171106132928.jpg"
+                />
+              </a>
+              <div class="prod-title">【煲好湯】何首烏雞湯*2包</div>
+              <div class="prod-price">$610</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/7d59139c-4be6-47f9-9038-32c917d5092b"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/補氣雞2包-60020171106133948.jpg"
+                />
+              </a>
+              <div class="prod-title">【煲好湯】補氣雞湯*2包</div>
+              <div class="prod-price">$570</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+          </div>
+          <div class="row prod-list">
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/f3ed18f9-ff97-40a6-bf07-d88de0936e73"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/四物排骨2包-60020171106135721.jpg"
+                />
+              </a>
+              <div class="prod-title">【煲好湯】四物排骨湯*2包</div>
+              <div class="prod-price">$530</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/e579e9ed-48b0-4476-8eb3-c3023bdbbf63"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/杜仲排骨2包-60020171106140845.jpg"
+                />
+              </a>
+              <div class="prod-title">【煲好湯】杜仲排骨湯*2包</div>
+              <div class="prod-price">$610</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/f121cd7b-6fa1-47bc-a760-2e5f7dcbf98c"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆排骨2包-60020171106142527.jpg"
+                />
+              </a>
+              <div class="prod-title">【煲好湯】黑豆排骨湯*2包</div>
+              <div class="prod-price">$570</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/3eb54579-61e8-4ce0-bad4-b14e3268706f"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/十全排骨2包-60020171106144626.jpg"
+                />
+              </a>
+              <div class="prod-title">【煲好湯】十全排骨湯*2包</div>
+              <div class="prod-price">$570</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+          </div>
+        </div>
+      </div>
+      <div class="page-heading">
+        <span class="page-heading-title">苗條必備飲品</span
+        ><a class="pull-right page-heading-more" href="/Product?tag=17"
+          >更多商品+</a
+        >
+      </div>
+      <div class="row">
+        <div class="col-sm-3 hidden-xs">
+          <a href="/Product?tag=17"
+            ><img
+              class="prod-img img-responsive"
+              src="https://admin.i7fresh.tw/Content/Uploads/Images/夏季苗條飲品20180726141703.png"
+          /></a>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="row prod-list">
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/9aef3e7a-de18-4c58-8233-41b8bdd0ed0c"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/桑葚原汁含糖220170929131732.jpg"
+                />
+              </a>
+              <div class="prod-title">【陳稼莊】桑椹原汁(加糖)250ml*2</div>
+              <div class="prod-price">$400</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/806d12a2-60ff-4c59-8f9a-1e4cc4cb87e6"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/桑葚原汁無糖220170929131656.jpg"
+                />
+              </a>
+              <div class="prod-title">【陳稼莊】桑椹原汁(無加糖)250ml*2</div>
+              <div class="prod-price">$500</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/72606c32-cc52-4277-84d9-429c58fede01"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/桑葚醋含糖220170929131439.jpg"
+                />
+              </a>
+              <div class="prod-title">【陳稼莊】桑椹醋(加糖) 250ml*2</div>
+              <div class="prod-price">$500</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/13b22390-d427-48de-b551-45506a094c20"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/桑葚醋無糖220170929131611.jpg"
+                />
+              </a>
+              <div class="prod-title">【陳稼莊】桑椹醋(無加糖) 250ml*2</div>
+              <div class="prod-price">$600</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+          </div>
+          <div class="row prod-list">
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/19940ec6-6191-4816-9259-a316304d1e45"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/檸檬醋含糖220170929132912.jpg"
+                />
+              </a>
+              <div class="prod-title">【陳稼莊】檸檬醋(加糖) 250ml*2</div>
+              <div class="prod-price">$500</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/98ee9edb-3fcd-45a1-91c8-304160ca2ef9"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/檸檬醋無糖220170929133024.jpg"
+                />
+              </a>
+              <div class="prod-title">【陳稼莊】檸檬醋(無加糖) 250ml*2</div>
+              <div class="prod-price">$600</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/1fec8831-54c6-4694-a6d4-ac41681a85b0"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/鳳梨醋含糖220170929134449.jpg"
+                />
+              </a>
+              <div class="prod-title">【陳稼莊】鳳梨醋(加糖) 250ml*2</div>
+              <div class="prod-price">$500</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/8537c242-f021-45d0-9d79-29896fb559aa"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/鳳梨醋無糖220170929134815.jpg"
+                />
+              </a>
+              <div class="prod-title">【陳稼莊】鳳梨醋(無加糖) 250ml*2</div>
+              <div class="prod-price">$600</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+          </div>
+        </div>
+      </div>
+      <div class="page-heading">
+        <span class="page-heading-title">退火養生飲品</span
+        ><a class="pull-right page-heading-more" href="/Product?tag=19"
+          >更多商品+</a
+        >
+      </div>
+      <div class="row">
+        <div class="col-sm-3 hidden-xs">
+          <a href="/Product?tag=19"
+            ><img
+              class="prod-img img-responsive"
+              src="https://admin.i7fresh.tw/Content/Uploads/Images/退火養生飲品20180726142537.png"
+          /></a>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="row prod-list">
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/8400e840-27cb-4d93-abaa-8ab88166cd66"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆茶15小包20170620150040.jpg"
+                />
+              </a>
+              <div class="prod-title">【將軍】黑豆茶15小包*1袋</div>
+              <div class="prod-price">$280</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/00bd22c0-f9a9-4bfc-958a-685ae5e96b87"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆茶15小包3袋20170620150928.jpg"
+                />
+              </a>
+              <div class="prod-title">【將軍】黑豆茶15小包*3袋</div>
+              <div class="prod-price">$795</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/e6fc1e00-ca36-4bf8-a041-922e9abb8f73"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆茶24小包20170620151438.jpg"
+                />
+              </a>
+              <div class="prod-title">【豆豆農】豆豆農黑豆茶24小包*1袋</div>
+              <div class="prod-price">$360</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/8011378f-8b3c-4809-b797-ff70aa743f3a"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆茶24小包3袋20170620151916.jpg"
+                />
+              </a>
+              <div class="prod-title">【豆豆農】豆豆農黑豆茶24小包*3袋</div>
+              <div class="prod-price">$1030</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+          </div>
+        </div>
+      </div>
+      <div class="page-heading">
+        <span class="page-heading-title">在家健康零嘴</span
+        ><a class="pull-right page-heading-more" href="/Product?tag=18"
+          >更多商品+</a
+        >
+      </div>
+      <div class="row">
+        <div class="col-sm-3 hidden-xs">
+          <a href="/Product?tag=18"
+            ><img
+              class="prod-img img-responsive"
+              src="https://admin.i7fresh.tw/Content/Uploads/Images/在家健康零嘴20180726141715.png"
+          /></a>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="row prod-list">
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/48283a4b-852f-4210-91fa-55f441cecf5b"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/竹鹽燒腰果-6002017120411335120190626151138.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】竹鹽燒腰果190g</div>
+              <div class="prod-price">$285</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/3668591f-7cf3-41da-b1e1-675436b5471a"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/竹鹽燒腰果3包-6002017110310142620190626151206.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】竹鹽燒腰果190g*3包</div>
+              <div class="prod-price">$849</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/c69e0d1c-9db0-4fc0-815f-4af0ea3d93b1"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/生機果仁-6002017120411414120190626145621.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】生機果仁200g</div>
+              <div class="prod-price">$195</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/8f378acd-e275-403a-accd-0c551fea7937"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/生機果仁3包-6002017110310230820190626145904.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】生機果仁200g*3包</div>
+              <div class="prod-price">$579</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+          </div>
+          <div class="row prod-list">
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/a727facf-266e-4604-aa89-77be9ceaae3b"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆芝麻糕-6002017120411462520190626152501.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】黑豆芝麻糕300g</div>
+              <div class="prod-price">$145</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/87171e42-fff8-46ce-ba29-8f304c6434a8"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆芝麻糕3包-6002017110310390320190626152523.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】黑豆芝麻糕300g*3包</div>
+              <div class="prod-price">$429</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/c311dc6d-2f09-47e5-a7cf-6268f825722e"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑芝麻糕-600201711031038202018071720190626152620.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】黑芝麻糕300g</div>
+              <div class="prod-price">$145</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/a70ab653-b718-468f-9eec-99a7b33dad8e"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑芝麻糕3包-6002017110310382020190626152652.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】黑芝麻糕300g*3包</div>
+              <div class="prod-price">$429</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+          </div>
+        </div>
+      </div>
+      <div class="page-heading">
+        <span class="page-heading-title">珍田生機果仁</span
+        ><a class="pull-right page-heading-more" href="/Product?tag=7"
+          >更多商品+</a
+        >
+      </div>
+      <div class="row">
+        <div class="col-sm-3 hidden-xs">
+          <a href="/Product?tag=7"
+            ><img
+              class="prod-img img-responsive"
+              src="https://admin.i7fresh.tw/Content/Uploads/Images/珍田_270x54020171103144539.jpg"
+          /></a>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="row prod-list">
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/2652fbb9-56db-4105-b355-e62f3f5760ee"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/有機大燕麥片3包-6002017110313250220190627210938.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】有機粗燕麥片550g*3包</div>
+              <div class="prod-price">$415</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/48283a4b-852f-4210-91fa-55f441cecf5b"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/竹鹽燒腰果-6002017120411335120190626151138.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】竹鹽燒腰果190g</div>
+              <div class="prod-price">$285</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/3668591f-7cf3-41da-b1e1-675436b5471a"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/竹鹽燒腰果3包-6002017110310142620190626151206.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】竹鹽燒腰果190g*3包</div>
+              <div class="prod-price">$849</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/c69e0d1c-9db0-4fc0-815f-4af0ea3d93b1"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/生機果仁-6002017120411414120190626145621.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】生機果仁200g</div>
+              <div class="prod-price">$195</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+          </div>
+          <div class="row prod-list">
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/8f378acd-e275-403a-accd-0c551fea7937"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/生機果仁3包-6002017110310230820190626145904.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】生機果仁200g*3包</div>
+              <div class="prod-price">$579</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/a727facf-266e-4604-aa89-77be9ceaae3b"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆芝麻糕-6002017120411462520190626152501.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】黑豆芝麻糕300g</div>
+              <div class="prod-price">$145</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/87171e42-fff8-46ce-ba29-8f304c6434a8"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆芝麻糕3包-6002017110310390320190626152523.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】黑豆芝麻糕300g*3包</div>
+              <div class="prod-price">$429</div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a
+                href="/Product/ProductDetail/c311dc6d-2f09-47e5-a7cf-6268f825722e"
+              >
+                <img
+                  class="prod-img img-responsive"
+                  src="https://admin.i7fresh.tw/Content/Uploads/Images/黑芝麻糕-600201711031038202018071720190626152620.jpg"
+                />
+              </a>
+              <div class="prod-title">【珍田】黑芝麻糕300g</div>
+              <div class="prod-price">$145</div>
+            </div>
+            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 商品列表
+<div class="content">
+    <div class="float-banner hidden-xs hidden-sm hidden-md affix"><a href="/Home/About"></a></div>
+    <div class="container">
+        
+
+
+
+    <div class="page-heading"><span class="page-heading-title">煲好湯 即食機能湯品</span><a class="pull-right page-heading-more" href="/Product?tag=8">更多商品+</a></div>
+    <div class="row">
+        <div class="col-sm-3 hidden-xs ">
+            <a href="/Product?tag=8"><img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/煲好湯_270x54020171106131044.jpg" /></a>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+                <div class="row prod-list">
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/84be71ac-0aca-498e-ba72-43629c1f8a30">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/清燉雞2包-60020171106113442.jpg">
+                            </a>
+                            <div class="prod-title">【煲好湯】清燉雞湯*2包</div>
+                            <div class="prod-price">$510</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/c22f00d8-f9ff-42c4-9660-83802cc820a0">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/天麻雞2包-60020171106115719.jpg">
+                            </a>
+                            <div class="prod-title">【煲好湯】天麻雞湯*2包</div>
+                            <div class="prod-price">$630</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/4eb33203-3b40-4350-b0fd-810027cabb76">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/何首烏雞2包-60020171106132928.jpg">
+                            </a>
+                            <div class="prod-title">【煲好湯】何首烏雞湯*2包</div>
+                            <div class="prod-price">$610</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/7d59139c-4be6-47f9-9038-32c917d5092b">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/補氣雞2包-60020171106133948.jpg">
+                            </a>
+                            <div class="prod-title">【煲好湯】補氣雞湯*2包</div>
+                            <div class="prod-price">$570</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                </div>
+                <div class="row prod-list">
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/f3ed18f9-ff97-40a6-bf07-d88de0936e73">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/四物排骨2包-60020171106135721.jpg">
+                            </a>
+                            <div class="prod-title">【煲好湯】四物排骨湯*2包</div>
+                            <div class="prod-price">$530</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/e579e9ed-48b0-4476-8eb3-c3023bdbbf63">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/杜仲排骨2包-60020171106140845.jpg">
+                            </a>
+                            <div class="prod-title">【煲好湯】杜仲排骨湯*2包</div>
+                            <div class="prod-price">$610</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/f121cd7b-6fa1-47bc-a760-2e5f7dcbf98c">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆排骨2包-60020171106142527.jpg">
+                            </a>
+                            <div class="prod-title">【煲好湯】黑豆排骨湯*2包</div>
+                            <div class="prod-price">$570</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/3eb54579-61e8-4ce0-bad4-b14e3268706f">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/十全排骨2包-60020171106144626.jpg">
+                            </a>
+                            <div class="prod-title">【煲好湯】十全排骨湯*2包</div>
+                            <div class="prod-price">$570</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                </div>
+
+        </div>
+    </div>
+    <div class="page-heading"><span class="page-heading-title">苗條必備飲品</span><a class="pull-right page-heading-more" href="/Product?tag=17">更多商品+</a></div>
+    <div class="row">
+        <div class="col-sm-3 hidden-xs ">
+            <a href="/Product?tag=17"><img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/夏季苗條飲品20180726141703.png" /></a>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+                <div class="row prod-list">
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/9aef3e7a-de18-4c58-8233-41b8bdd0ed0c">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/桑葚原汁含糖220170929131732.jpg">
+                            </a>
+                            <div class="prod-title">【陳稼莊】桑椹原汁(加糖)250ml*2</div>
+                            <div class="prod-price">$400</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/806d12a2-60ff-4c59-8f9a-1e4cc4cb87e6">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/桑葚原汁無糖220170929131656.jpg">
+                            </a>
+                            <div class="prod-title">【陳稼莊】桑椹原汁(無加糖)250ml*2</div>
+                            <div class="prod-price">$500</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/72606c32-cc52-4277-84d9-429c58fede01">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/桑葚醋含糖220170929131439.jpg">
+                            </a>
+                            <div class="prod-title">【陳稼莊】桑椹醋(加糖) 250ml*2</div>
+                            <div class="prod-price">$500</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/13b22390-d427-48de-b551-45506a094c20">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/桑葚醋無糖220170929131611.jpg">
+                            </a>
+                            <div class="prod-title">【陳稼莊】桑椹醋(無加糖) 250ml*2</div>
+                            <div class="prod-price">$600</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                </div>
+                <div class="row prod-list">
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/19940ec6-6191-4816-9259-a316304d1e45">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/檸檬醋含糖220170929132912.jpg">
+                            </a>
+                            <div class="prod-title">【陳稼莊】檸檬醋(加糖) 250ml*2</div>
+                            <div class="prod-price">$500</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/98ee9edb-3fcd-45a1-91c8-304160ca2ef9">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/檸檬醋無糖220170929133024.jpg">
+                            </a>
+                            <div class="prod-title">【陳稼莊】檸檬醋(無加糖) 250ml*2</div>
+                            <div class="prod-price">$600</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/1fec8831-54c6-4694-a6d4-ac41681a85b0">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/鳳梨醋含糖220170929134449.jpg">
+                            </a>
+                            <div class="prod-title">【陳稼莊】鳳梨醋(加糖) 250ml*2</div>
+                            <div class="prod-price">$500</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/8537c242-f021-45d0-9d79-29896fb559aa">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/鳳梨醋無糖220170929134815.jpg">
+                            </a>
+                            <div class="prod-title">【陳稼莊】鳳梨醋(無加糖) 250ml*2</div>
+                            <div class="prod-price">$600</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                </div>
+
+        </div>
+    </div>
+    <div class="page-heading"><span class="page-heading-title">退火養生飲品</span><a class="pull-right page-heading-more" href="/Product?tag=19">更多商品+</a></div>
+    <div class="row">
+        <div class="col-sm-3 hidden-xs ">
+            <a href="/Product?tag=19"><img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/退火養生飲品20180726142537.png" /></a>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+                <div class="row prod-list">
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/8400e840-27cb-4d93-abaa-8ab88166cd66">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆茶15小包20170620150040.jpg">
+                            </a>
+                            <div class="prod-title">【將軍】黑豆茶15小包*1袋</div>
+                            <div class="prod-price">$280</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/00bd22c0-f9a9-4bfc-958a-685ae5e96b87">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆茶15小包3袋20170620150928.jpg">
+                            </a>
+                            <div class="prod-title">【將軍】黑豆茶15小包*3袋</div>
+                            <div class="prod-price">$795</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/e6fc1e00-ca36-4bf8-a041-922e9abb8f73">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆茶24小包20170620151438.jpg">
+                            </a>
+                            <div class="prod-title">【豆豆農】豆豆農黑豆茶24小包*1袋</div>
+                            <div class="prod-price">$360</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/8011378f-8b3c-4809-b797-ff70aa743f3a">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆茶24小包3袋20170620151916.jpg">
+                            </a>
+                            <div class="prod-title">【豆豆農】豆豆農黑豆茶24小包*3袋</div>
+                            <div class="prod-price">$1030</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                </div>
+
+        </div>
+    </div>
+    <div class="page-heading"><span class="page-heading-title">在家健康零嘴</span><a class="pull-right page-heading-more" href="/Product?tag=18">更多商品+</a></div>
+    <div class="row">
+        <div class="col-sm-3 hidden-xs ">
+            <a href="/Product?tag=18"><img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/在家健康零嘴20180726141715.png" /></a>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+                <div class="row prod-list">
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/48283a4b-852f-4210-91fa-55f441cecf5b">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/竹鹽燒腰果-6002017120411335120190626151138.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】竹鹽燒腰果190g</div>
+                            <div class="prod-price">$285</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/3668591f-7cf3-41da-b1e1-675436b5471a">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/竹鹽燒腰果3包-6002017110310142620190626151206.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】竹鹽燒腰果190g*3包</div>
+                            <div class="prod-price">$849</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/c69e0d1c-9db0-4fc0-815f-4af0ea3d93b1">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/生機果仁-6002017120411414120190626145621.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】生機果仁200g</div>
+                            <div class="prod-price">$195</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/8f378acd-e275-403a-accd-0c551fea7937">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/生機果仁3包-6002017110310230820190626145904.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】生機果仁200g*3包</div>
+                            <div class="prod-price">$579</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                </div>
+                <div class="row prod-list">
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/a727facf-266e-4604-aa89-77be9ceaae3b">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆芝麻糕-6002017120411462520190626152501.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】黑豆芝麻糕300g</div>
+                            <div class="prod-price">$145</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/87171e42-fff8-46ce-ba29-8f304c6434a8">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆芝麻糕3包-6002017110310390320190626152523.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】黑豆芝麻糕300g*3包</div>
+                            <div class="prod-price">$429</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/c311dc6d-2f09-47e5-a7cf-6268f825722e">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑芝麻糕-600201711031038202018071720190626152620.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】黑芝麻糕300g</div>
+                            <div class="prod-price">$145</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/a70ab653-b718-468f-9eec-99a7b33dad8e">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑芝麻糕3包-6002017110310382020190626152652.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】黑芝麻糕300g*3包</div>
+                            <div class="prod-price">$429</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                </div>
+
+        </div>
+    </div>
+    <div class="page-heading"><span class="page-heading-title">珍田生機果仁</span><a class="pull-right page-heading-more" href="/Product?tag=7">更多商品+</a></div>
+    <div class="row">
+        <div class="col-sm-3 hidden-xs ">
+            <a href="/Product?tag=7"><img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/珍田_270x54020171103144539.jpg" /></a>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+                <div class="row prod-list">
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/2652fbb9-56db-4105-b355-e62f3f5760ee">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/有機大燕麥片3包-6002017110313250220190627210938.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】有機粗燕麥片550g*3包</div>
+                            <div class="prod-price">$415</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/48283a4b-852f-4210-91fa-55f441cecf5b">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/竹鹽燒腰果-6002017120411335120190626151138.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】竹鹽燒腰果190g</div>
+                            <div class="prod-price">$285</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/3668591f-7cf3-41da-b1e1-675436b5471a">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/竹鹽燒腰果3包-6002017110310142620190626151206.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】竹鹽燒腰果190g*3包</div>
+                            <div class="prod-price">$849</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/c69e0d1c-9db0-4fc0-815f-4af0ea3d93b1">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/生機果仁-6002017120411414120190626145621.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】生機果仁200g</div>
+                            <div class="prod-price">$195</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                </div>
+                <div class="row prod-list">
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/8f378acd-e275-403a-accd-0c551fea7937">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/生機果仁3包-6002017110310230820190626145904.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】生機果仁200g*3包</div>
+                            <div class="prod-price">$579</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/a727facf-266e-4604-aa89-77be9ceaae3b">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆芝麻糕-6002017120411462520190626152501.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】黑豆芝麻糕300g</div>
+                            <div class="prod-price">$145</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/87171e42-fff8-46ce-ba29-8f304c6434a8">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑豆芝麻糕3包-6002017110310390320190626152523.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】黑豆芝麻糕300g*3包</div>
+                            <div class="prod-price">$429</div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+
+                            <a href="/Product/ProductDetail/c311dc6d-2f09-47e5-a7cf-6268f825722e">
+                                <img class="prod-img img-responsive" src="https://admin.i7fresh.tw/Content/Uploads/Images/黑芝麻糕-600201711031038202018071720190626152620.jpg">
+                            </a>
+                            <div class="prod-title">【珍田】黑芝麻糕300g</div>
+                            <div class="prod-price">$145</div>
+                        </div>
+                            <div class="row-fix hidden-sm hidden-md hidden-lg"></div>
+                </div>
+
+        </div>
+    </div>
+
+
+    </div>
+</div>
+
+-->
+
+    <!-- layout尾部 -->
+    <footer>
+      <div class="container">
+        <div style="text-align: center; vertical-align: middle">
+          <p>
+            客服專線：02-2254-5329 AM 09:00-12:00、PM 1:00~6:00 (週一至週五)
+          </p>
+          <p>
+            Copyright © 2017 正新鮮，All rights reserved. -
+            <a href="https://www.januarytc.com/" target="_blank">正月科技</a
+            >建置與維護
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- layout尾部結束 -->
+
+    <script src="/Scripts/navbar.js"></script>
+
+    <!-- 彈出視窗使用sweetalert 參考網址 http://mishengqiang.com/sweetalert/ -->
+    <script src="/Scripts/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+      $(function () {
+        $("#Gotop").click(function () {
+          jQuery("html,body").animate(
+            {
+              scrollTop: 0,
+            },
+            1000
+          );
+        });
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 300) {
+            $("#Gotop").fadeIn("fast");
+          } else {
+            $("#Gotop").stop().fadeOut("fast");
+          }
+        });
+      });
+
+      $(document).ajaxStart(function () {
+        $("#loadingDiv").css("display", "block");
+      });
+      $(document).ajaxComplete(function () {
+        $("#loadingDiv").css("display", "none");
+      });
+    </script>
+
+    <script type="text/javascript">
+      //加入編號為productId的商品進購物車
+
+      function GetCart() {
+        $.ajax({
+          type: "POST",
+          url: "/Cart/_GetCart",
+          data: {},
+        }).done(function (msg) {
+          //將回傳的購物車頁面 填入 li#Cart
+          $("li#Cart").html(msg);
+        });
+
+        $.ajax({
+          type: "POST",
+          url: "/Cart/_GetMobCart",
+          data: {},
+        }).done(function (msg) {
+          //將回傳的購物車頁面 填入 li#Cart
+          $("a#mobcart").html(msg);
+        });
+      }
+      function GetCartImg() {
+        $.ajax({
+          type: "POST",
+          url: "/Cart/_GetCartImg",
+          data: {},
+        }).done(function (msg) {
+          //將回傳的購物車頁面 填入 li#Cart
+          $("div#CartImg").html(msg);
+        });
+      }
+
+      function GetProduct(page, type, name, stock, tag, order) {
+        $.ajax({
+          type: "POST",
+          url: "/Product/_Product",
+          data: {
+            page: page,
+            type: type,
+            name: name,
+            stock: stock,
+            tag: tag,
+            order: order,
+          },
+        }).done(function (msg) {
+          $("div#product").html(msg);
+          $("#SelectOrder option[value=" + order + "]").attr("selected", true);
+          clamp_product_title();
+        });
+      }
+    </script>
+
+    <script src="/bundles/jqueryval?v=hEGG8cMxk9p0ncdRUOJ-CnKN7NezhnPnWIvn6REucZo1"></script>
+
+    <script src="/Scripts/moment-with-langs.min.js"></script>
+
+    <script src="/Scripts/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- /只在首頁引用 -->
+    <script src="/Scripts/slick.min.js"></script>
+    <!-- 首頁輪播banner js，只在首頁引用 -->
+    <script>
+      $(".banner").slick({
+        autoplay: true,
+        autoplaySpeed: 4000,
+        arrows: false,
+        centerMode: true,
+        dots: true,
+        infinite: true,
+        centerPadding: "0px",
+        variableWidth: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 770,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: "0px",
+              variableWidth: false,
+              slidesToShow: 1,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: "0px",
+              variableWidth: false,
+              slidesToShow: 1,
+            },
+          },
+        ],
+      });
+    </script>
+    <script>
+      //登入errror處理
+      $(function myfunction() {
+        var Loginerror = "";
+        if (Loginerror == "請先登入") {
+          alert(Loginerror);
+          window.location.href = "/";
+        }
+      });
+
+      $(".carousel").carousel({
+        interval: 5000,
+      });
+    </script>
+    <script>
+      //設定倒數計時
+      $(document).ready(function () {
+        setInterval(function () {
+          countdown();
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
