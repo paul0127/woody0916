@@ -10,9 +10,9 @@
       rel="stylesheet"
       href="./dist/owlcarousel/assets/owl.carousel.min.css"
     />
-    <link rel="stylesheet" href="./dist/splide/css/splide.min.css" />
   </head>
   <body>
+    <div class="mobile_menu_close"></div>
     <div class="go_top"></div>
     <header>
       <div class="container">
@@ -25,27 +25,37 @@
           <div class="mobile_menu">
             <div class="main">
               <ul>
-                <li class="sub"><a href="#">關於我們</a>
+                <li class="sub">
+                  <a href="#">關於我們</a>
                   <ul>
-                    <li><a href="">品牌介紹</a></li>
-                    <li><a href="">工藝師專區</a></li>
-                    <li><a href="">企業服務</a></li>
+                    <li><a href="#">品牌介紹</a></li>
+                    <li><a href="#">工藝師專區</a></li>
+                    <li><a href="#">企業服務</a></li>
                   </ul>
                 </li>
-                <li><a href="">最新消息</a></li>
-                <li><a href="">商品介紹</a></li>
-                <li><a href="">據點</a></li>
+                <li><a href="#">最新消息</a></li>
+                <li><a href="#">商品介紹</a></li>
+                <li><a href="#">據點</a></li>
               </ul>
             </div>
             <div class="bottom">
               <ul>
-                <li><img src="./img/icon-sign-in.svg" /></li>
-                <li><img src="./img/user.svg" /></li>
-                <li><img src="./img/icon-cart.svg" /></li>
+                <li>
+                  <a href="#"><img src="./img/icon-sign-in.svg" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./img/user.svg" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./img/icon-cart.svg" /></a>
+                </li>
               </ul>
             </div>
           </div>
-          <div class="logo"><img src="./img/img-logoWhite-header.png" /></div>
+          
+          <div class="logo">
+            <a href="#"><img src="./img/img-logoWhite-header.png" /></a>
+          </div>
           <nav>
             <ul>
               <li class="sub">
@@ -75,7 +85,7 @@
                 <a href="#"><img src="./img/icon-cart.svg" /></a>
               </li>
               <li class="search">
-                <img src="./img/icon-search.png" />
+                <img class="search_btn" src="./img/icon-search.png" />
                 <div class="search_bar">
                   <div class="container">
                     <form class="search_inner" action="/search" method="get">
@@ -95,26 +105,22 @@
       </div>
     </header>
 
-    <section class="silder_block">
-      <div class="banner">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide">
-              <img src="./img/img-forKvSection.png" />
-            </li>
-            <li class="splide__slide">
-              <img src="./img/img-forKvSection.png" />
-            </li>
-            <li class="splide__slide">
-              <img src="./img/img-forKvSection.png" />
-            </li>
-            <li class="splide__slide">
-              <img src="./img/img-forKvSection.png" />
-            </li>
-            <li class="splide__slide">
-              <img src="./img/img-forKvSection.png" />
-            </li>
-          </ul>
+    <section class="slider_block">
+      <div class="banner_slider owl-carousel owl-theme">
+        <div class="item">
+          <img src="./img/img-forKvSection.png" />
+        </div>
+        <div class="item">
+          <img src="./img/img-forKvSection.png" />
+        </div>
+        <div class="item">
+          <img src="./img/img-forKvSection.png" />
+        </div>
+        <div class="item">
+          <img src="./img/img-forKvSection.png" />
+        </div>
+        <div class="item">
+          <img src="./img/img-forKvSection.png" />
         </div>
       </div>
       <div class="go_to"></div>
@@ -301,7 +307,7 @@
       <div class="container">
         <div class="footer_content">
           <div class="footer_logo">
-            <img src="./img/img-logoWhite-footer.png" />
+            <a href="#"><img src="./img/img-logoWhite-footer.png" /></a>
           </div>
           <div class="footer_link">
             <ul>
@@ -339,28 +345,32 @@
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
-    <script src="./dist/splide/js/splide.min.js"></script>
     <script
       type="text/javascript"
       src="./dist/owlcarousel/owl.carousel.min.js"
     ></script>
     <script src="./main.js"></script>
     <script>
-      new Splide(".banner", {
-        type: "loop",
-        direction: "ttb",
-        heightRatio: 0.53,
-        arrows: false,
-        autoplay: true,
-        interval: 4000,
-        speed: 800,
-        drag: false,
-        keyboard: false,
-      }).mount();
+      $(".banner_slider").owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: false,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 1,
+          },
+          1000: {
+            items: 1,
+          },
+        },
+      });
 
       $(".news_slider").owlCarousel({
         loop: true,
-        margin: 10,
+        margin: 0,
         nav: true,
         responsive: {
           0: {

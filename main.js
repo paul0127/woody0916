@@ -1,11 +1,11 @@
-$('.search').click(function () {
+$('.search_btn').click(function () {
   $('.search_bar').toggleClass('active');
 });
 
 $(window).scroll(function() {
     let win_h = $(document).scrollTop();
-    let header_h = $('.silder_block').offset().top;
-    let overhead_h = $('.silder_block').height();
+    let header_h = $('.slider_block').offset().top;
+    let overhead_h = $('.slider_block').height();
 
     if(win_h > (header_h + overhead_h - 5)){
         $('.go_top').addClass('active')
@@ -26,4 +26,10 @@ $('.go_to').click(function () {
 $('.mobile_nav').click(function () {
   $('.mobile_nav').toggleClass('active');
   $('.mobile_menu').toggleClass('active')
+  $('.mobile_menu_close').toggleClass('active')
 });
+$('.mobile_menu_close').click(function(){
+  $('.mobile_nav').toggleClass('active');
+  $('.mobile_menu').toggleClass('active')
+  $('.mobile_menu_close').toggleClass('active')
+})
