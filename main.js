@@ -1,3 +1,9 @@
+$(document).ready(function() {
+  let close = document.createElement('div')
+  close.className ='mobile_menu_close'
+  document.body.prepend(close)
+})
+
 $('.search_btn').click(function () {
   $('.search_bar').toggleClass('active');
 });
@@ -28,7 +34,8 @@ $('.mobile_nav').click(function () {
   $('.mobile_menu').toggleClass('active')
   $('.mobile_menu_close').toggleClass('active')
 });
-$('.mobile_menu_close').click(function(){
+
+$(document).on('click','.mobile_menu_close',function(){
   $('.mobile_nav').toggleClass('active');
   $('.mobile_menu').toggleClass('active')
   $('.mobile_menu_close').toggleClass('active')
