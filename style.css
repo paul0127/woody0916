@@ -419,9 +419,11 @@ header {
   margin: 0 8px;
 }
 @media (max-width: 992px) {
+  .news_title {border-bottom: none};
   .news_title h1 {
     font-size: 1.25rem;
   }
+  .news_title::after {width: 180px;left: calc(50% - 90px);padding-bottom: 0;}
 }
 
 .news_block .more {
@@ -575,7 +577,9 @@ header {
   }
   .title_index::after {
     left: 0;
+    padding-bottom: 0;
   }
+  
 }
 
 .products_block {
