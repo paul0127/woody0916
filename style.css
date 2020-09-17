@@ -156,9 +156,10 @@ header {
   z-index: 2;
 }
 .silder_block .go_to::after {
-  content: "";
+  content: url(./img/Group\ 25.png);
   color: #fff;
   display: block;
+  margin-top: 8px;
 }
 
 /*首頁共用大標題*/
