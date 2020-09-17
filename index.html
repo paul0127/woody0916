@@ -10,6 +10,10 @@
       rel="stylesheet"
       href="./dist/owlcarousel/assets/owl.carousel.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"
+    />
   </head>
   <body>
     <div class="go_top"></div>
@@ -51,7 +55,7 @@
               </ul>
             </div>
           </div>
-          
+
           <div class="logo">
             <a href="#"><img src="./img/img-logoWhite-header.png" /></a>
           </div>
@@ -252,47 +256,41 @@
         </div>
         <div class="list row">
           <div class="col-md-4">
-            <div class="item">
-              <div class="video">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/hwbRDq5oe3Y"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
+            <div
+              class="item"
+              data-fancybox="video"
+              href="https://www.youtube.com/watch?v=hwbRDq5oe3Y"
+            >
+              <div
+                class="img"
+                style="background-image: url(./img/video-1.png)"
+              ></div>
               <div class="title">木椅製作</div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item">
-              <div class="video">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/Sgo3JlTSIzw"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
+            <div
+              class="item"
+              data-fancybox="video"
+              href="https://www.youtube.com/watch?v=Sgo3JlTSIzw"
+            >
+              <div
+                class="img"
+                style="background-image: url(./img/video-2.png)"
+              ></div>
               <div class="title">展示櫃製作</div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item">
-              <div class="video">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/ctUgqPM1mY0"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
+            <div
+              class="item"
+              data-fancybox="video"
+              href="https://www.youtube.com/watch?v=ctUgqPM1mY0"
+            >
+              <div
+                class="img"
+                style="background-image: url(./img/video-3.png)"
+              ></div>
               <div class="title">木桌製作</div>
             </div>
           </div>
@@ -300,7 +298,11 @@
       </div>
     </section>
 
-    <section class="artisan_block"></section>
+    <section class="artisan_block">
+      <a href="#">
+        <div class="img"></div>
+      </a>
+    </section>
 
     <footer>
       <div class="container">
@@ -348,6 +350,7 @@
       type="text/javascript"
       src="./dist/owlcarousel/owl.carousel.min.js"
     ></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <script src="./main.js"></script>
     <script>
       $(".banner_slider").owlCarousel({
