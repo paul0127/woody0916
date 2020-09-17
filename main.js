@@ -22,3 +22,8 @@ $('.go_to').click(function () {
   let t = $('#news').offset();
   $('html,body').animate({ scrollTop: t.top }, 900);
 });
+
+$('.mobile_nav').click(function () {
+  $('.mobile_nav').toggleClass('active');
+  $('.mobile_menu').toggleClass('active')
+});

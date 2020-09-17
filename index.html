@@ -17,6 +17,34 @@
     <header>
       <div class="container">
         <div class="top_main">
+          <div class="mobile_nav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="mobile_menu">
+            <div class="main">
+              <ul>
+                <li class="sub"><a href="#">關於我們</a>
+                  <ul>
+                    <li><a href="">品牌介紹</a></li>
+                    <li><a href="">工藝師專區</a></li>
+                    <li><a href="">企業服務</a></li>
+                  </ul>
+                </li>
+                <li><a href="">最新消息</a></li>
+                <li><a href="">商品介紹</a></li>
+                <li><a href="">據點</a></li>
+              </ul>
+            </div>
+            <div class="bottom">
+              <ul>
+                <li><img src="./img/icon-sign-in.svg" /></li>
+                <li><img src="./img/user.svg" /></li>
+                <li><img src="./img/icon-cart.svg" /></li>
+              </ul>
+            </div>
+          </div>
           <div class="logo"><img src="./img/img-logoWhite-header.png" /></div>
           <nav>
             <ul>
@@ -94,7 +122,7 @@
 
     <section class="news_block" id="news">
       <div class="container">
-        <div class="title_index">
+        <div class="news_title">
           <h1>最新消息<span>|</span>News</h1>
         </div>
         <div class="news_slider owl-carousel owl-theme">
@@ -122,7 +150,7 @@
           <div class="more"><a href="#">更多商品 +</a></div>
         </div>
         <div class="list row">
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6 col-xs-6">
             <a class="item" href="#">
               <div
                 class="img"
@@ -132,7 +160,7 @@
               <div class="price"><span>$</span>3999</div>
             </a>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6 col-xs-6">
             <a class="item" href="#">
               <div
                 class="img"
@@ -142,7 +170,7 @@
               <div class="price"><span>$</span>3999</div>
             </a>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6 col-xs-6">
             <a class="item" href="#">
               <div
                 class="img"
@@ -152,7 +180,7 @@
               <div class="price"><span>$</span>3999</div>
             </a>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6 col-xs-6">
             <a class="item" href="#">
               <div
                 class="img"
@@ -162,7 +190,7 @@
               <div class="price"><span>$</span>3999</div>
             </a>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6 col-xs-6">
             <a class="item" href="#">
               <div
                 class="img"
@@ -174,7 +202,7 @@
               <div class="price"><span>$</span>3999</div>
             </a>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6 col-xs-6">
             <a class="item" href="#">
               <div
                 class="img"
@@ -186,7 +214,7 @@
               <div class="price"><span>$</span>3999</div>
             </a>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6 col-xs-6">
             <a class="item" href="#">
               <div
                 class="img"
@@ -198,7 +226,7 @@
               <div class="price"><span>$</span>3999</div>
             </a>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6 col-xs-6">
             <a class="item" href="#">
               <div
                 class="img"
@@ -318,9 +346,9 @@
     ></script>
     <script src="./main.js"></script>
     <script>
-      new Splide('.banner', {
-        type: 'loop',
-        direction: 'ttb',
+      new Splide(".banner", {
+        type: "loop",
+        direction: "ttb",
         heightRatio: 0.54,
         arrows: false,
         autoplay: true,
@@ -330,7 +358,7 @@
         keyboard: false,
       }).mount();
 
-      $('.news_slider').owlCarousel({
+      $(".news_slider").owlCarousel({
         loop: true,
         margin: 10,
         nav: true,
@@ -346,7 +374,6 @@
           },
         },
       });
-
     </script>
   </body>
 </html>
