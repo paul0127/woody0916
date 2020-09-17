@@ -546,6 +546,10 @@ header {
   color: #dddddd;
   outline: none;
 }
+.news_slider.owl-carousel .owl-nav button.owl-prev:hover,
+.news_slider.owl-carousel .owl-nav button.owl-next:hover {
+  opacity: .8;
+}
 .news_slider.owl-carousel .owl-nav button.owl-prev span,
 .news_slider.owl-carousel .owl-nav button.owl-next span {
   margin-bottom: 10px;
@@ -676,6 +680,7 @@ header {
   margin-bottom: 2.5rem;
   cursor: pointer;
 }
+.video_block .list .item:hover {opacity: .8;}
 .video_block .list .item .title {
   color: #333333;
   font-size: 1.15rem;
@@ -702,6 +707,7 @@ header {
   }
 }
 
+.artisan_block:hover{opacity: .9;}
 .artisan_block .img {
   width: 100%;
   height: 0;
