@@ -1,9 +1,11 @@
+/*產生選單、搜尋開啟遮幕*/
 $(document).ready(function() {
   let close = document.createElement('div')
   close.className ='mobile_menu_close'
   document.body.prepend(close)
 })
 
+/*偵測向上滑動按鈕 超過輪播區塊 才會出現*/
 $(window).scroll(function() {
     let win_h = $(document).scrollTop();
     let header_h = $('.slider_block').offset().top;
@@ -16,15 +18,18 @@ $(window).scroll(function() {
     }
 })
 
+/*卷軸置頂*/
 $('.go_top').click(function () {
   $('html,body').animate({ scrollTop: 0 }, 900);
 });
 
+/*卷軸置最新消息*/
 $('.go_to').click(function () {
   let t = $('#news').offset();
   $('html,body').animate({ scrollTop: t.top }, 900);
 });
 
+/*手機選單開啟關閉*/
 $('.mobile_nav').click(function () {
   $('.mobile_nav').toggleClass('active');
   $('.mobile_menu').toggleClass('active')
@@ -36,6 +41,12 @@ $('.mobile_nav').click(function () {
   }
 });
 
+/*手機子選單開啟關閉*/
+$('li.m_sub').click(function () {
+  $(this).toggleClass('active')
+})
+
+/*搜尋bar開啟關閉*/
 $('.search_btn').click(function () {
   $('.search_bar').toggleClass('active');
 
@@ -47,6 +58,7 @@ $('.search_btn').click(function () {
   
 });
 
+/*點擊遮幕關閉選單及搜尋*/
 $(document).on('click','.mobile_menu_close',function(){
   $('.mobile_nav').removeClass('active');
   $('.mobile_menu').removeClass('active')
@@ -54,6 +66,4 @@ $(document).on('click','.mobile_menu_close',function(){
   $('.search_bar').removeClass('active');
 })
 
-$('li.m_sub').click(function () {
-  $(this).toggleClass('active')
-})
+
