@@ -13,7 +13,7 @@ $(window).scroll(function () {
         header_h = $('.slider_block').offset().top
         overhead_h = $('.slider_block').height()
     } else {
-        header_h = 400
+        header_h = 300
         overhead_h = 0
     }
     
