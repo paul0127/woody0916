@@ -927,7 +927,7 @@ footer .copyright {
   .artisan_item .img{display: none;}
   .artisan_item.left .text .main{display: flex;align-items: flex-end;flex-direction: row;}
   .artisan_item.right .text .main{display: flex;align-items: flex-end;flex-direction: row-reverse;}
-  .artisan_item .text .main .m_img{display: block;}
+  .artisan_item .text .main .m_img{display: block;width:163px;}
   .artisan_item .text .main .name{font-size: 1.75rem;}
   .artisan_item .text .main .name::after{margin:.75rem 0 0 0;}
   .artisan_item.left .text .main .name::after{margin-right: auto;}
