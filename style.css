@@ -965,7 +965,7 @@ a.news_item:hover .news_btn .circle{transform: scale(1);}
   a.news_item .image{margin: 0 !important;flex:0 0 120px;order: 1;}
   a.news_item .text{margin: 0 !important;flex-basis: 100%;order: 3;margin-top: .9rem !important;}
   a.news_item .text .time{font-size: .75rem;margin-bottom:0;}
-  a.news_item .text .title{font-size: 1.25rem;margin-bottom:0;}
+  a.news_item .text .title{font-size: 1.25rem;margin-bottom:5px;}
   a.news_item .news_btn{flex-basis: 50%;order: 2;}
   a.news_item .news_btn .arrow{margin-right:25px}
   a.news_item .news_btn .circle{right: 5px;}
