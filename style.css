@@ -439,7 +439,8 @@ header {
   width: 239px;
   position: absolute;
   bottom: -1.5px;
-  left: calc(50% - 119.5px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 .news_title h1 {
   display: inline-block;
@@ -461,7 +462,6 @@ header {
   }
   .news_title::after {
     width: 180px;
-    left: calc(50% - 90px);
   }
 }
 
@@ -592,7 +592,8 @@ header {
   width: 239px;
   position: absolute;
   bottom: -1.5px;
-  left: calc(50% - 119.5px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 .title_index h1 {
   display: inline-block;
@@ -625,6 +626,7 @@ header {
   }
   .title_index::after {
     left: 0;
+    transform: translateX(0);
   }
 }
 
