@@ -891,23 +891,42 @@ footer .copyright {
 .b_title{color: #333333;font-size: 2rem;font-weight: 500;border-bottom: 1px solid #DDDDDD;display: flex;justify-content: center;align-items: center;position: relative;line-height: 2;margin-bottom: 3rem;}
 .b_title span{margin: 0 5px;font-weight: 300;}
 .b_title::after{content: '';border-bottom: 3px solid #B28146;display: block;position: absolute;width: 282px;bottom:-1.5px;left: 50%;transform: translateX(-50%);}
+@media (max-width: 992px) {
+  .b_title{margin-bottom: 0;}
+}
 
 .artisan_item{display: flex;width:664px;margin: 6rem auto;}
 .artisan_item .img{margin-right: 2rem;}
 .artisan_item .text{margin-top: .75rem;color: #333333;}
-.artisan_item .text .name{font-size: 2rem;font-weight: 900;color: #777777;line-height: 1.1;}
-.artisan_item .text .name::after{content: '';border-bottom: 2px solid #707070;width:35px;display: block;margin: 1.25rem 0 5rem;}
-.artisan_item .text .desc{font-size: 1rem;text-align: justify;margin-bottom: 1.5rem;}
+.artisan_item .text .main .m_img{display: none;}
+.artisan_item .text .main .name{font-size: 2rem;font-weight: 900;color: #777777;line-height: 1.1;}
+.artisan_item .text .main .name::after{content: '';border-bottom: 2px solid #707070;width:35px;display: block;margin: 1.25rem 0 5rem;}
+.artisan_item .text .desc{font-size: 1rem;text-align: justify;margin-bottom: 1.5rem;line-height: 1.5;}
 .artisan_item .text .work label{display: block;font-weight: 900;font-size: 1.1rem;}
-.artisan_item .text .work p{display: block;font-size: 1rem;text-align: justify;}
+.artisan_item .text .work p{display: block;font-size: 1rem;text-align: justify;line-height: 1.5;}
 
 .artisan_item.left{flex-direction: row;}
 .artisan_item.left .img{margin-right: 2rem;}
+.artisan_item.left .main .m_img{margin-right: 1.5rem;}
 
 .artisan_item.right{flex-direction: row-reverse;}
 .artisan_item.right .img{margin-left: 2rem;}
+.artisan_item.right .main .m_img{margin-left: 1.5rem;}
 
 .middle_img img{width: 100%;}
 .bottom_img{text-align: right;}
 .bottom_img img{width:1057px;max-width: 100%;}
 
+@media (max-width: 992px) {
+  .artisan_item{width: 100%;max-width: 750px;padding: 0 15px;margin: 2rem auto;}
+  .artisan_item .img{display: none;}
+  .artisan_item.left .text .main{display: flex;align-items: flex-end;flex-direction: row;}
+  .artisan_item.right .text .main{display: flex;align-items: flex-end;flex-direction: row-reverse;}
+  .artisan_item .text .main .m_img{display: block;}
+  .artisan_item .text .main .name::after{margin:1rem 0 0 0;}
+  .artisan_item.left .text .main .name::after{margin-right: auto;}
+  .artisan_item.right .text .main .name::after{margin-left: auto;}
+  .artisan_item .text .main .name br{display: none;}
+  .artisan_item .text .desc{margin-top: 1rem;}
+  
+}
