@@ -875,3 +875,39 @@ footer .copyright {
         margin-top: 2.25rem;
     }
 }
+
+/*內頁共用框*/
+.contain{padding: 3rem 0;}
+
+/*共用麵包屑*/
+.bread ul{list-style: none;padding-left: 0;display: flex;align-items: center;}
+.bread ul li{font-size: 1.1rem;color: #999999;}
+.bread ul li a{color:#7B94E8;text-decoration: none;}
+.bread ul li a:hover{opacity: .8;}
+.bread ul li::after{content:'/';margin: 0 5px;color: #DDDDDD;}
+.bread ul li:last-child::after{display: none;}
+
+/*共用大標題*/
+.b_title{color: #333333;font-size: 2rem;font-weight: 500;border-bottom: 1px solid #DDDDDD;display: flex;justify-content: center;align-items: center;position: relative;line-height: 2;margin-bottom: 3rem;}
+.b_title span{margin: 0 5px;font-weight: 300;}
+.b_title::after{content: '';border-bottom: 3px solid #B28146;display: block;position: absolute;width: 282px;bottom:-1.5px;left: 50%;transform: translateX(-50%);}
+
+.artisan_item{display: flex;width:664px;margin: 6rem auto;}
+.artisan_item .img{margin-right: 2rem;}
+.artisan_item .text{margin-top: .75rem;color: #333333;}
+.artisan_item .text .name{font-size: 2rem;font-weight: 900;color: #777777;line-height: 1.1;}
+.artisan_item .text .name::after{content: '';border-bottom: 2px solid #707070;width:35px;display: block;margin: 1.25rem 0 5rem;}
+.artisan_item .text .desc{font-size: 1rem;text-align: justify;margin-bottom: 1.5rem;}
+.artisan_item .text .work label{display: block;font-weight: 900;font-size: 1.1rem;}
+.artisan_item .text .work p{display: block;font-size: 1rem;text-align: justify;}
+
+.artisan_item.left{flex-direction: row;}
+.artisan_item.left .img{margin-right: 2rem;}
+
+.artisan_item.right{flex-direction: row-reverse;}
+.artisan_item.right .img{margin-left: 2rem;}
+
+.middle_img img{width: 100%;}
+.bottom_img{text-align: right;}
+.bottom_img img{width:1057px;max-width: 100%;}
+

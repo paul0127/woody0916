@@ -1,406 +1,401 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>青木工坊</title>
-    <link rel="stylesheet" href="./Content/bootstrap.min.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link
-      rel="stylesheet"
-      href="./dist/owlcarousel/assets/owl.carousel.min.css"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
-  </head>
-  <body>
-    <!--向上滑動按鈕-->
-    <div class="go_top"></div>
-    <!--頁首-->
-    <header>
-      <div class="container">
-        <div class="top_main">
-          <!--手機選單開關-->
-          <div class="mobile_nav">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <!--手機選單-->
-          <div class="mobile_menu">
-            <div class="main">
-              <ul>
-                <li class="m_sub">
-                  <a href="#">關於我們</a>
-                  <div class="sub_menu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>青木工坊</title>
+        <link rel="stylesheet" href="./Content/bootstrap.min.css" />
+        <link rel="stylesheet" href="./style.css" />
+        <link
+            rel="stylesheet"
+            href="./dist/owlcarousel/assets/owl.carousel.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"
+        />
+    </head>
+    <body>
+        <!--向上滑動按鈕-->
+        <div class="go_top"></div>
+        <!--頁首-->
+        <header>
+            <div class="container">
+                <div class="top_main">
+                    <!--手機選單開關-->
+                    <div class="mobile_nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <!--手機選單-->
+                    <div class="mobile_menu">
+                        <div class="main">
+                            <ul>
+                                <li class="m_sub">
+                                    <a href="#">關於我們</a>
+                                    <div class="sub_menu">
+                                        <ul>
+                                            <li><a href="#">品牌介紹</a></li>
+                                            <li><a href="#">工藝師專區</a></li>
+                                            <li><a href="#">企業服務</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="#">最新消息</a></li>
+                                <li><a href="#">商品介紹</a></li>
+                                <li><a href="#">據點</a></li>
+                            </ul>
+                        </div>
+                        <div class="bottom">
+                            <ul>
+                                <li>
+                                    <a href="#"
+                                        ><img src="./img/icon-sign-in.svg"
+                                    /></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="./img/user.svg" /></a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        ><img src="./img/icon-cart.svg"
+                                    /></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--logo-->
+                    <div class="logo">
+                        <a href="#"
+                            ><img src="./img/img-logoWhite-header.png"
+                        /></a>
+                    </div>
+                    <!--PC選單-->
+                    <nav>
+                        <ul>
+                            <li class="sub">
+                                <a href="#">關於我們</a>
+                                <div class="sub_menu">
+                                    <ul>
+                                        <li><a href="#">品牌介紹</a></li>
+                                        <li><a href="#">工藝師專區</a></li>
+                                        <li><a href="#">企業服務</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="#">最新消息</a></li>
+                            <li><a href="#">商品介紹</a></li>
+                            <li><a href="#">據點</a></li>
+                        </ul>
+                    </nav>
+                    <!--會員登入 搜尋icon-->
+                    <div class="toolbar">
+                        <ul>
+                            <li>
+                                <a href="#"
+                                    ><img src="./img/icon-sign-in.svg"
+                                /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="./img/user.svg" /></a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    ><img src="./img/icon-cart.svg"
+                                /></a>
+                            </li>
+                            <li class="search">
+                                <img
+                                    class="search_btn"
+                                    src="./img/icon-search.png"
+                                />
+                                <!--彈出搜尋bar-->
+                                <div class="search_bar">
+                                    <div class="container">
+                                        <form
+                                            class="search_inner"
+                                            action="/search"
+                                            method="get"
+                                        >
+                                            <input
+                                                type="text"
+                                                name="search"
+                                                placeholder="請輸入關鍵字"
+                                            />
+                                            <button>搜尋</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="contain">
+            <div class="container">
+                <div class="bread">
                     <ul>
-                      <li><a href="#">品牌介紹</a></li>
-                      <li><a href="#">工藝師專區</a></li>
-                      <li><a href="#">企業服務</a></li>
+                        <li><a href="#">首頁</a></li>
+                        <li>工藝師介紹</li>
                     </ul>
-                  </div>
-                </li>
-                <li><a href="#">最新消息</a></li>
-                <li><a href="#">商品介紹</a></li>
-                <li><a href="#">據點</a></li>
-              </ul>
-            </div>
-            <div class="bottom">
-              <ul>
-                <li>
-                  <a href="#"><img src="./img/icon-sign-in.svg" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="./img/user.svg" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="./img/icon-cart.svg" /></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!--logo-->
-          <div class="logo">
-            <a href="#"><img src="./img/img-logoWhite-header.png" /></a>
-          </div>
-          <!--PC選單-->
-          <nav>
-            <ul>
-              <li class="sub">
-                <a href="#">關於我們</a>
-                <div class="sub_menu">
-                  <ul>
-                    <li><a href="#">品牌介紹</a></li>
-                    <li><a href="#">工藝師專區</a></li>
-                    <li><a href="#">企業服務</a></li>
-                  </ul>
                 </div>
-              </li>
-              <li><a href="#">最新消息</a></li>
-              <li><a href="#">商品介紹</a></li>
-              <li><a href="#">據點</a></li>
-            </ul>
-          </nav>
-          <!--會員登入 搜尋icon-->
-          <div class="toolbar">
-            <ul>
-              <li>
-                <a href="#"><img src="./img/icon-sign-in.svg" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="./img/user.svg" /></a>
-              </li>
-              <li>
-                <a href="#"><img src="./img/icon-cart.svg" /></a>
-              </li>
-              <li class="search">
-                <img class="search_btn" src="./img/icon-search.png" />
-                <!--彈出搜尋bar-->
-                <div class="search_bar">
-                  <div class="container">
-                    <form class="search_inner" action="/search" method="get">
-                      <input type="text" name="search" placeholder="請輸入關鍵字"/>
-                      <button>搜尋</button>
-                    </form>
-                  </div>
+                <div class="b_title">工藝師介紹<span>|</span>Artisan</div>
+                <div class="artisan_item left">
+                    <div class="img">
+                        <img src="./img/artisan/張水連.png" />
+                    </div>
+                    <div class="text">
+                        <div class="name">張<br />水連</div>
+                        <div class="desc">
+                            來自於宜蘭在地的老匠師-張水連先生先生,又名為阿港
+                            師,從小就開始學習木工作為一技之長,雖然辛苦,但
+                            阿港師從沒放棄過,目前阿港師已在慶齢木業服務相當
+                            多年,長期製作許多大木構相關的裝置藝術、與榫卯相
+                            關之產品等,透過阿港師的技法,完整的將傳統木工藝
+                            融入到生活當中。阿港師不只自身技術相當純熟,也期
+                            盼將自身技術傳承下去,因此也多次協助許多年輕匠師
+                            進行技術指導與打樣製作,將木工藝精神傳遞下去。
+                        </div>
+                        <div class="work">
+                            <label>作品</label>
+                            <p>
+                                國立傳統藝術中心宜蘭園區-大木構裝置藝術-祭。<br>
+                                青木工坊傳藝館·大木構裝置藝術-柚木穹頂。<br>
+                                台灣家具産業協會-大木構裝置藝術-請坐。<br>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!--輪播區塊-->
-    <section class="slider_block">
-      <div class="banner_slider owl-carousel owl-theme">
-        <div class="item">
-          <a href="#"><img src="./img/img-forKvSection.png" /></a>
-        </div>
-        <div class="item">
-          <a href="#"><img src="./img/img-forKvSection.png" /></a>
-        </div>
-        <div class="item">
-          <a href="#"><img src="./img/img-forKvSection.png" /></a>
-        </div>
-        <div class="item">
-          <a href="#"><img src="./img/img-forKvSection.png" /></a>
-        </div>
-        <div class="item">
-          <a href="#"><img src="./img/img-forKvSection.png" /></a>
-        </div>
-      </div>
-      <div class="go_to"></div>
-    </section>
-
-    <!--最新消息區塊-->
-    <section class="news_block" id="news">
-      <div class="container">
-        <!--大標題-->
-        <div class="news_title">
-          <h1>最新消息<span>|</span>News</h1>
-        </div>
-        <!--最新消息輪播-->
-        <div class="news_slider owl-carousel owl-theme">
-          <div class="item">
-            <h2>青木工房最新課程-2020,11-12月</h2>
-            <p>適合進階創作者的木作課程,產品設計&手工木作一次完成。</p>
-            <div class="place">台北/台中</div>
-            <div class="btn"><a href="#">READ MORE</a></div>
-          </div>
-          <div class="item">
-            <h2>青木工房最新課程-2020,11-12月</h2>
-            <p>適合進階創作者的木作課程,產品設計&手工木作一次完成。</p>
-            <div class="place">台北/台中</div>
-            <div class="btn"><a href="#">READ MORE</a></div>
-          </div>
-        </div>
-        <div class="more"><a href="#">更多消息 +</a></div>
-      </div>
-    </section>
-
-    <!--產品區塊-->
-    <section class="products_block">
-      <div class="container">
-        <!--大標題-->
-        <div class="title_index">
-          <h1>新品上市<span>|</span>New Arrival</h1>
-          <div class="more"><a href="#">更多商品 +</a></div>
-        </div>
-        <!--產品條列-->
-        <div class="list row">
-          <div class="col-md-3 col-sm-6 col-xs-6">
-            <a class="item" href="#">
-              <div
-                class="img"
-                style="background-image: url(./img/prds_01_【馨享】茶几.png)"
-              ></div>
-              <div class="title">【馨享】茶几</div>
-              <div class="price"><span>$</span>3999</div>
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-6">
-            <a class="item" href="#">
-              <div
-                class="img"
-                style="background-image: url(./img/prds_05_高低桌.png)"
-              ></div>
-              <div class="title">【日常】高低桌</div>
-              <div class="price"><span>$</span>3999</div>
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-6">
-            <a class="item" href="#">
-              <div
-                class="img"
-                style="background-image: url(./img/prds_02_咖啡桌.png)"
-              ></div>
-              <div class="title">【日常】咖啡桌</div>
-              <div class="price"><span>$</span>3999</div>
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-6">
-            <a class="item" href="#">
-              <div
-                class="img"
-                style="background-image: url(./img/prds_04_雙面展示櫃.png)"
-              ></div>
-              <div class="title">【日常】雙面展示櫃</div>
-              <div class="price"><span>$</span>3999</div>
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-6">
-            <a class="item" href="#">
-              <div
-                class="img"
-                style="
-                  background-image: url(./img/prds_07_【豬光寶器】\ 禮盒.png);
-                "
-              ></div>
-              <div class="title">【豬光寶器】禮盒</div>
-              <div class="price"><span>$</span>3999</div>
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-6">
-            <a class="item" href="#">
-              <div
-                class="img"
-                style="
-                  background-image: url(./img/prds_06_【圓-滿\ 納】木碗.png);
-                "
-              ></div>
-              <div class="title">【圓-滿 納】木碗</div>
-              <div class="price"><span>$</span>3999</div>
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-6">
-            <a class="item" href="#">
-              <div
-                class="img"
-                style="
-                  background-image: url(./img/prds_08_【豬事順曆】\ 桌曆.png);
-                "
-              ></div>
-              <div class="title">【豬事順曆】桌暦</div>
-              <div class="price"><span>$</span>3999</div>
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-6">
-            <a class="item" href="#">
-              <div
-                class="img"
-                style="background-image: url(./img/prds_03_展示櫃.png)"
-              ></div>
-              <div class="title">【日常】展示櫃</div>
-              <div class="price"><span>$</span>3999</div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--影片區塊-->
-    <section class="video_block">
-      <div class="container">
-        <!--大標題-->
-        <div class="title_index">
-          <h1>影片專區<span>|</span>Video</h1>
-        </div>
-        <!--影片條列-->
-        <div class="list row">
-          <div class="col-md-4">
-            <div
-              class="item"
-              data-fancybox="video"
-              href="https://www.youtube.com/watch?v=hwbRDq5oe3Y"
-            >
-              <div
-                class="img"
-                style="background-image: url(./img/video-1.png)"
-              ></div>
-              <div class="title">木椅製作</div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div
-              class="item"
-              data-fancybox="video"
-              href="https://www.youtube.com/watch?v=Sgo3JlTSIzw"
-            >
-              <div
-                class="img"
-                style="background-image: url(./img/video-2.png)"
-              ></div>
-              <div class="title">展示櫃製作</div>
+            <div class="artisan_item right">
+                <div class="img">
+                    <img src="./img/artisan/師傅3-1.png" />
+                </div>
+                <div class="text">
+                    <div class="name">趙<br />之謙</div>
+                    <div class="desc">
+                        過隊有市品知車日輕視臺作本大常管你修水如,以為
+                        臺!的經共是力期園原科是生程;位開的會。男事首等
+                        的戲用預建委有藝者;自雲地線加就應了訴字起死計:
+                        後生選,大代期花社時知是息改維他主!於工來方著產
+                        出從音子現見部車上電、曾心青兒中色天小用北務,嗎
+                        兩明創上的吸電可品相特改不力!然學劇電選?美學種
+                        靈,會同筆不。間是一形場經奇真般思後她?然會的,
+                        題使吃美保路由英。
+                    </div>
+                    <div class="work">
+                        <label>作品</label>
+                        <p>
+                            國立傳統藝術中心·宜蘭園區-大木構裝置藝術-徐。<br>
+                            青木工坊傳藝館-大木構裝置藝術-柚木穹頂。<br>
+                            台灣家具產業協會-大木構裝置藝術-請坐。<br>
+                            國立傳統藝術中心宜蘭園區-大木構裝置藝術-徐。<br>
+                            青木工坊傳藝館-大木構裝置藝術-柚木穹頂。<br>
+                            台灣家具產業協會-大木構裝置藝術-請坐。<br>
+                            國立傳統藝術中心宜蘭園區-大木構裝置藝術-然。<br>
+                            青木工坊傳藝館-大木構裝置藝術-柚木穹頂。<br>
+                            台灣家具產業協會-大木構裝置藝術-請坐。<br>
+                            國立傳統藝術中心宜蘭園區-大木構裝置藝術-参。<br>
+                        </p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div
-              class="item"
-              data-fancybox="video"
-              href="https://www.youtube.com/watch?v=ctUgqPM1mY0"
-            >
-              <div
-                class="img"
-                style="background-image: url(./img/video-3.png)"
-              ></div>
-              <div class="title">木桌製作</div>
+            <div class="middle_img">
+                <img src="./img/artisan/img1-artisanSection.png" />
             </div>
-          </div>
+            <div class="artisan_item left">
+                <div class="img">
+                    <img src="./img/artisan/師傅4-1.png" />
+                </div>
+                <div class="text">
+                    <div class="name">
+                        顏<br />
+                        真卿
+                    </div>
+                    <div class="desc">
+                        過隊有市品知車日輕視臺作本大常管你修水如,以為臺!
+                        的經共是力期園原科是生程;位開的會。男事首等的戲用
+                        預建委有藝者;自雲地線加就應了訴字起死計:後生選,
+                        大代期花社時知是息改維他主!於工來方著產出從音子現
+                        見部車上電、曾心青兒中色天小用北務、嗎兩明創上的吸
+                        電可品相特改不力!然學劇電選?美學種靈,會同筆不。
+                        間是一形場經奇真般思後她?然會的,題使吃美保路由 英。
+                    </div>
+                    <div class="work">
+                        <label>作品</label>
+                        <p>
+                            國立傳統藝術中心-宜蘭園區-大木構裝置藝術-然。<br>
+                            青木工坊・傳藝館-大木構裝置藝術-柚木穹頂。<br>
+                            台灣家具產業協會-大木構裝置藝術-請坐。<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="artisan_item right">
+                <div class="img">
+                    <img src="./img/artisan/師傅5-1.png" />
+                </div>
+                <div class="text">
+                    <div class="name">
+                        展<br />
+                        子虔
+                    </div>
+                    <div class="desc">
+                        過隊有市品知車日輕視臺作本大常管你修水如,以為臺!
+                        的經共是力期園原科是生程;位開的會。男事首等的戲用
+                        預建委有藝者;自雲地線加就應了訴字起死計:后生選,
+                        大代期花社時知是息改維他主!於工來方著產出從音子現
+                        見部車上電、曾心青兒中色天小用北務,嗎兩明創上的吸
+                        電可品相特改不力!然學劇電選?美學種靈,會同筆不。
+                        間是一形場經奇真般思後她?然會的,題使吃美保路由 英。
+                    </div>
+                    <div class="work">
+                        <label>作品</label>
+                        <p>
+                            國立傳統藝術中心宜蘭園區-大木構裝置藝術-然。<br>
+                            青木工坊傳藝館-大木構裝置藝術-柚木穹頂。<br>
+                            台灣家具產業協會-大木構裝置藝術-請坐。<br>
+                            國立傳統藝術中心-宜蘭園區-大木構裝置藝術-祭。<br>
+                            青木工坊傳藝館-大木構裝置藝術-柚木穹頂。<br>
+                            青木工坊傳藝館-大木構裝置藝術-柚木穹頂。<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom_img">
+                <img src="./img/artisan/img2-artisanSection.png" />
+            </div>
+            <div class="artisan_item left">
+                <div class="img">
+                    <img src="./img/artisan/師傅4-1.png" />
+                </div>
+                <div class="text">
+                    <div class="name">
+                        顏<br />
+                        真卿
+                    </div>
+                    <div class="desc">
+                        過隊有市品知車日輕視臺作本大常管你修水如,以為臺!
+                        的經共是力期園原科是生程;位開的會。男事首等的戲用
+                        預建委有藝者;自雲地線加就應了訴字起死計:後生選,
+                        大代期花社時知是息改維他主!於工來方著產出從音子現
+                        見部車上電、曾心青兒中色天小用北務、嗎兩明創上的吸
+                        電可品相特改不力!然學劇電選?美學種靈,會同筆不。
+                        間是一形場經奇真般思後她?然會的,題使吃美保路由 英。
+                    </div>
+                    <div class="work">
+                        <label>作品</label>
+                        <p>
+                            國立傳統藝術中心-宜蘭園區-大木構裝置藝術-然。<br>
+                            青木工坊・傳藝館-大木構裝置藝術-柚木穹頂。<br>
+                            台灣家具產業協會-大木構裝置藝術-請坐。<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
 
-    <!--工藝師專區區塊-->
-    <section class="artisan_block">
-      <a href="#">
-        <div class="img"></div>
-      </a>
-    </section>
-
-    <!--頁尾-->
-    <footer>
-      <div class="container">
-        <div class="footer_content">
-          <div class="footer_logo">
-            <a href="#"><img src="./img/img-logoWhite-footer.png" /></a>
-          </div>
-          <div class="footer_link">
-            <ul>
-              <li><a href="#">關於我們</a></li>
-              <li><a href="#">最新消息</a></li>
-              <li><a href="#">商品介紹</a></li>
-              <li><a href="#">服務據點</a></li>
-              <li><a href="#">工藝師專區</a></li>
-            </ul>
-          </div>
-          <div class="footer_bottom">
-            <div class="contact">
-              <div>客服專線：02-12345678</div>
-              <div>AM 09:00-12:00、 PM 1:00~6:00 (週一至週六)</div>
+        <!--頁尾-->
+        <footer>
+            <div class="container">
+                <div class="footer_content">
+                    <div class="footer_logo">
+                        <a href="#"
+                            ><img src="./img/img-logoWhite-footer.png"
+                        /></a>
+                    </div>
+                    <div class="footer_link">
+                        <ul>
+                            <li><a href="#">關於我們</a></li>
+                            <li><a href="#">最新消息</a></li>
+                            <li><a href="#">商品介紹</a></li>
+                            <li><a href="#">服務據點</a></li>
+                            <li><a href="#">工藝師專區</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_bottom">
+                        <div class="contact">
+                            <div>客服專線：02-12345678</div>
+                            <div>
+                                AM 09:00-12:00、 PM 1:00~6:00 (週一至週六)
+                            </div>
+                        </div>
+                        <div class="social">
+                            <ul>
+                                <li>
+                                    <a href="#"
+                                        ><img src="./img/img-pinkoi-white.png"
+                                    /></a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        ><img src="./img/icon-facebook.svg"
+                                    /></a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        ><img src="./img/icon-instagram.svg"
+                                    /></a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        ><img src="./img/icon-line.svg"
+                                    /></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        Copyright @2005 - 2020青木堂傢具有限公司
+                    </div>
+                </div>
             </div>
-            <div class="social">
-              <ul>
-                <li>
-                  <a href="#"><img src="./img/img-pinkoi-white.png" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="./img/icon-facebook.svg" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="./img/icon-instagram.svg" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="./img/icon-line.svg" /></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="copyright">Copyright @2005 - 2020青木堂傢具有限公司</div>
-        </div>
-      </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
-    <script
-      type="text/javascript"
-      src="./dist/owlcarousel/owl.carousel.min.js"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-    <script src="./main.js"></script>
-    <script>
-      $('.banner_slider').owlCarousel({
-        loop: true,
-        margin: 0,
-        nav: false,
-        autoplay: true,
-        responsive: {
-          0: {
-            items: 1,
-          },
-          600: {
-            items: 1,
-          },
-          1000: {
-            items: 1,
-          },
-        },
-      })
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+        <script
+            type="text/javascript"
+            src="./dist/owlcarousel/owl.carousel.min.js"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        <script src="./main.js"></script>
+        <script>
+            $('.banner_slider').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: false,
+                autoplay: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    600: {
+                        items: 1,
+                    },
+                    1000: {
+                        items: 1,
+                    },
+                },
+            })
 
-      $('.news_slider').owlCarousel({
-        loop: true,
-        margin: 0,
-        nav: true,
-        responsive: {
-          0: {
-            items: 1,
-          },
-          600: {
-            items: 1,
-          },
-          1000: {
-            items: 1,
-          },
-        },
-      })
-    </script>
-  </body>
+            $('.news_slider').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    600: {
+                        items: 1,
+                    },
+                    1000: {
+                        items: 1,
+                    },
+                },
+            })
+        </script>
+    </body>
 </html>
