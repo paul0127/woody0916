@@ -3,6 +3,13 @@ $(document).ready(function () {
     let close = document.createElement('div')
     close.className = 'mobile_menu_close'
     document.body.prepend(close)
+
+    let m_nav = `<div class="mobile_nav">
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>`
+    $('.top_main').prepend(m_nav)
 })
 
 /*偵測向上滑動按鈕 超過輪播區塊 才會出現*/
@@ -25,18 +32,18 @@ $(window).scroll(function () {
 })
 
 /*卷軸置頂*/
-$('.go_top').click(function () {
+$(document).on('click', '.go_top', function () {
     $('html,body').animate({ scrollTop: 0 }, 900)
 })
 
 /*卷軸置最新消息*/
-$('.go_to').click(function () {
+$(document).on('click', '.go_to', function () {
     let t = $('#news').offset()
     $('html,body').animate({ scrollTop: t.top }, 900)
 })
 
 /*手機選單開啟關閉*/
-$('.mobile_nav').click(function () {
+$(document).on('click', '.mobile_nav', function () {
     $('.mobile_nav').toggleClass('active')
     $('.mobile_menu').toggleClass('active')
 
@@ -51,12 +58,12 @@ $('.mobile_nav').click(function () {
 })
 
 /*手機子選單開啟關閉*/
-$('li.m_sub').click(function () {
-    $(this).toggleClass('active')
+$(document).on('click', 'li a.down', function () {
+    $(this.parentNode).toggleClass('active')
 })
 
 /*搜尋bar開啟關閉*/
-$('.search_btn').click(function () {
+$(document).on('click', '.search_btn', function () {
     $('.search_bar').toggleClass('active')
 
     if (
