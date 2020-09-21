@@ -16,6 +16,28 @@ $(document).ready(function () {
     $('.top_main').prepend(m_nav)
 })
 
+function changeURLArg(url,arg,arg_val){ 
+    var pattern=arg+'=([^&]*)'; 
+    var replaceText=arg+'='+arg_val; 
+    if(url.match(pattern)){ 
+        var tmp='/('+ arg+'=)([^&]*)/gi'; 
+        tmp=url.replace(eval(tmp),replaceText); 
+        return tmp; 
+    }else{ 
+        if(url.match('[\?]')){ 
+            return url+'&'+replaceText; 
+        }else{ 
+            return url+'?'+replaceText; 
+        } 
+    } 
+    return url+'\n'+arg+'\n'+arg_val; 
+} 
+
+function pageSet(c){
+	var url = location.href;
+	window.location.href = changeURLArg(url,'p',c);
+}
+
 /*偵測向上滑動按鈕 超過輪播區塊 才會出現*/
 $(window).scroll(function () {
     let win_h = $(document).scrollTop()
