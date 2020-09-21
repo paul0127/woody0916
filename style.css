@@ -1256,3 +1256,121 @@ a.news_item:hover .news_btn .circle {
     .news_info .title{font-size: 1.5rem;margin-bottom: 1.25rem;}
     .news_info .time{margin-bottom: 1.25rem;}
 }
+
+/*垂直選單*/
+.side-menu,.side-menu-child,.side-menu li{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: block;
+}
+
+.side-menu > li{
+	display: block;
+	margin-bottom: 15px;
+
+}
+
+.side-menu > li > a{
+	display: block;
+	padding:10px 15px;
+	background: #B28146;
+	color: #fff;
+	border-radius: 4px;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.side-menu-child > li > a{
+	display: block;
+	padding:10px 15px;
+    font-size: 15px;
+    color: #555555;
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+}
+
+.side-menu-child > li > a:hover{
+	background: #f2f2f2;
+	text-decoration: none;
+}
+
+.prod-list-banner{
+	margin-bottom: 15px;
+}
+
+.page-heading {
+    border-bottom: 1px solid #f2f2f2;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 40px;
+    position: relative
+}
+
+
+/*產品共用標題*/
+.title_product {
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+    position: relative;
+    color: #333333;
+    margin-bottom: 2.5rem;
+}
+.title_product::after {
+    content: '';
+    border-bottom: 3px solid #b28146;
+    width: 239px;
+    position: absolute;
+    bottom: -1.5px;
+    left: 0;
+}
+.title_product h1 {
+    display: inline-block;
+    margin: 0;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.title_product .more {
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+}
+.title_product .more a {
+    color: #7b94e8;
+    font-size: 1rem;
+    text-decoration: none;
+}
+.title_product .more a:hover {
+    opacity: 0.8;
+}
+@media (max-width: 992px) {
+    
+}
+
+/*產品列表*/
+.product_section{margin-bottom: 3rem;}
+.prod-list .prod-title{
+	font-size: 18px;
+	color: #333;
+    padding-top:5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.prod-list img{width: 100%;}
+
+.product-title > p {
+    min-height: 40px;
+}
+
+.prod-list .prod-price{
+	color: #E5921A;
+	font-size: 18px;
+	font-weight: 500;
+	padding-bottom: 15px;
+}
+
+.row-fix {
+    clear: both
+}
