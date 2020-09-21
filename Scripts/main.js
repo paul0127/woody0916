@@ -16,6 +16,7 @@ $(document).ready(function () {
     $('.top_main').prepend(m_nav)
 })
 
+/*更換網址 query */
 function changeURLArg(url,arg,arg_val){ 
     var pattern=arg+'=([^&]*)'; 
     var replaceText=arg+'='+arg_val; 
@@ -33,6 +34,7 @@ function changeURLArg(url,arg,arg_val){
     return url+'\n'+arg+'\n'+arg_val; 
 } 
 
+/*切換頁數*/
 function pageSet(c){
 	var url = location.href;
 	window.location.href = changeURLArg(url,'p',c);
