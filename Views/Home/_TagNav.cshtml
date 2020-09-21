@@ -1,7 +1,0 @@
-﻿@model IEnumerable<WoodyIconShopModel.Models.ProductTag>
-
-
-@foreach (var tag in Model)
-{
-    <a class="nav-link" href="@Url.Action("Index", "Product", new { tag = tag.Id })">@tag.TagName</a>
-}
