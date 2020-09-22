@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="" prefix="og: http://ogp.me/ns#">
+<html lang="zh-tw">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>【窗語】隨身碟</title>
-
     <link rel="stylesheet" href="./Content/bootstrap.min.css" />
     <link rel="stylesheet" href="./Content/style.css" />
   </head>
@@ -347,97 +345,5 @@
 
     <script src="./Scripts/jquery-1.10.2.min.js"></script>
     <script src="./Scripts/main.js"></script>
-    <!-- Fb基本設定 -->
-    <script>
-      //FB SDK載入
-      window.fbAsyncInit = function () {
-        FB.init({
-          appId: '310984486334688',
-          autoLogAppEvents: true,
-          xfbml: true,
-          version: 'v3.1',
-        })
-        FB.AppEvents.logPageView()
-      }
-      ;(function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0]
-        if (d.getElementById(id)) {
-          return
-        }
-        js = d.createElement(s)
-        js.id = id
-        js.src = '//connect.facebook.net/zh_TW/sdk.js'
-        fjs.parentNode.insertBefore(js, fjs)
-      })(document, 'script', 'facebook-jssdk')
-
-      //分享
-      document.getElementById('fbshare').onclick = function () {
-        FB.ui(
-          {
-            method: 'share',
-            mobile_iframe: true,
-            href:
-              'https://www.i7fresh.tw/Product/ProductDetail/fd183c95-839c-4df8-be5c-633562227ee6',
-          },
-          function (response) {
-            if (response && !response.error_message) {
-              //alert('Posting completed.');
-              alert('分享成功')
-            } else {
-              //alert('Error while posting.');
-              //alert('發生錯誤');
-            }
-          }
-        )
-      }
-    </script>
-    <script>
-      $(document).on('click', '.small_pic li', function () {
-        $('.small_pic li').removeClass('active')
-        $(this).addClass('active')
-
-        let pic = $(this).data('img')
-        $('.main_pic')[0].setAttribute('src', pic)
-      })
-
-      function product_qty(n) {
-        let q = Number($('#qty').val())
-        if (n && q < 10) {
-          q = q + 1
-        } else if (!n && q > 1) {
-          q = q - 1
-        }
-        $('#qty').val(q)
-      }
-
-      function check_number(input) {
-        var number_input = input.value
-
-        if (!$.isNumeric(number_input)) {
-          $('#qty').val(1)
-          return
-        }
-
-        if (Number(number_input) <= 0) {
-          $('#qty').val(1)
-          return
-        }
-
-        if (Number(number_input) > 100) {
-          $('#qty').val(100)
-          return
-        }
-      }
-
-      $(document).on('click', '.tab_nav li', function () {
-        $('.tab_nav li').removeClass('active')
-        $(this).addClass('active')
-
-        $('.tab_panel').removeClass('active')
-        let t = '#' + $(this).data('tab')
-        $(t).addClass('active')
-      })
-    </script>
   </body>
 </html>

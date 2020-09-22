@@ -6,7 +6,6 @@
         <title>青木工坊</title>
         <link rel="stylesheet" href="./Content/bootstrap.min.css" />
         <link rel="stylesheet" href="./Content/style.css" />
-       
     </head>
     <body>
         <!--頁首-->
@@ -350,19 +349,5 @@
         </footer>
         <script src="./Scripts/jquery-1.10.2.min.js"></script>
         <script src="./Scripts/main.js"></script>
-        <script>
-            $(document).ready(function () {
-                let list = document.querySelectorAll('.artisan_item .img img')
-                let m_list = document.querySelectorAll('.artisan_item .main')
-
-                list.forEach((item, index) => {
-                    let src = item.getAttribute('src')
-                    let img = document.createElement('img')
-                    img.className = 'm_img'
-                    img.setAttribute('src', src)
-                    m_list[index].prepend(img)
-                })
-            })
-        </script>
     </body>
 </html>
