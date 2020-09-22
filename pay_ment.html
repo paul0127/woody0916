@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>確認付款</title>
+    <link rel="stylesheet" href="./Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="./Content/font-awesome.min.css" />
+    <link rel="stylesheet" href="./Content/style.css" />
+  </head>
+  <body>
+    <!--頁首-->
+    <header>
+      <div class="container">
+        <div class="top_main">
+          <!--手機選單-->
+          <div class="mobile_menu">
+            <div class="main">
+              <ul>
+                <li class="sub">
+                  <a class="down" href="#">關於我們</a>
+                  <div class="sub_menu">
+                    <ul>
+                      <li><a href="#">品牌介紹</a></li>
+                      <li>
+                        <a href="artisan.html">工藝師專區</a>
+                      </li>
+                      <li><a href="#">企業服務</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li><a href="news.html">最新消息</a></li>
+                <li><a href="product.html">商品介紹</a></li>
+                <li><a href="#">據點</a></li>
+              </ul>
+            </div>
+            <div class="bottom">
+              <ul>
+                <li>
+                  <a href="#"><img src="./Content/img/icon-sign-in.svg" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./Content/img/user.svg" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./Content/img/icon-cart.svg" /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--logo-->
+          <div class="logo">
+            <a href="./"
+              ><img src="./Content/img/img-logoWhite-header.png"
+            /></a>
+          </div>
+          <!--PC選單-->
+          <nav>
+            <ul>
+              <li class="sub">
+                <a href="#">關於我們</a>
+                <div class="sub_menu">
+                  <ul>
+                    <li><a href="#">品牌介紹</a></li>
+                    <li>
+                      <a href="artisan.html">工藝師專區</a>
+                    </li>
+                    <li><a href="#">企業服務</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="news.html">最新消息</a></li>
+              <li><a href="product.html">商品介紹</a></li>
+              <li><a href="#">據點</a></li>
+            </ul>
+          </nav>
+          <!--會員登入 搜尋icon-->
+          <div class="toolbar">
+            <ul>
+              <li>
+                <a href="#"><img src="./Content/img/icon-sign-in.svg" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./Content/img/user.svg" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./Content/img/icon-cart.svg" /></a>
+              </li>
+              <li class="search">
+                <img class="search_btn" src="./Content/img/icon-search.png" />
+                <!--彈出搜尋bar-->
+                <div class="search_bar">
+                  <div class="container">
+                    <form class="search_inner" action="/search" method="get">
+                      <input
+                        type="text"
+                        name="search"
+                        placeholder="請輸入關鍵字"
+                      />
+                      <button>搜尋</button>
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="contain">
+      <div class="container">
+        <div class="bread">
+          <ul>
+            <li><a href="#">首頁</a></li>
+            <li>加入會員</li>
+          </ul>
+        </div>
+      </div>
+      <section id="cart_step3">
+        <div class="container">
+            <div class="stepwizard">
+                <div class="stepwizard-row">
+                    <div class="stepwizard-step">
+                        <a class="btn btn-default btn-circle">1</a>
+                        <p>購物清單</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a class="btn btn-default btn-circle">2</a>
+                        <p>配送資訊</p>
+                    </div>
+                    <div class="stepwizard-step active">
+                        <a class="btn btn-default btn-circle">3</a>
+                        <p>付款資訊</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a class="btn btn-default btn-circle">4</a>
+                        <p>完成訂單</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-heading"><span class="page-heading-title">請選擇付款方式</span></div>
+                    <div class="form-box">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="payOnDeliver" name="O_Pay" checked="checked" value="COD">
+                                貨到付款
+                            </label>
+                        </div>
+                        <hr>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="deliverToHome" name="O_Pay" value="CreditCard">
+                                信用卡付款&nbsp;&nbsp;<img src="./Content/img/payment/paypage_1.png">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="btn btn-primary back-btn" href="javascript:show_step2()"><i class="fa fa-angle-double-left" aria-hidden="true"></i> 上一步</a>
+                    <button id="buttonid" type="submit" class="btn btn-danger next-btn pull-right" onclick="OrderSubmit(this);">確認訂購 <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!--頁尾-->
+    <footer>
+      <div class="container">
+        <div class="footer_content">
+          <div class="footer_logo">
+            <a href="#"><img src="./Content/img/img-logoWhite-footer.png" /></a>
+          </div>
+          <div class="footer_link">
+            <ul>
+              <li><a href="#">關於我們</a></li>
+              <li><a href="#">最新消息</a></li>
+              <li><a href="#">商品介紹</a></li>
+              <li><a href="#">服務據點</a></li>
+              <li><a href="#">工藝師專區</a></li>
+            </ul>
+          </div>
+          <div class="footer_bottom">
+            <div class="contact">
+              <div>客服專線：02-12345678</div>
+              <div>AM 09:00-12:00、 PM 1:00~6:00 (週一至週六)</div>
+            </div>
+            <div class="social">
+              <ul>
+                <li>
+                  <a href="#"
+                    ><img src="./Content/img/img-pinkoi-white.png"
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./Content/img/icon-facebook.svg" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./Content/img/icon-instagram.svg" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./Content/img/icon-line.svg" /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="copyright">Copyright @2005 - 2020青木堂傢具有限公司</div>
+        </div>
+      </div>
+    </footer>
+    <script src="./Scripts/jquery-1.10.2.min.js"></script>
+    <script src="./Scripts/main.js"></script>
+  </body>
+</html>
