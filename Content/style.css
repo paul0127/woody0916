@@ -1401,7 +1401,7 @@ a.news_item:hover .news_btn .circle {
 .purchase .qty .minus:hover,.purchase .qty .plus:hover{background-color: #ccc;}
 .purchase .qty .minus{border-top-left-radius: 5px;border-bottom-left-radius: 5px;border-right: none;}
 .purchase .qty .plus{border-top-right-radius: 5px;border-bottom-right-radius: 5px;border-left: none;}
-.purchase .qty input{width:calc(100% - 64px);border: 1px solid #DDDDDD;height:32px;padding: 5px;}
+.purchase .qty input{width:calc(100% - 64px);border: 1px solid #DDDDDD;height:32px;padding: 5px;border-radius: 0;}
 
 .purchase .btn{background-color: #FF0000;color: #fff;width:154px;}
 
@@ -1423,7 +1423,7 @@ a.news_item:hover .news_btn .circle {
     .product_top{display: flex;flex-wrap: wrap;margin-bottom: 1rem;}
     .product_top .product_pic{width: 100%;margin-right: 0;margin-bottom: .75rem;}
     .product_text .price{border-bottom: none;margin-bottom: 0;padding-bottom: 0;}
-    .purchase{position: fixed;left:0;bottom:0;background-color: rgba(0,0,0,.5);z-index: 2;width: 100%;padding: 15px;}
+    .purchase{position: fixed;left:0;bottom:0;background-color: rgba(0,0,0,.5);z-index: 1;width: 100%;padding: 15px;}
     .purchase .btn{flex: 1;}
     .purchase .qty{flex: 2;margin-right: 10px;}
 }
