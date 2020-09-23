@@ -1589,7 +1589,7 @@ a.news_item:hover .news_btn .circle {
   padding-left: 0;
   display: flex;
   border-bottom: 1px solid #dddddd;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 .product_desc ul.tab_nav li {
   position: relative;
