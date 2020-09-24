@@ -394,13 +394,13 @@ header {
   margin-bottom: 0;
 }
 .toolbar > ul > li {
-  margin-right: .75rem;
+  margin-right: 0.75rem;
   height: 100%;
   font-size: 1.15rem;
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0 .75rem;
+  padding: 0 0.75rem;
 }
 .toolbar > ul > li.search_btn {
   cursor: pointer;
@@ -1977,16 +1977,16 @@ fieldset[disabled] .btn-fb.active {
 }
 
 .alert-register {
-  border-color: #8ec31b;
-  background-color: #8ec31b;
+  border-color: #B28146;
+  background-color: #B28146;
   color: white;
 }
 
 .policy h4 {
-  color: #f4b083;
+  color: #B28146;
   font-weight: 800;
   border-bottom-style: inset;
-  border-bottom-color: #f4b083;
+  border-bottom-color:  #B28146;
 }
 
 /*購物流程圖*/
@@ -2034,7 +2034,7 @@ fieldset[disabled] .btn-fb.active {
 }
 
 .stepwizard-step.active a {
-  background: #87b929;
+  background: #b28146;
   color: #fff;
 }
 
@@ -2108,7 +2108,32 @@ fieldset[disabled] .btn-fb.active {
 
 .page-heading-title {
   font-size: 24px;
-  border-bottom: 3px solid #e5921a;
+  border-bottom: 3px solid #b28146;
   line-height: 40px;
   padding-bottom: 5px;
+}
+
+.back-btn,.next-btn,.back-btn:hover,.next-btn:hover,.back-btn:focus,.next-btn:focus{
+  background-color: #b28146;
+  border-color: #b28146;
+}
+.back-btn:hover,.next-btn:hover{opacity: .8;}
+
+.log-in,.log-in:hover,.log-in:focus{
+  background-color: #b28146;
+  border-color: #b28146;
+}
+.log-in:hover{opacity: .8;}
+
+.edit_btn,.edit_btn:hover,.edit_btn:focus{
+  background-color: #b28146;
+  border-color: #b28146;
+}
+.edit_btn:hover{opacity: .8;}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  background-color: #b28146;
+  border-color: #b28146;
 }
