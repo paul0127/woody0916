@@ -41,7 +41,7 @@ p {
 .go_top {
   position: fixed;
   right: 38px;
-  bottom: 10%;
+  bottom: 12%;
   z-index: 4;
   width: 60px;
   height: 60px;
@@ -67,6 +67,13 @@ p {
     right: 20px;
   }
 }
+
+/*側邊購物車*/
+.go_cart{position: fixed;bottom: calc(12% + 60px);right:20px;width: 100px;z-index: 4;}
+.go_cart a{display: block;position: relative;text-decoration: none;}
+.go_cart a:hover{opacity: .8;}
+.go_cart a img{max-width: 100%;}
+.go_cart a .text{position: absolute;bottom: 16px;left:50%;transform: translateX(-50%);text-align: center;color: #fff;font-size: 12px;}
 
 /*頁首*/
 header {
