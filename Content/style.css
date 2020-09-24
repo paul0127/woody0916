@@ -74,6 +74,11 @@ p {
 .go_cart a:hover{opacity: .8;}
 .go_cart a img{max-width: 100%;}
 .go_cart a .text{position: absolute;bottom: 16px;left:50%;transform: translateX(-50%);text-align: center;color: #fff;font-size: 12px;}
+@media (max-width: 992px) {
+  .go_cart {
+    right: 3px;
+  }
+}
 
 /*頁首*/
 header {
