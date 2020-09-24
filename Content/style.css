@@ -287,7 +287,7 @@ header {
   border-bottom: 1px solid #fff;
   padding: 0.5rem 0;
 }
-.top_main > .mobile_menu > .bottom > ul > li.cart_btn > .sub_menu > .cart_btn {
+.top_main > .mobile_menu > .bottom > ul > li.cart_btn > .sub_menu > .cart_in_btn {
   background-color: #e14344;
   margin-top: 1rem;
 }
@@ -297,7 +297,7 @@ header {
   > ul
   > li.cart_btn
   > .sub_menu
-  > .cart_btn
+  > .cart_in_btn
   > a {
   color: #fff;
   text-decoration: none;
@@ -496,10 +496,10 @@ header {
   font-size: 1.25rem;
   border-bottom: 1px solid #dddddd;
 }
-.toolbar > ul > li.cart_btn > .sub_menu > .cart_btn {
+.toolbar > ul > li.cart_btn > .sub_menu > .cart_in_btn {
   padding: 0.5rem 1.25rem;
 }
-.toolbar > ul > li.cart_btn > .sub_menu > .cart_btn > a {
+.toolbar > ul > li.cart_btn > .sub_menu > .cart_in_btn > a {
   background-color: #e14344;
   color: #fff;
   display: block;
@@ -509,7 +509,7 @@ header {
   text-align: center;
   border-radius: 5px;
 }
-.toolbar > ul > li.cart_btn > .sub_menu > .cart_btn > a:hover {
+.toolbar > ul > li.cart_btn > .sub_menu > .cart_in_btn > a:hover {
   opacity: 0.8;
 }
 /*搜尋彈出bar*/
