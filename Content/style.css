@@ -1832,11 +1832,11 @@ a.news_item:hover .news_btn .circle {
   width: 100%;
   border-bottom: 3px solid #b28146;
 }
-.product_des .tab_panel {
+.product_desc .tab_panel {
   display: none;
   padding: 1rem 0;
 }
-.product_des .tab_panel.active {
+.product_desc .tab_panel.active {
   display: block;
 }
 /*推薦商品*/
