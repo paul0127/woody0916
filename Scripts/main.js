@@ -171,6 +171,7 @@ $(document).on('click', '.go_to', function () {
 $(document).on('click', '.mobile_nav', function () {
   $('.mobile_nav').toggleClass('active')
   $('.mobile_menu').toggleClass('active')
+  $('.search_bar').removeClass('active')
 
   if (
     $('.search_bar').hasClass('active') ||
@@ -198,6 +199,7 @@ $(document).on('click', '.mobile_menu .main li.sub a', function () {
   $(this.parentNode).toggleClass('active')
 })
 
+/*手機版會員、購物車選單開啟關閉*/
 $(document).on('click', '.mobile_menu .bottom li.sub a', function () {
   let t = $(this.parentNode).hasClass('active')
 
@@ -211,6 +213,8 @@ $(document).on('click', '.mobile_menu .bottom li.sub a', function () {
 $(document).on('click', '.search_btn', function () {
   $('.toolbar li.sub').removeClass('active')
   $('.search_bar').toggleClass('active')
+  $('.mobile_nav').removeClass('active')
+  $('.mobile_menu').removeClass('active')
 
   if (
     $('.search_bar').hasClass('active') ||
