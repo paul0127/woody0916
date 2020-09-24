@@ -14,45 +14,6 @@
     <header>
       <div class="container">
         <div class="top_main">
-          <!--手機選單-->
-          <div class="mobile_menu">
-            <div class="main">
-              <ul>
-                <li class="sub">
-                  <a class="down" href="#">關於我們</a>
-                  <div class="sub_menu">
-                    <ul>
-                      <li><a href="#">品牌介紹</a></li>
-                      <li>
-                        <a href="artisan.html">工藝師專區</a>
-                      </li>
-                      <li><a href="#">企業服務</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li><a href="news.html">最新消息</a></li>
-                <li><a href="product.html">商品介紹</a></li>
-                <li><a href="#">據點</a></li>
-              </ul>
-            </div>
-            <div class="bottom">
-              <ul>
-                <li>
-                  <a href="login.html"
-                    ><img src="./Content/img/icon-sign-in.svg"
-                  /></a>
-                </li>
-                <li>
-                  <a href="member.html"><img src="./Content/img/user.svg" /></a>
-                </li>
-                <li>
-                  <a href="cart.html"
-                    ><img src="./Content/img/icon-cart.svg"
-                  /></a>
-                </li>
-              </ul>
-            </div>
-          </div>
           <!--logo-->
           <div class="logo">
             <a href="./"
@@ -82,36 +43,43 @@
           <!--會員登入 搜尋icon-->
           <div class="toolbar">
             <ul>
-              <li>
-                <a href="login.html"
-                  ><img src="./Content/img/icon-sign-in.svg"
-                /></a>
+              <li class="login_btn">
+                <a href="login.html">登入</a>
               </li>
-              <li>
-                <a href="member.html"><img src="./Content/img/user.svg" /></a>
-              </li>
-              <li>
-                <a href="cart.html"
-                  ><img src="./Content/img/icon-cart.svg"
-                /></a>
-              </li>
-              <li class="search">
-                <img class="search_btn" src="./Content/img/icon-search.png" />
-                <!--彈出搜尋bar-->
-                <div class="search_bar">
-                  <div class="container">
-                    <form class="search_inner" action="/search" method="get">
-                      <input
-                        type="text"
-                        name="search"
-                        placeholder="請輸入關鍵字"
-                      />
-                      <button>搜尋</button>
-                    </form>
-                  </div>
+              <li class="user_btn sub">
+                <a href="#"><img src="./Content/img/user.svg" /></a>
+                <div class="sub_menu">
+                  <ul>
+                    <li><a href="member.html">會員資料</a></li>
+                    <li><a href="policy.html">購物須知</a></li>
+                    <li><a href="member_order.html">訂單查詢</a></li>
+                  </ul>
                 </div>
               </li>
+              <li class="cart_btn sub">
+                <a href="#"><img src="./Content/img/icon-cart.svg" /><span>0</span></a>
+                <div class="sub_menu">
+                  <ul>
+                    <li><div class="name">商品名稱</div><div class="price">$8,320</div></li>
+                    <li><div class="name">商品名稱</div><div class="price">$8,320</div></li>
+                  </ul>
+                  <div class="total">總計 $8,320</div>
+                  <div class="cart_btn"><a href="cart.html">立即結帳</a></div>
+                </div>
+              </li>
+              <li class="search_btn">
+                <img src="./Content/img/icon-search.png" />
+              </li>
             </ul>
+          </div>
+          <!--彈出搜尋bar-->
+          <div class="search_bar">
+            <div class="container">
+              <form class="search_inner" action="/search" method="get">
+                <input type="text" name="search" placeholder="請輸入關鍵字" />
+                <button>搜尋</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
