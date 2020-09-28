@@ -233,6 +233,14 @@ $(document).on('click', '.mobile_menu_close', function () {
   $('.mobile_menu_close').removeClass('active')
   $('.search_bar').removeClass('active')
 })
+/*手機touch遮幕關閉選單及搜尋*/
+$(document).on('tap', '.mobile_menu_close', function () {
+  $('.mobile_nav').removeClass('active')
+  $('.mobile_menu').removeClass('active')
+  $('.mobile_menu_close').removeClass('active')
+  $('.search_bar').removeClass('active')
+})
+
 
 /*產品內頁 更換圖片 */
 $(document).on('click', '.small_pic li', function () {
