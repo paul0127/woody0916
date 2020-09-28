@@ -1126,6 +1126,7 @@ footer .copyright {
   display: flex;
   align-items: center;
   margin-bottom: 0;
+  flex-wrap: wrap;
 }
 .bread ul li {
   font-size: 1.1rem;
