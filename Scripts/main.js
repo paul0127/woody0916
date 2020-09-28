@@ -227,15 +227,7 @@ $(document).on('click', '.search_btn', function () {
 })
 
 /*點擊遮幕關閉選單及搜尋*/
-$(document).on('vclick', '.mobile_menu_close', function () {
-  console.log(0)
-  $('.mobile_nav').removeClass('active')
-  $('.mobile_menu').removeClass('active')
-  $('.mobile_menu_close').removeClass('active')
-  $('.search_bar').removeClass('active')
-})
-$(document).on("tap", '.mobile_menu_close',function(){
-  console.log(1)
+$(document).on('click', '.mobile_menu_close', function () {
   $('.mobile_nav').removeClass('active')
   $('.mobile_menu').removeClass('active')
   $('.mobile_menu_close').removeClass('active')
