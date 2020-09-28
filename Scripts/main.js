@@ -227,7 +227,7 @@ $(document).on('click', '.search_btn', function () {
 })
 
 /*點擊遮幕關閉選單及搜尋*/
-$(document).on('click touchstart', '.mobile_menu_close', function () {
+$(document).on('click touch', '.mobile_menu_close', function () {
   $('.mobile_nav').removeClass('active')
   $('.mobile_menu').removeClass('active')
   $('.mobile_menu_close').removeClass('active')
