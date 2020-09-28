@@ -234,7 +234,12 @@ $(document).on('vclick', '.mobile_menu_close', function () {
   $('.mobile_menu_close').removeClass('active')
   $('.search_bar').removeClass('active')
 })
-
+$(document).on("swipe", '.mobile_menu_close',function(){
+  $('.mobile_nav').removeClass('active')
+  $('.mobile_menu').removeClass('active')
+  $('.mobile_menu_close').removeClass('active')
+  $('.search_bar').removeClass('active')
+})
 
 /*產品內頁 更換圖片 */
 $(document).on('click', '.small_pic li', function () {
