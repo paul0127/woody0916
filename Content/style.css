@@ -1123,7 +1123,7 @@ footer .copyright {
 .bread ul {
   list-style: none;
   padding-left: 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   margin-bottom: 0;
   flex-wrap: wrap;
@@ -1139,12 +1139,12 @@ footer .copyright {
 .bread ul li a:hover {
   opacity: 0.8;
 }
-.bread ul li::after {
+.bread ul li::before {
   content: '/';
   margin: 0 5px;
   color: #dddddd;
 }
-.bread ul li:last-child::after {
+.bread ul li:first-child::before {
   display: none;
 }
 
