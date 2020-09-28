@@ -42,7 +42,7 @@ p {
   position: fixed;
   right: 38px;
   bottom: 12%;
-  z-index: 4;
+  z-index: 6;
   width: 60px;
   height: 60px;
   background-color: #b28146;
@@ -69,7 +69,7 @@ p {
 }
 
 /*側邊購物車*/
-.go_cart{position: fixed;bottom: calc(12% + 60px);right:20px;width: 100px;z-index: 4;}
+.go_cart{position: fixed;bottom: calc(12% + 60px);right:20px;width: 100px;z-index: 6;}
 .go_cart a{display: block;position: relative;text-decoration: none;}
 .go_cart a:hover{opacity: .8;}
 .go_cart a img{max-width: 100%;}
