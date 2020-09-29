@@ -69,11 +69,33 @@ p {
 }
 
 /*側邊購物車*/
-.go_cart{position: fixed;bottom: calc(12% + 60px);right:20px;width: 100px;z-index: 6;}
-.go_cart a{display: block;position: relative;text-decoration: none;}
-.go_cart a:hover{opacity: .8;}
-.go_cart a img{max-width: 100%;}
-.go_cart a .text{position: absolute;bottom: 16px;left:50%;transform: translateX(-50%);text-align: center;color: #fff;font-size: 12px;}
+.go_cart {
+  position: fixed;
+  bottom: calc(12% + 60px);
+  right: 20px;
+  width: 100px;
+  z-index: 6;
+}
+.go_cart a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+.go_cart a:hover {
+  opacity: 0.8;
+}
+.go_cart a img {
+  max-width: 100%;
+}
+.go_cart a .text {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+}
 @media (max-width: 992px) {
   .go_cart {
     right: 3px;
@@ -299,7 +321,13 @@ header {
   border-bottom: 1px solid #fff;
   padding: 0.5rem 0;
 }
-.top_main > .mobile_menu > .bottom > ul > li.cart_btn > .sub_menu > .cart_in_btn {
+.top_main
+  > .mobile_menu
+  > .bottom
+  > ul
+  > li.cart_btn
+  > .sub_menu
+  > .cart_in_btn {
   background-color: #e14344;
   margin-top: 1rem;
 }
@@ -1190,6 +1218,122 @@ footer .copyright {
   }
 }
 
+/*品牌介紹*/
+.brand {
+}
+.brand .top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 7.5rem;
+  margin-bottom: 7.5rem;
+  border-bottom: 1px solid #dddd;
+}
+.brand .top .img {
+  width: 206px;
+  margin-right: 3rem;
+}
+.brand .top .text .title {
+  position: relative;
+  margin-bottom: 3rem;
+}
+.brand .top .text .title span {
+  color: #ae8545;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  padding-right: 5px;
+}
+.brand .top .text .title::after {
+  content: '';
+  border-bottom: 1px solid #ae8545;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+.brand .top .text .desc {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #333;
+}
+.brand .top .text .desc p {
+  margin-bottom: 1.25rem;
+}
+
+.brand .bottom .img img {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+.brand .bottom .list .item {
+  display: flex;
+  align-items: stretch;
+}
+.brand .bottom .list .item .years {
+  display: flex;
+  align-items: center;
+  margin: 0 8rem;
+  position: relative;
+  width: 52px;
+  justify-content: center;
+  font-size: 1rem;
+  color: #fff;
+}
+.brand .bottom .list .item:nth-child(2n + 1) .years {
+  background-color: #ac8544;
+}
+.brand .bottom .list .item:nth-child(2n) .years {
+  background-color: #d1ae88;
+}
+.brand .bottom .list .item .years::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 13px 26px 0 26px;
+  position: absolute;
+  bottom: -13px;
+  left:50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+.brand .bottom .list .item:nth-child(2n + 1) .years::before {
+  border-color: #ac8544 transparent transparent transparent;
+}
+.brand .bottom .list .item:nth-child(2n) .years::before {
+  border-color: #d1ae88 transparent transparent transparent;
+}
+.brand .bottom .list .item .years::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 13px 26px 0 26px;
+  border-color: #fff transparent transparent transparent;
+  position: absolute;
+  bottom: -13px;
+  left:50%;
+  transform: translate(-50%,2px);
+  z-index: 2;
+}
+.brand .bottom .list .item:last-child .years::after {
+  display: none;
+}
+.brand .bottom .list .item .text {
+  font-size: 1.25rem;
+  display: flex;
+  line-height: 2.5;
+}
+.brand .bottom .list .item .text label {
+  font-weight: 300;
+  color: #ac8544;
+  margin-right: 5px;
+}
+
 /*工藝師專區*/
 /*人物介紹 區塊*/
 .artisan_item {
@@ -1990,16 +2134,16 @@ fieldset[disabled] .btn-fb.active {
 }
 
 .alert-register {
-  border-color: #B28146;
-  background-color: #B28146;
+  border-color: #b28146;
+  background-color: #b28146;
   color: white;
 }
 
 .policy h4 {
-  color: #B28146;
+  color: #b28146;
   font-weight: 800;
   border-bottom-style: inset;
-  border-bottom-color:  #B28146;
+  border-bottom-color: #b28146;
 }
 
 /*購物流程圖*/
@@ -2126,23 +2270,39 @@ fieldset[disabled] .btn-fb.active {
   padding-bottom: 5px;
 }
 
-.back-btn,.next-btn,.back-btn:hover,.next-btn:hover,.back-btn:focus,.next-btn:focus{
+.back-btn,
+.next-btn,
+.back-btn:hover,
+.next-btn:hover,
+.back-btn:focus,
+.next-btn:focus {
   background-color: #b28146;
   border-color: #b28146;
 }
-.back-btn:hover,.next-btn:hover{opacity: .8;}
+.back-btn:hover,
+.next-btn:hover {
+  opacity: 0.8;
+}
 
-.log-in,.log-in:hover,.log-in:focus{
+.log-in,
+.log-in:hover,
+.log-in:focus {
   background-color: #b28146;
   border-color: #b28146;
 }
-.log-in:hover{opacity: .8;}
+.log-in:hover {
+  opacity: 0.8;
+}
 
-.edit_btn,.edit_btn:hover,.edit_btn:focus{
+.edit_btn,
+.edit_btn:hover,
+.edit_btn:focus {
   background-color: #b28146;
   border-color: #b28146;
 }
-.edit_btn:hover{opacity: .8;}
+.edit_btn:hover {
+  opacity: 0.8;
+}
 
 .list-group-item.active,
 .list-group-item.active:hover,
