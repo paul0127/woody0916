@@ -25,15 +25,15 @@ p {
   width: 100%;
   height: calc(100% - 70px);
   display: none;
-  z-index: 5;
-  background: rgb(0 0 0 / 0.3);
+  z-index: 6;
+  background: #00000080;
 }
 .mobile_menu_close.active {
   display: none;
 }
 @media (max-width: 992px) {
   .mobile_menu_close.active {
-    display: block;
+    display: flex;
   }
 }
 
@@ -42,7 +42,7 @@ p {
   position: fixed;
   right: 38px;
   bottom: 12%;
-  z-index: 6;
+  z-index: 7;
   width: 60px;
   height: 60px;
   background-color: #b28146;
@@ -1219,8 +1219,6 @@ footer .copyright {
 }
 
 /*品牌介紹*/
-.brand {
-}
 .brand .top {
   display: flex;
   justify-content: center;
@@ -1264,32 +1262,75 @@ footer .copyright {
 .brand .top .text .desc p {
   margin-bottom: 1.25rem;
 }
-
+.brand .bottom {
+  margin-bottom: 3rem;
+}
 .brand .bottom .img img {
   width: 100%;
   margin-bottom: 5rem;
+}
+.brand .bottom .title {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.brand .bottom .title::before {
+  content: '';
+  display: block;
+  flex: 2;
+}
+.brand .bottom .title .title_inner {
+  flex: 5;
+  position: relative;
+}
+.brand .bottom .title span {
+  color: #ae8545;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  padding-right: 5px;
+}
+.brand .bottom .title .title_inner::after {
+  content: '';
+  border-bottom: 1px solid #ae8545;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  z-index: -1;
 }
 .brand .bottom .list .item {
   display: flex;
   align-items: stretch;
 }
 .brand .bottom .list .item .years {
+  flex: 2;
+}
+.brand .bottom .list .item .years .year {
   display: flex;
+  height: 100%;
   align-items: center;
-  margin: 0 8rem;
+  margin: 0 auto;
   position: relative;
   width: 52px;
   justify-content: center;
   font-size: 1rem;
   color: #fff;
 }
-.brand .bottom .list .item:nth-child(2n + 1) .years {
+.brand .bottom .list .item .years .now {
+  color: #d1ae88;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.25rem;
+}
+.brand .bottom .list .item:nth-child(2n + 1) .year {
   background-color: #ac8544;
 }
-.brand .bottom .list .item:nth-child(2n) .years {
+.brand .bottom .list .item:nth-child(2n) .year {
   background-color: #d1ae88;
 }
-.brand .bottom .list .item .years::before {
+.brand .bottom .list .item .year::before {
   content: '';
   width: 0;
   height: 0;
@@ -1297,17 +1338,17 @@ footer .copyright {
   border-width: 13px 26px 0 26px;
   position: absolute;
   bottom: -13px;
-  left:50%;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 3;
 }
-.brand .bottom .list .item:nth-child(2n + 1) .years::before {
+.brand .bottom .list .item:nth-child(2n + 1) .year::before {
   border-color: #ac8544 transparent transparent transparent;
 }
-.brand .bottom .list .item:nth-child(2n) .years::before {
+.brand .bottom .list .item:nth-child(2n) .year::before {
   border-color: #d1ae88 transparent transparent transparent;
 }
-.brand .bottom .list .item .years::after {
+.brand .bottom .list .item .year::after {
   content: '';
   width: 0;
   height: 0;
@@ -1316,22 +1357,49 @@ footer .copyright {
   border-color: #fff transparent transparent transparent;
   position: absolute;
   bottom: -13px;
-  left:50%;
-  transform: translate(-50%,2px);
+  left: 50%;
+  transform: translate(-50%, 2px);
   z-index: 2;
 }
-.brand .bottom .list .item:last-child .years::after {
+.brand .bottom .list .item:last-child .year::after {
   display: none;
 }
 .brand .bottom .list .item .text {
   font-size: 1.25rem;
   display: flex;
   line-height: 2.5;
+  flex: 5;
 }
 .brand .bottom .list .item .text label {
   font-weight: 300;
   color: #ac8544;
   margin-right: 5px;
+}
+.brand .bottom .list .item .text .desc {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.brand .bottom .list .item .text .desc li {
+  display: flex;
+}
+.brand .bottom .list .item .text .desc li::before {
+  content: '-';
+  margin-right: 5px;
+}
+@media (max-width: 992px) {
+  .brand .top{padding-bottom: 1rem;margin-bottom: 1.5rem;}
+  .brand .top .img {
+    display: none;
+  }
+  .brand .bottom .img img{margin-bottom: 1rem;}
+  .brand .top .text .title{margin-bottom: 1rem;}
+  .brand .bottom .title::before {
+    display: none;
+  }
+  .brand .bottom .list .item .years {
+    display: none;
+  }
 }
 
 /*工藝師專區*/
@@ -1366,7 +1434,6 @@ footer .copyright {
 }
 .artisan_item .text .desc {
   font-size: 1rem;
-  text-align: justify;
   margin-bottom: 1.5rem;
   line-height: 1.5;
 }
@@ -1457,6 +1524,35 @@ footer .copyright {
     margin-top: 1rem;
   }
 }
+
+/*企業服務*/
+.service{}
+.service .list{width:840px;margin: 0 auto;}
+.service .list .item{display: flex;align-items: center;justify-content: center;margin-bottom: 9rem;}
+.service .list .item:last-child{margin-bottom: 0;}
+.service .list .item .img{flex: 4;position: relative;order:1;}
+.service .list .item .img .circle{display: flex;align-items: center;justify-content: center; width:45px;height:45px;background-color: #b28146;border-radius: 100%;position: absolute;top:50%;right:0;transform: translate(50%,-50%);z-index: 2;}
+.service .list .item .img .circle img{width: 25px;height:25px;}
+.service .list .item .img img{width:100%;}
+.service .list .item .text{flex: 3;font-size: 1.75rem;font-weight: 600;text-align: right;position: relative;order:2;}
+.service .list .item .text::before{content:'';display: block;border-bottom: 2px solid #b28146;transform: translateY(50%);position: absolute;left: 0;top:50%;width:100%;z-index: 1;}
+.service .list .item .text span{background-color: #fff;position: relative;z-index: 2;padding: 0 0 0 10px;display: inline-block;}
+
+.service .list .item:nth-child(2n) .img{order: 2;}
+.service .list .item:nth-child(2n) .text{order: 1;}
+.service .list .item:nth-child(2n) .img .circle{left:0;right: unset;transform: translate(-50%,-50%);}
+.service .list .item:nth-child(2n) .text{text-align: left;}
+.service .list .item:nth-child(2n) .text span{padding: 0 10px 0 0;}
+@media (max-width: 992px) {
+  .service .list{width: 100%;}
+  .service .list .item{margin-bottom: 3rem;}
+  .service .list .item .img{flex: 6;}
+  .service .list .item .img .circle{width:30px;height:30px;}
+  .service .list .item .img .circle img{width:15px;height:15px;}
+  .service .list .item .text{font-size: .9rem;flex: 5;}
+  .service .list .item .text span{max-width: 70%;text-align: center;margin-top: 4px;}
+}
+
 
 /*最新消息列表*/
 .news_list {

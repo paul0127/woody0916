@@ -22,14 +22,12 @@ window.fbAsyncInit = function () {
 
 $(document).ready(function () {
   /*產生選單、搜尋開啟遮幕*/
-  let close = document.createElement('div')
-  close.className = 'mobile_menu_close'
-  document.body.prepend(close)
+  let close = `<div class="mobile_menu_close"></div>`
+  $('body').prepend(close)
 
   /*向上滑到頂*/
-  let goTop = document.createElement('div')
-  goTop.className = 'go_top'
-  document.body.prepend(goTop)
+  let goTop = `<div class="go_top"></div>`
+  $('body').prepend(goTop)
 
   /*手機版選單按鈕*/
   let m_nav = `<div class="mobile_nav">
@@ -227,7 +225,7 @@ $(document).on('click', '.search_btn', function () {
 })
 
 /*點擊遮幕關閉選單及搜尋*/
-$(document).on('click touch', '.mobile_menu_close', function () {
+$(document).on('click', '.mobile_menu_close', function () {
   $('.mobile_nav').removeClass('active')
   $('.mobile_menu').removeClass('active')
   $('.mobile_menu_close').removeClass('active')
