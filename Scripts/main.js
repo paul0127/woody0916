@@ -22,11 +22,11 @@ window.fbAsyncInit = function () {
 
 $(document).ready(function () {
   /*產生選單、搜尋開啟遮幕*/
-  let close = `<div class="mobile_menu_close"></div>`
+  let close = `<div class="mobile_menu_close" onclick="javascript:menu_close()"></div>`
   $('body').prepend(close)
 
   /*向上滑到頂*/
-  let goTop = `<div class="go_top"></div>`
+  let goTop = `<div class="go_top" onclick="javascript:go_top()"></div>`
   $('body').prepend(goTop)
 
   /*手機版選單按鈕*/
@@ -156,9 +156,12 @@ $(window).scroll(function () {
 })
 
 /*卷軸置頂*/
-$(document).on('click', '.go_top', function () {
+/*$(document).on('click', '.go_top', function () {
   $('html,body').animate({ scrollTop: 0 }, 900)
-})
+})*/
+function go_top(){
+  $('html,body').animate({ scrollTop: 0 }, 900)
+}
 
 /*卷軸置最新消息*/
 $(document).on('click', '.go_to', function () {
@@ -226,12 +229,18 @@ $(document).on('click', '.search_btn', function () {
 })
 
 /*點擊遮幕關閉選單及搜尋*/
-$(document).on('click', '.mobile_menu_close', function () {
+/*$(document).on('click', '.mobile_menu_close', function () {
   $('.mobile_nav').removeClass('active')
   $('.mobile_menu').removeClass('active')
   $('.mobile_menu_close').removeClass('active')
   $('.search_bar').removeClass('active')
-})
+})*/
+function menu_close(){
+  $('.mobile_nav').removeClass('active')
+  $('.mobile_menu').removeClass('active')
+  $('.mobile_menu_close').removeClass('active')
+  $('.search_bar').removeClass('active')
+}
 
 /*據點 地圖 */
 const map = {
