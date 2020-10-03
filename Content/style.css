@@ -1555,9 +1555,12 @@ footer .copyright {
 
 /*據點*/
 .store .location{max-width: 900px;margin: 0 auto;position: relative;}
-.store .location .popup{position: absolute;top: 0;left: 0;border: 2px dashed #b28146;background-color: #ffedee;border-radius: 20px;padding: 15px;transform: translate(-25%,10%) scaleX(0);transform-origin: right;transition-duration: .5s; width:375px;}
-.store .location .popup.active{transform: translate(-25%,10%) scaleX(1);}
-.store .location .popup .img{margin-bottom: .5rem;}
+.store .location .popup{position: absolute;top: 0;left: 0;border: 2px dashed #b28146;background-color: #F7EFE7;border-radius: 20px;padding: 15px;transform: translate(-25%,10%) scale(0);transform-origin: center;transition-duration: .3s; width:375px;}
+.store .location .popup.red{border-color:#fe3600;}
+.store .location .popup.active{transform: translate(-25%,10%) scale(1);}
+.store .location .popup .cross{display: none;justify-content: flex-end;cursor: pointer;margin-bottom: 5px;}
+.store .location .popup .cross i{color:#b28146;font-size: 2rem;}
+.store .location .popup .img{margin-bottom: .5rem;padding-bottom: 57.5%;height: 0;overflow: hidden;}
 .store .location .popup .img img{width: 100%;}
 .store .location .popup .title{font-size: 1.25rem;font-weight: 600;margin-bottom: .5rem;}
 .store .location .popup .addr{font-size: 1rem;font-weight: 500;}
@@ -1569,7 +1572,9 @@ footer .copyright {
   .store .location .popup{width: 300px;}
 }
 @media (max-width: 900px) {
-  .store .location .popup{display: none;}
+  .store .location .popup{left: 0;top:50%;transform: translate(0,-50%) scale(0);width: 100%;padding:10px 15px 15px 15px;}
+  .store .location .popup.active{transform: translate(0,-50%) scale(1);}
+  .store .location .popup .cross{display: flex;}
   .store .abroad .list .item{flex: 1 0 100%;font-size: 1.25rem;}
   .store .abroad .list .item::before{width:20px}
 }

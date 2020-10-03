@@ -39,20 +39,21 @@ $(document).ready(function () {
 
   /*手機板選單 主選單 選單下部*/
   let m_menu = document.querySelector('nav').innerHTML
-  let m_menu_login = document.querySelector('.toolbar li.login_btn').outerHTML//抓取PC版 登入html
-  let m_menu_user = document.querySelector('.toolbar li.user_btn').outerHTML//抓取PC版 會員html
-  let m_menu_cart = document.querySelector('.toolbar li.cart_btn').outerHTML//抓取PC版 購物車html
+  let m_menu_login = document.querySelector('.toolbar li.login_btn').outerHTML //抓取PC版 登入html
+  let m_menu_user = document.querySelector('.toolbar li.user_btn').outerHTML //抓取PC版 會員html
+  let m_menu_cart = document.querySelector('.toolbar li.cart_btn').outerHTML //抓取PC版 購物車html
 
-  let m_menu_template = `<div class="mobile_menu">
-                            <div class="main">`+
-                            m_menu +
-                            `</div>
+  let m_menu_template =
+    `<div class="mobile_menu">
+                            <div class="main">` +
+    m_menu +
+    `</div>
                             <div class="bottom">
-                              <ul>`+
-                                m_menu_login+
-                                m_menu_user+
-                                m_menu_cart+
-                              `</ul>
+                              <ul>` +
+    m_menu_login +
+    m_menu_user +
+    m_menu_cart +
+    `</ul>
                             </div>
                           </div>`
   $('.top_main').prepend(m_menu_template)
@@ -187,7 +188,7 @@ $(document).on('click', '.toolbar li.sub a', function () {
 
   $('.toolbar li.sub').removeClass('active')
   $('.search_bar').removeClass('active')
-  if(!t){
+  if (!t) {
     $(this.parentNode).addClass('active')
   }
 })
@@ -202,7 +203,7 @@ $(document).on('click', '.mobile_menu .bottom li.sub a', function () {
   let t = $(this.parentNode).hasClass('active')
 
   $('.mobile_menu .bottom li.sub').removeClass('active')
-  if(!t){
+  if (!t) {
     $(this.parentNode).addClass('active')
   }
 })
@@ -232,53 +233,66 @@ $(document).on('click', '.mobile_menu_close', function () {
   $('.search_bar').removeClass('active')
 })
 
-
 /*據點 地圖 */
 const map = {
-    juming:{
-      img:'據點_新北333X190.png',
-      title:'新北市-朱銘美術館',
-      addr:'208新北市金山區西勢湖2號'
-    },
-    hpipark:{
-      img:'據點_基隆333X190.png',
-      title:'基隆-和平島公園',
-      addr:'202基隆市中正區平一路360號'
-    },
-    woody:{
-      img:'據點_宜蘭333X190.png',
-      title:'宜蘭-國立傳統藝術中心(宜蘭園區)-青木工坊·傳藝館',
-      addr:'26841宜蘭縣五結鄉五濱路二段201號(青木工坊)'
-    },
-    cmcp:{
-      img:'據點_彰化333X190.png',
-      title:'彰化-成美文化園區',
-      addr:'512彰化縣永靖鄉中山路二段60號'
-    },
-    hinoki:{
-      img:'據點_嘉義333X190.png',
-      title:'嘉義-檜意森活村',
-      addr:'600嘉義市東區林森東路1號'
-    }
+  juming: {
+    img: '據點_新北333X190.png',
+    title: '新北市-朱銘美術館',
+    addr: '208新北市金山區西勢湖2號',
+  },
+  hpipark: {
+    img: '據點_基隆333X190.png',
+    title: '基隆-和平島公園',
+    addr: '202基隆市中正區平一路360號',
+  },
+  woody: {
+    img: '據點_宜蘭333X190.png',
+    title: '宜蘭-國立傳統藝術中心(宜蘭園區)-青木工坊·傳藝館',
+    addr: '26841宜蘭縣五結鄉五濱路二段201號(青木工坊)',
+  },
+  cmcp: {
+    img: '據點_彰化333X190.png',
+    title: '彰化-成美文化園區',
+    addr: '512彰化縣永靖鄉中山路二段60號',
+  },
+  hinoki: {
+    img: '據點_嘉義333X190.png',
+    title: '嘉義-檜意森活村',
+    addr: '600嘉義市東區林森東路1號',
+  },
 }
 $(document).on('click', 'g.map_btn', function () {
   let h = $(this).attr('class').indexOf('active')
   let s = $(this).attr('id')
   let path = './Content/img/location/'
 
-  $('g.map_btn').attr('class','map_btn')
-  
-  $('.popup .img img').attr('src',path+map[s]['img'])
-  $('.popup .text .title').text(map[s]['title'])
-  $('.popup .text .addr').text(map[s]['addr'])
+  $('g.map_btn').attr('class', 'map_btn')
 
-  $('.popup').addClass('active')
+  $('.popup').removeClass('active')
+  $('.popup .img img').attr('src', '')
 
-  if(h<0){
-    $(this).attr('class','map_btn active')
+  if(s=='woody'){
+    $('.popup').addClass('red')
   }else{
+    $('.popup').removeClass('red')
+  }
+
+  if (h < 0) {
+    $(this).attr('class', 'map_btn active')
+    setTimeout(function () {
+      $('.popup .img img').attr('src', path + map[s]['img'])
+      $('.popup .text .title').text(map[s]['title'])
+      $('.popup .text .addr').text(map[s]['addr'])
+      $('.popup').addClass('active')
+    }, 300)
+  } else {
     $('.popup').removeClass('active')
   }
+})
+/*據點 手機關閉*/
+$(document).on('click', '.popup .cross_btn', function () {
+  $('g.map_btn').attr('class', 'map_btn')
+  $('.popup').removeClass('active')
 })
 
 /*產品內頁 更換圖片 */
