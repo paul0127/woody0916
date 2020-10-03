@@ -232,15 +232,54 @@ $(document).on('click', '.mobile_menu_close', function () {
   $('.search_bar').removeClass('active')
 })
 
-// let el = $('.mobile_menu_close')
-// console.log(el);
-// el.addEventListener("touchstart", handleStart, false);
-// function handleStart(){
-//   $('.mobile_nav').removeClass('active')
-//   $('.mobile_menu').removeClass('active')
-//   $('.mobile_menu_close').removeClass('active')
-//   $('.search_bar').removeClass('active')
-// }
+
+/*據點 地圖 */
+const map = {
+    juming:{
+      img:'據點_新北333X190.png',
+      title:'新北市-朱銘美術館',
+      addr:'208新北市金山區西勢湖2號'
+    },
+    hpipark:{
+      img:'據點_基隆333X190.png',
+      title:'基隆-和平島公園',
+      addr:'202基隆市中正區平一路360號'
+    },
+    woody:{
+      img:'據點_宜蘭333X190.png',
+      title:'宜蘭-國立傳統藝術中心(宜蘭園區)-青木工坊·傳藝館',
+      addr:'26841宜蘭縣五結鄉五濱路二段201號(青木工坊)'
+    },
+    cmcp:{
+      img:'據點_彰化333X190.png',
+      title:'彰化-成美文化園區',
+      addr:'512彰化縣永靖鄉中山路二段60號'
+    },
+    hinoki:{
+      img:'據點_嘉義333X190.png',
+      title:'嘉義-檜意森活村',
+      addr:'600嘉義市東區林森東路1號'
+    }
+}
+$(document).on('click', 'g.map_btn', function () {
+  let h = $(this).attr('class').indexOf('active')
+  let s = $(this).attr('id')
+  let path = './Content/img/location/'
+
+  $('g.map_btn').attr('class','map_btn')
+  
+  $('.popup .img img').attr('src',path+map[s]['img'])
+  $('.popup .text .title').text(map[s]['title'])
+  $('.popup .text .addr').text(map[s]['addr'])
+
+  $('.popup').addClass('active')
+
+  if(h<0){
+    $(this).attr('class','map_btn active')
+  }else{
+    $('.popup').removeClass('active')
+  }
+})
 
 /*產品內頁 更換圖片 */
 $(document).on('click', '.small_pic li', function () {
