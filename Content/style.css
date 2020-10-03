@@ -1527,7 +1527,6 @@ footer .copyright {
 }
 
 /*企業服務*/
-.service{}
 .service .list{width:840px;margin: 0 auto;}
 .service .list .item{display: flex;align-items: center;justify-content: center;margin-bottom: 9rem;}
 .service .list .item:last-child{margin-bottom: 0;}
