@@ -2798,6 +2798,9 @@ fieldset[disabled] .btn-fb.active {
 .password_popup .bottom .btn {
   margin-right: 3rem;
 }
+.password_popup .bottom .btn:last-child {
+  margin-right: 0;
+}
 @media (max-width: 992px) {
   .password_popup .list {
     flex-wrap: wrap;
@@ -2807,7 +2810,7 @@ fieldset[disabled] .btn-fb.active {
     margin-bottom: 10px;
     flex: 1 0 100%;
   }
-  .password_popup .list .text{
+  .password_popup .list .text {
     flex: 1 0 100%;
   }
   .password_popup .list .text input {
