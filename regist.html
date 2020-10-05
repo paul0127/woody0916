@@ -123,7 +123,7 @@
               />
               <div class="form-group">
                 <label class="col-md-2 control-label" for="Email"
-                  >電子郵件</label
+                  >Email</label
                 >
                 <div class="col-md-10">
                   <input
@@ -143,6 +143,87 @@
                   ></span>
                 </div>
               </div>
+              <div class="form-group">
+                <label class="col-md-2 control-label" for="Name"
+                  >會員姓名</label
+                >
+                <div class="col-md-10">
+                  <input
+                    class="form-control"
+                    id="Name"
+                    name="Name"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-2" for="Name">性別</label>
+                <div class="col-md-10">
+                  <div class="sex">
+                    <input id="male" name="sex" type="radio" />
+                    <label for="male">男</label>
+                    <input id="female" name="sex" type="radio" />
+                    <label for="female">女</label>
+                  </div>
+                </div>
+              </div>
+              <!--年月日須連動-->
+              <div class="form-group">
+                <label class="col-xs-12 col-sm-2 control-label" for="birthday"
+                  >生日</label
+                >
+                <div class="col-sm-10">
+                  <div
+                    class="input-group date"
+                    id="dpFrom"
+                    data-date-format="YYYY/MM/DD"
+                  >
+                    <input
+                      class="form-control text-box single-line"
+                      data-val="true"
+                      data-val-date="欄位 生日 必須是日期。"
+                      id="dateBirth"
+                      name="birthday"
+                      placeholder="生日"
+                      style="margin: 0px"
+                      type="datetime"
+                      value=""
+                    />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+
+                <span
+                  class="field-validation-valid text-danger"
+                  data-valmsg-replace="true"
+                  data-valmsg-for="dateBirth"
+                ></span>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-2" for="phone">電話</label>
+                <div class="col-md-10">
+                  <input
+                    class="form-control text-box single-line"
+                    data-val="true"
+                    data-val-regex="請輸入正確連絡電話ex:0228833123"
+                    data-val-regex-pattern="^0\d{1,2}?\d{3,4}?\d{3,4}$"
+                    id="phone"
+                    name="phone"
+                    type="text"
+                    value=""
+                  />
+                  <span
+                    class="field-validation-valid text-danger"
+                    data-valmsg-for="phone"
+                    data-valmsg-replace="true"
+                  ></span>
+                </div>
+              </div>
+              
               <div class="form-group">
                 <label class="col-md-2 control-label" for="Password"
                   >密碼</label

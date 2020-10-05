@@ -1802,6 +1802,7 @@ footer .copyright {
 @media (max-width: 1150px) {
   .store .location .popup {
     width: 300px;
+    left:6%
   }
 }
 @media (max-width: 900px) {
@@ -2680,3 +2681,6 @@ fieldset[disabled] .btn-fb.active {
   background-color: #b28146;
   border-color: #b28146;
 }
+
+/*會員資料修改*/
+.sex{margin-top: 6px;}
