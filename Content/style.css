@@ -1794,15 +1794,55 @@ footer .copyright {
 #hinoki.active > #chiayi {
   fill: #a9854b;
 }
-.map_line.hpipark{position: absolute;width: 29%;border-bottom: 3px dashed #b28146;top:16%;left: 31%;transform: rotate(10deg);transform-origin: left;}
-.map_line.juming{position: absolute;width: 25%;border-bottom: 3px dashed #b28146;top:16%;left: 31%;transform: rotate(5deg);transform-origin: left;}
-.map_line.woody{position: absolute;width: 32%;border-bottom: 3px dashed #fe3600;top:24%;left: 31%;transform: rotate(25deg);transform-origin: left;}
-.map_line.cmcp{position: absolute;width: 24%;border-bottom: 3px dashed #b28146;top:30%;left: 21%;transform: rotate(75deg);transform-origin: left;}
-.map_line.hinoki{position: absolute;width: 38%;border-bottom: 3px dashed #b28146;top:30%;left: 21%;transform: rotate(81deg);transform-origin: left;}
+.map_line.hpipark {
+  position: absolute;
+  width: 29%;
+  border-bottom: 3px dashed #b28146;
+  top: 16%;
+  left: 31%;
+  transform: rotate(10deg);
+  transform-origin: left;
+}
+.map_line.juming {
+  position: absolute;
+  width: 25%;
+  border-bottom: 3px dashed #b28146;
+  top: 16%;
+  left: 31%;
+  transform: rotate(5deg);
+  transform-origin: left;
+}
+.map_line.woody {
+  position: absolute;
+  width: 32%;
+  border-bottom: 3px dashed #fe3600;
+  top: 24%;
+  left: 31%;
+  transform: rotate(25deg);
+  transform-origin: left;
+}
+.map_line.cmcp {
+  position: absolute;
+  width: 24%;
+  border-bottom: 3px dashed #b28146;
+  top: 30%;
+  left: 21%;
+  transform: rotate(75deg);
+  transform-origin: left;
+}
+.map_line.hinoki {
+  position: absolute;
+  width: 38%;
+  border-bottom: 3px dashed #b28146;
+  top: 30%;
+  left: 21%;
+  transform: rotate(81deg);
+  transform-origin: left;
+}
 @media (max-width: 1150px) {
   .store .location .popup {
     width: 300px;
-    left:6%
+    left: 6%;
   }
 }
 @media (max-width: 900px) {
@@ -1826,7 +1866,9 @@ footer .copyright {
   .store .abroad .list .item::before {
     width: 20px;
   }
-  .map_line{display: none;}
+  .map_line {
+    display: none;
+  }
 }
 
 /*最新消息列表*/
@@ -2675,6 +2717,88 @@ fieldset[disabled] .btn-fb.active {
   opacity: 0.8;
 }
 
+.member_edit {
+  position: relative;
+}
+
+.password_btn,
+.password_btn:hover,
+.password_btn:focus {
+  background-color: #b28146;
+  border-color: #b28146;
+}
+.password_btn:hover {
+  opacity: 0.8;
+}
+
+.password_popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid #333;
+  background-color: #fff;
+  padding: 15px;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 30px);
+  border-radius: 5px;
+  display: none;
+}
+.password_popup .cross {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.password_popup .cross i {
+  color: #333;
+  font-size: 2rem;
+}
+.password_popup.active {
+  display: block;
+}
+.password_popup .title {
+  line-height: 2;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-bottom: 1px solid #333;
+  margin-bottom: 1.25rem;
+}
+.password_popup .list {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.password_popup .list label {
+  flex: 0 0 100px;
+  text-align: right;
+  margin-right: 10px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.password_popup .list .text {
+  flex: 6;
+}
+.password_popup .list .text input {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 0.75rem;
+  width: 300px;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+.password_popup .list .text span {
+  font-size: 0.75rem;
+}
+.password_popup .bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.password_popup .bottom .btn {
+  margin-right: 3rem;
+}
+
 .list-group-item.active,
 .list-group-item.active:hover,
 .list-group-item.active:focus {
@@ -2683,4 +2807,6 @@ fieldset[disabled] .btn-fb.active {
 }
 
 /*會員資料修改*/
-.sex{margin-top: 6px;}
+.sex {
+  margin-top: 6px;
+}

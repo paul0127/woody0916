@@ -356,6 +356,18 @@ $(document).on('click', '.tab_nav li', function () {
   $(t).addClass('active')
 })
 
+/*日期選擇*/
+if ($('#dateBirth').length) {
+  $('#dateBirth').val('')
+  $(function () {
+    var dp = $('.date')
+    dp.datetimepicker({
+      pickTime: false,
+      language: 'zh-TW',
+    })
+  })
+}
+
 //產品內頁 fb分享
 $(document).on('click', '#fbshare', function () {
   FB.ui(
@@ -375,4 +387,17 @@ $(document).on('click', '#fbshare', function () {
       }
     }
   )
+})
+
+/*會員資料編輯 修改密碼 彈出窗開關*/
+$(document).on('click', '.password_btn', function () {
+  $('.password_popup').addClass('active')
+})
+/* 修改密碼 彈出窗關閉*/
+$(document).on('click', '.cancel_btn', function () {
+  $('.password_popup').removeClass('active')
+  let p = document.querySelectorAll('.password_popup .list .text input')
+  p.forEach(item=>{
+    item.value= ''
+  })
 })

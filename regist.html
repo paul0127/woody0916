@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>加入會員</title>
     <link rel="stylesheet" href="./Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="./Content/bootstrap-datetimepicker.min.css" />
     <link rel="stylesheet" href="./Content/style.css" />
   </head>
   <body>
@@ -123,7 +124,7 @@
               />
               <div class="form-group">
                 <label class="col-md-2 control-label" for="Email"
-                  >Email</label
+                  >Email(帳號)</label
                 >
                 <div class="col-md-10">
                   <input
@@ -331,11 +332,6 @@
                     value="註冊"
                   />
                   <text>如看不到驗證碼請開啟cookie</text>
-                  <script>
-                    $('#btnConfirm').click(function () {
-                      fbq('track', 'CompleteRegistration') // 2018/09/01, lozenlin, add
-                    })
-                  </script>
                 </div>
               </div>
             </form>
@@ -417,6 +413,9 @@
       </div>
     </footer>
     <script src="./Scripts/jquery-1.10.2.min.js"></script>
+    <script src="./Scripts/bootstrap.min.js"></script>
+    <script src="./Scripts/moment-with-langs.min.js"></script>
+    <script src="./Scripts/bootstrap-datetimepicker.min.js"></script>
     <script src="./Scripts/main.js"></script>
   </body>
 </html>
