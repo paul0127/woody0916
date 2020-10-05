@@ -1794,6 +1794,11 @@ footer .copyright {
 #hinoki.active > #chiayi {
   fill: #a9854b;
 }
+.map_line.hpipark{position: absolute;width: 29%;border-bottom: 3px dashed #b28146;top:16%;left: 31%;transform: rotate(10deg);transform-origin: left;}
+.map_line.juming{position: absolute;width: 25%;border-bottom: 3px dashed #b28146;top:16%;left: 31%;transform: rotate(5deg);transform-origin: left;}
+.map_line.woody{position: absolute;width: 32%;border-bottom: 3px dashed #fe3600;top:24%;left: 31%;transform: rotate(25deg);transform-origin: left;}
+.map_line.cmcp{position: absolute;width: 24%;border-bottom: 3px dashed #b28146;top:30%;left: 21%;transform: rotate(75deg);transform-origin: left;}
+.map_line.hinoki{position: absolute;width: 38%;border-bottom: 3px dashed #b28146;top:30%;left: 21%;transform: rotate(81deg);transform-origin: left;}
 @media (max-width: 1150px) {
   .store .location .popup {
     width: 300px;
@@ -1820,6 +1825,7 @@ footer .copyright {
   .store .abroad .list .item::before {
     width: 20px;
   }
+  .map_line{display: none;}
 }
 
 /*最新消息列表*/

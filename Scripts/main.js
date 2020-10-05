@@ -159,7 +159,7 @@ $(window).scroll(function () {
 /*$(document).on('click', '.go_top', function () {
   $('html,body').animate({ scrollTop: 0 }, 900)
 })*/
-function go_top(){
+function go_top() {
   $('html,body').animate({ scrollTop: 0 }, 900)
 }
 
@@ -235,7 +235,7 @@ $(document).on('click', '.search_btn', function () {
   $('.mobile_menu_close').removeClass('active')
   $('.search_bar').removeClass('active')
 })*/
-function menu_close(){
+function menu_close() {
   $('.mobile_nav').removeClass('active')
   $('.mobile_menu').removeClass('active')
   $('.mobile_menu_close').removeClass('active')
@@ -280,14 +280,15 @@ $(document).on('click', 'g.map_btn', function () {
   $('.popup').removeClass('active')
   $('.popup .img img').attr('src', '')
 
-  if(s=='woody'){
+  if (s == 'woody') {
     $('.popup').addClass('red')
-  }else{
+  } else {
     $('.popup').removeClass('red')
   }
 
   if (h < 0) {
     $(this).attr('class', 'map_btn active')
+    $('.map_line').attr('class', 'map_line ' + s)
     setTimeout(function () {
       $('.popup .img img').attr('src', path + map[s]['img'])
       $('.popup .text .title').text(map[s]['title'])
@@ -295,6 +296,7 @@ $(document).on('click', 'g.map_btn', function () {
       $('.popup').addClass('active')
     }, 300)
   } else {
+    $('.map_line').attr('class', 'map_line')
     $('.popup').removeClass('active')
   }
 })
