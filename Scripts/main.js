@@ -38,24 +38,24 @@ $(document).ready(function () {
   $('.top_main').prepend(m_nav)
 
   /*手機板選單 主選單 選單下部*/
-  let m_menu = document.querySelector('nav').innerHTML
+  let m_menu = document.querySelector('nav').innerHTML //抓取PC版 選單
   let m_menu_login = document.querySelector('.toolbar li.login_btn').outerHTML //抓取PC版 登入html
   let m_menu_user = document.querySelector('.toolbar li.user_btn').outerHTML //抓取PC版 會員html
   let m_menu_cart = document.querySelector('.toolbar li.cart_btn').outerHTML //抓取PC版 購物車html
 
   let m_menu_template =
     `<div class="mobile_menu">
-                            <div class="main">` +
+      <div class="main">` +
     m_menu +
     `</div>
-                            <div class="bottom">
-                              <ul>` +
+      <div class="bottom">
+        <ul>` +
     m_menu_login +
     m_menu_user +
     m_menu_cart +
     `</ul>
-                            </div>
-                          </div>`
+      </div>
+    </div>`
   $('.top_main').prepend(m_menu_template)
 
   /*首頁banner輪播*/
@@ -175,14 +175,7 @@ $(document).on('click', '.mobile_nav', function () {
   $('.mobile_menu').toggleClass('active')
   $('.search_bar').removeClass('active')
 
-  if (
-    $('.search_bar').hasClass('active') ||
-    $('.mobile_menu').hasClass('active')
-  ) {
-    $('.mobile_menu_close').addClass('active')
-  } else {
-    $('.mobile_menu_close').removeClass('active')
-  }
+  menu_close_toggle()
 })
 
 /*pc版會員、購物車選單開啟關閉*/
@@ -194,6 +187,8 @@ $(document).on('click', '.toolbar li.sub a', function () {
   if (!t) {
     $(this.parentNode).addClass('active')
   }
+
+  menu_close_toggle()
 })
 
 /*手機版子選單開關*/
@@ -218,15 +213,22 @@ $(document).on('click', '.search_btn', function () {
   $('.mobile_nav').removeClass('active')
   $('.mobile_menu').removeClass('active')
 
+  menu_close_toggle()
+})
+
+/*判斷遮幕開或關*/
+function menu_close_toggle() {
   if (
     $('.search_bar').hasClass('active') ||
-    $('.mobile_menu').hasClass('active')
+    $('.mobile_menu').hasClass('active') ||
+    $('.cart_btn.sub').hasClass('active') ||
+    $('.user_btn.sub').hasClass('active')
   ) {
     $('.mobile_menu_close').addClass('active')
   } else {
     $('.mobile_menu_close').removeClass('active')
   }
-})
+}
 
 /*點擊遮幕關閉選單及搜尋*/
 /*$(document).on('click', '.mobile_menu_close', function () {
@@ -240,6 +242,7 @@ function menu_close() {
   $('.mobile_menu').removeClass('active')
   $('.mobile_menu_close').removeClass('active')
   $('.search_bar').removeClass('active')
+  $('.toolbar li.sub').removeClass('active')
 }
 
 /*據點 地圖 */
@@ -300,6 +303,7 @@ $(document).on('click', 'g.map_btn', function () {
     $('.popup').removeClass('active')
   }
 })
+
 /*據點 手機關閉*/
 $(document).on('click', '.popup .cross_btn', function () {
   $('g.map_btn').attr('class', 'map_btn')
@@ -397,7 +401,7 @@ $(document).on('click', '.password_btn', function () {
 $(document).on('click', '.cancel_btn', function () {
   $('.password_popup').removeClass('active')
   let p = document.querySelectorAll('.password_popup .list .text input')
-  p.forEach(item=>{
-    item.value= ''
+  p.forEach((item) => {
+    item.value = ''
   })
 })
