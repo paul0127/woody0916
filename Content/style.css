@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
+:root {
+  --title-under-color: #b28146; /*所有大標題下底線顏色*/
+  --top-bottom-background: #333333; /*上下header和footer底色*/
+  --button-background: #b28146; /*所有按鈕或按鈕hover的底色*/
+  --sub-nav-color: #555555; /*子選單底色*/
+  --nav-button-color: #fff; /*導覽文字顏色*/
+  --menu-close-background: #00000080; /*選單遮幕顏色*/
+  --bread-color: #999999; /*麵包屑文字顏色*/
+  --bread-active-color: #7b94e8; /*麵包屑文字(有連結)顏色*/
+}
+
 html {
   font-size: 16px;
 }
@@ -27,7 +38,7 @@ p {
   height: calc(100% - 70px);
   display: none;
   z-index: 6;
-  background: #00000080;
+  background: var(--menu-close-background);
 }
 .mobile_menu_close.active {
   display: flex;
@@ -46,7 +57,7 @@ p {
   z-index: 7;
   width: 60px;
   height: 60px;
-  background-color: #b28146;
+  background-color: var(--button-background);
   border-radius: 100%;
   display: none;
   align-items: center;
@@ -105,7 +116,7 @@ p {
 
 /*頁首*/
 header {
-  background-color: #333333;
+  background-color: var(--top-bottom-background);
   position: relative;
   height: 70px;
 }
@@ -303,7 +314,7 @@ header {
   > ul
   > li
   > a:hover {
-  background-color: #b28146;
+  background-color: var(--button-background);
 }
 .top_main > .mobile_menu > .bottom > ul > li.cart_btn > .sub_menu > ul {
   padding-bottom: 0.5rem;
@@ -378,7 +389,7 @@ header {
   margin-right: 0;
 }
 .top_main > nav > ul > li > a {
-  color: #fff;
+  color: var(--nav-button-color);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -388,8 +399,9 @@ header {
 }
 .top_main > nav > ul > li.sub > a::after {
   content: url(./img/caret-down.svg);
-  margin: 0 0 0.4rem 0.5rem;
+  margin: 0 0 0 0.5rem;
   display: block;
+  transform: translateY(-3px);
 }
 .top_main > nav > ul > li.sub > div.sub_menu {
   position: absolute;
@@ -397,7 +409,7 @@ header {
   left: 0;
   z-index: 8;
   width: 100%;
-  background-color: #555555;
+  background-color: var(--sub-nav-color);
   padding: 1.5rem 0;
   transform: scaleY(0);
   transition-duration: 0.3s;
@@ -474,8 +486,9 @@ header {
 }
 .toolbar > ul > li.sub > a::after {
   content: url(./img/caret-down.svg);
-  margin: 0 0 0.4rem 0.5rem;
+  margin: 0 0 0 0.5rem;
   display: block;
+  transform: translateY(-3px);
 }
 .toolbar > ul > li.sub.active {
   background-color: #555555;
@@ -515,7 +528,7 @@ header {
   text-align: center;
 }
 .toolbar > ul > li.user_btn > .sub_menu > ul > li > a:hover {
-  background-color: #b28146;
+  background-color: var(--button-background);
   color: #fff;
 }
 /*購物車下拉選單*/
@@ -587,7 +600,7 @@ header {
   line-height: 38px;
 }
 .search_bar .search_inner button {
-  background-color: #b28146;
+  background-color: var(--button-background);
   color: #fff;
   outline: none;
   border: none;
@@ -720,12 +733,12 @@ header {
 }
 .news_title::after {
   content: '';
-  border-bottom: 3px solid #b28146;
+  border-bottom: 3px solid var(--title-under-color);
   width: 239px;
   position: absolute;
-  bottom: -1.5px;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%,50%);
 }
 .news_title h1 {
   display: inline-block;
@@ -744,7 +757,7 @@ header {
   bottom: 0;
   width: 160px;
   height: 71px;
-  background-color: #b28146;
+  background-color: var(--button-background);
 }
 .news_block .more a {
   display: flex;
@@ -869,12 +882,12 @@ header {
 }
 .title_index::after {
   content: '';
-  border-bottom: 3px solid #b28146;
+  border-bottom: 3px solid var(--title-under-color);
   width: 239px;
   position: absolute;
-  bottom: -1.5px;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%,50%);
 }
 .title_index h1 {
   display: inline-block;
@@ -1021,7 +1034,7 @@ header {
 
 /*頁尾*/
 footer {
-  background-color: #333333;
+  background-color:var(--top-bottom-background);
   padding: 2.5rem 0;
 }
 /*頁尾logo*/
@@ -1162,10 +1175,10 @@ footer .copyright {
 }
 .bread ul li {
   font-size: 1.1rem;
-  color: #999999;
+  color: var(--bread-color);
 }
 .bread ul li a {
-  color: #7b94e8;
+  color: var(--bread-active-color);
   text-decoration: none;
 }
 .bread ul li a:hover {
@@ -1199,13 +1212,13 @@ footer .copyright {
 }
 .b_title::after {
   content: '';
-  border-bottom: 3px solid #b28146;
+  border-bottom: 3px solid var(--title-under-color);
   display: block;
   position: absolute;
   width: 282px;
-  bottom: -1.5px;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%,50%);
 }
 @media (max-width: 992px) {
   .bread {
@@ -1681,8 +1694,11 @@ footer .copyright {
   margin-bottom: 5px;
 }
 .store .location .popup .cross i {
-  color: #b28146;
+  color: var(--button-background);
   font-size: 2rem;
+}
+.store .location .popup .cross i:hover{
+  opacity: .8;
 }
 .store .location .popup .img {
   margin-bottom: 0.5rem;
@@ -1797,50 +1813,41 @@ footer .copyright {
 #hinoki.active > #chiayi {
   fill: #a9854b;
 }
-.map_line.hpipark {
+.map_line{
   position: absolute;
-  width: 29%;
   border-bottom: 3px dashed #b28146;
+  transform-origin: left;
+}
+.map_line.hpipark {
+  width: 29%;
   top: 16%;
   left: 31%;
   transform: rotate(10deg);
-  transform-origin: left;
 }
 .map_line.juming {
-  position: absolute;
   width: 25%;
-  border-bottom: 3px dashed #b28146;
   top: 16%;
   left: 31%;
   transform: rotate(5deg);
-  transform-origin: left;
 }
 .map_line.woody {
-  position: absolute;
   width: 32%;
-  border-bottom: 3px dashed #fe3600;
+  border-color: #fe3600;
   top: 24%;
   left: 31%;
   transform: rotate(25deg);
-  transform-origin: left;
 }
 .map_line.cmcp {
-  position: absolute;
   width: 24%;
-  border-bottom: 3px dashed #b28146;
   top: 30%;
   left: 21%;
   transform: rotate(75deg);
-  transform-origin: left;
 }
 .map_line.hinoki {
-  position: absolute;
   width: 38%;
-  border-bottom: 3px dashed #b28146;
   top: 30%;
   left: 21%;
   transform: rotate(81deg);
-  transform-origin: left;
 }
 @media (max-width: 1150px) {
   .store .location .popup {
@@ -2025,16 +2032,16 @@ a.news_item:hover .news_btn .circle {
   text-align: center;
 }
 .pager_nav .pagination > li > a {
-  color: #7b94e8;
+  color: var(--button-background);
+  border-color: var(--button-background);
 }
-.pager_nav .pagination > li.active > a {
+.pager_nav .pagination > li.active > a{
   color: #fff;
+  background-color: var(--button-background);
 }
 
 @media (max-width: 992px) {
-  .pager_nav {
-    display: none;
-  }
+ 
 }
 
 /*最新消息內頁 上下頁按鈕*/
@@ -2046,10 +2053,10 @@ a.news_item:hover .news_btn .circle {
 .go_back a {
   text-align: center;
   margin: 0 0.5rem;
-  border: 1px solid #b28146;
+  border: 1px solid var(--button-background);
   flex: 1;
   padding: 10px;
-  background-color: #b28146;
+  background-color: var(--button-background);
   color: #fff;
   text-decoration: none;
   font-size: 1rem;
@@ -2140,7 +2147,7 @@ a.news_item:hover .news_btn .circle {
 .side-menu > li > a {
   display: block;
   padding: 10px 15px;
-  background: #b28146;
+  background: var(--button-background);
   color: #fff;
   border-radius: 4px;
   font-size: 16px;
@@ -2169,11 +2176,12 @@ a.news_item:hover .news_btn .circle {
 }
 .title_product::after {
   content: '';
-  border-bottom: 3px solid #b28146;
+  border-bottom: 3px solid var(--title-under-color);
   width: 239px;
   position: absolute;
-  bottom: -1.5px;
+  bottom: 0;
   left: 0;
+  transform: translateY(50%);
 }
 .title_product h1 {
   display: inline-block;
@@ -2400,10 +2408,11 @@ a.news_item:hover .news_btn .circle {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -1.5px;
+  bottom: 0;
   display: block;
   width: 100%;
-  border-bottom: 3px solid #b28146;
+  border-bottom: 3px solid var(--title-under-color);
+  transform: translateY(50%);
 }
 .product_desc .tab_panel {
   display: none;
@@ -2424,12 +2433,13 @@ a.news_item:hover .news_btn .circle {
 }
 .relation .title_product h1::after {
   content: '';
-  border-bottom: 3px solid #b28146;
+  border-bottom: 3px solid var(--title-under-color);
   width: 100%;
   display: block;
   position: absolute;
-  bottom: 0.1.5px;
+  bottom: 0;
   left: 0;
+  transform: translateY(50%);
 }
 .relation .title_product::after {
   display: none;
@@ -2550,8 +2560,8 @@ fieldset[disabled] .btn-fb.active {
 }
 
 .alert-register {
-  border-color: #b28146;
-  background-color: #b28146;
+  border-color: var(--button-background);
+  background-color: var(--button-background);
   color: white;
 }
 
@@ -2681,7 +2691,7 @@ fieldset[disabled] .btn-fb.active {
 
 .page-heading-title {
   font-size: 24px;
-  border-bottom: 3px solid #b28146;
+  border-bottom: 3px solid var(--title-under-color);
   line-height: 40px;
   padding-bottom: 5px;
 }
@@ -2692,8 +2702,8 @@ fieldset[disabled] .btn-fb.active {
 .next-btn:hover,
 .back-btn:focus,
 .next-btn:focus {
-  background-color: #b28146;
-  border-color: #b28146;
+  background-color: var(--button-background);
+  border-color: var(--button-background);
 }
 .back-btn:hover,
 .next-btn:hover {
@@ -2703,8 +2713,8 @@ fieldset[disabled] .btn-fb.active {
 .log-in,
 .log-in:hover,
 .log-in:focus {
-  background-color: #b28146;
-  border-color: #b28146;
+  background-color: var(--button-background);
+  border-color: var(--button-background);
 }
 .log-in:hover {
   opacity: 0.8;
@@ -2713,8 +2723,8 @@ fieldset[disabled] .btn-fb.active {
 .edit_btn,
 .edit_btn:hover,
 .edit_btn:focus {
-  background-color: #b28146;
-  border-color: #b28146;
+  background-color: var(--button-background);
+  border-color: var(--button-background);
 }
 .edit_btn:hover {
   opacity: 0.8;
@@ -2727,8 +2737,8 @@ fieldset[disabled] .btn-fb.active {
 .password_btn,
 .password_btn:hover,
 .password_btn:focus {
-  background-color: #b28146;
-  border-color: #b28146;
+  background-color: var(--button-background);
+  border-color: var(--button-background);
 }
 .password_btn:hover {
   opacity: 0.8;
@@ -2824,8 +2834,8 @@ fieldset[disabled] .btn-fb.active {
 .list-group-item.active,
 .list-group-item.active:hover,
 .list-group-item.active:focus {
-  background-color: #b28146;
-  border-color: #b28146;
+  background-color: var(--button-background);
+  border-color: var(--button-background);
 }
 
 /*會員資料修改*/
