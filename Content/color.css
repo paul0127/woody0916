@@ -1,0 +1,81 @@
+:root {
+    --title-under-color: #b28146; /*所有大標題下底線顏色*/
+    --title-under-under-color: #dddddd; /*所有大標題下下底線顏色(淺灰)*/
+    --title-under-under-white-color: #fff;/*所有大標題下下底線顏色(白色)*/
+
+    --top-bottom-background: #333333; /*上下header和footer底色*/
+    --button-background: #b28146; /*所有按鈕或按鈕hover的咖啡底色*/
+
+    --menu-close-background: #00000080; /*選單遮幕顏色*/
+    --sub-nav-background: #555555; /*PC及手機子選單底色*/
+    --tooler-background: #fff; /*pc會員及購物車選單下拉底色*/
+    --tooler-border-color: #dddddd; /*pc購物車選單下拉底線顏色*/
+
+    --mobile-nav-color: #fff; /*手機選單開關按鈕顏色*/
+    --nav-button-active-background: #555555; /*PC選單按下時底色*/
+    --mobile-button-active-background: #777777; /*手機選單按下時底色*/
+    --cart-button-background: #e14344; /*立即結帳底色*/
+    --cart-qty-background: #858585; /*選單購物車數量底色*/
+    
+    --silder-dot-background: #fff; /*輪播點*/
+    --go-to-news-background: #555555; /*首頁滑動到最新消息按鈕底色*/
+
+    --news-item-button-background: #000000; /*最新消息項目裡按鈕底色*/
+    --news-silder-nav-button-background: #dddddd; /*最新消息輪播按鈕顏色*/
+
+    --brand-year-odd-background:  #ac8544; /*品牌介紹 年代表基數底色*/
+    --brand-year-even-background:  #d1ae88; /*品牌介紹 年代表偶數底色*/
+    --brand-year-arrow-color: #fff; /*品牌介紹 年代表箭頭顏色*/
+    --brand-year-now-color:  #d1ae88; /*品牌介紹 年代表迄今顏色*/
+
+    --store-button-hover-background: #a9854b; /*據點 地圖hover顏色*/
+    --store-popup-border-color: #ff6600; /*據點 彈出窗邊線顏色(咖啡色)*/
+    --store-popup-red-border-color: #fe3600; /*據點 彈出窗邊線顏色(紅色)*/
+    --store-popup-background: #f7efe7;/*據點 彈出窗底色*/
+
+    --side-menu-underline-color: #ddd;/*側邊欄 底線*/
+    --side-menu-hover-background: #f2f2f2;/*側邊欄 按鈕hover顏色*/
+
+    --product-small_pic-border-color: #fff;/*產品內頁 小圖的邊線*/
+    --product-small_pic-active-border-color: #333;/*產品內頁 小圖的邊線*/
+    --product-side-desc-background: #eeeeee;/*產品內頁 描述底色*/
+    --product-side-price-underline-color: #dddddd;/*產品內頁 價格下底線顏色*/
+    --product-qty-button-background: #fff;/*產品內頁 數量按鈕底色*/
+    --product-qty-button-hover-background: #ccc;/*產品內頁 數量按鈕hover底色*/
+    --product-qty-button-border-color: #dddddd;/*產品內頁 數量按鈕邊線顏色*/
+    --product-purchase-button-background: #ff0000;/*產品內頁 加入購物車按鈕底色*/
+
+    --regist-button-background: #e14344; /*會員登入 加入會員按鈕底色*/
+    --regist-button-border-color: #d13839; /*會員登入 加入會員按鈕邊線顏色*/
+    --regist-button-hover-background: #d33738; /*會員登入 加入會員按鈕hover底色*/
+    --regist-button-hover-border-color: #c22d2e; /*會員登入 加入會員按鈕hover邊線顏色*/
+
+    --fb-button-background: #3b5998; /*會員登入 fb登入按鈕底色*/
+    --fb-button-hover-background: #2a4680; /*會員登入 fb登入按鈕hover底色*/
+
+    --stepwizard-line-color: #ccc; /*購物車 流程圖底線顏色*/
+    --stepwizard-button-border-color: #ccc; /*購物車 流程圖按鈕邊線*/
+    --stepwizard-button-background: #fff; /*購物車 按鈕底色*/
+    --stepwizard-button-active-background: #b28146; /*購物車 按鈕active底色*/
+
+    --cart-table-border-color: #f2f2f2; /*購物車 表單邊線顏色*/
+    --cart-table-title-color: #79ceb8; /*購物車 表單標題文字顏色*/
+    --cart-tip-background: #e04343; /*購物車 表單提示底色*/
+
+    --member-password-popup-border-color: #333; /*會員專區 修改密碼彈出窗邊線顏色*/
+    --member-password-popup-background: #fff; /*會員專區 修改密碼彈出窗底色*/
+    --member-password-popup-close-color: #333; /*會員專區 修改密碼彈出窗 關閉按鈕顏色*/
+    --member-password-title-underline-color: #333; /*會員專區 修改密碼彈出窗 標題下底線顏色*/
+    --member-password-input-border-color: #ccc; /*會員專區 修改密碼彈出窗 輸入框邊線顏色*/
+    --member-password-input-background: #fff; /*會員專區 修改密碼彈出窗 輸入框底色*/
+  
+    /*所有文字顏色*/
+    --text-white-color: #fff; /*白色文字顏色*/
+    --text-black-color: #333333; /*黑色文字顏色*/
+    --text-middle-black-color: #777777; /*淡黑色文字顏色*/
+    --text-light-black-color: #555555; /*淺黑色文字顏色*/
+    --text-blue-color: #7b94e8; /*藍色文字顏色*/
+    --text-brown-color: #b28146; /*咖啡色文字顏色*/
+    --text-gray-color: #999999; /*灰色文字顏色*/
+    --text-light-gray-color: #dddddd; /*淺灰色文字顏色*/
+  }
