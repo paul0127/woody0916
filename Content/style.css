@@ -983,6 +983,7 @@ header {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  line-height: 1.75;
 }
 .video_block .list .item .img {
   width: 100%;
@@ -992,6 +993,12 @@ header {
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
+}
+.video_block .list .item .source{
+  font-size: 1rem;
+  color: var(--text-middle-black-color);
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 @media (max-width: 992px) {
