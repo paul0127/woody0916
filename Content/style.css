@@ -1164,14 +1164,12 @@ footer .copyright {
 .bread ul {
   list-style: none;
   padding-left: 0;
-  display: inline-flex;
-  align-items: center;
   margin-bottom: 0;
-  flex-wrap: wrap;
 }
 .bread ul li {
   font-size: 1.1rem;
   color: var(--text-gray-color);
+  display: inline;
 }
 .bread ul li a {
   color: var(--text-blue-color);
