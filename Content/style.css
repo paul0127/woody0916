@@ -2097,7 +2097,7 @@ a.news_item:hover .news_btn .circle {
 
 /*消息內頁*/
 .news_info {
-  width: 494px;
+  width:640px;
   max-width: 100%;
   margin: 3.25rem auto;
 }
